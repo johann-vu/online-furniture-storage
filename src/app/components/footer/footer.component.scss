@@ -1,0 +1,26 @@
+@import "/src/styles/variables";
+@import "/src//styles/mixins";
+
+.footer__wrapper {
+  background-color: $primary-color;
+  color: $on-primary-color;
+  width: 100%;
+}
+
+.footer__container {
+  @include responsive-width;
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-unit*2;
+    padding: $spacing-unit*2 0;
+
+    a {
+      color: $on-primary-color;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+  }
+}
