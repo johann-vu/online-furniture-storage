@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OfferFormComponent } from './components/offer-form/offer-form.component';
+import { OfferComponent } from './pages/offer/offer.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path: "offer",
-    component: OfferFormComponent
+    component: OfferComponent
+  },
+  {
+    path: "",
+    component: HomeComponent
   }
 ];
 

@@ -1,0 +1,52 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.offer__wrapper {
+  @include responsive-width;
+
+  display: flex;
+
+  .offer__text {
+    width: 300px;
+
+    .offer__image {
+      opacity: 40%;
+      width: 200px;
+      margin: 50px;
+      rotate: -20deg;
+    }
+  }
+
+  .offer__spacer {
+    width: 10%;
+    min-width: 16px;
+  }
+
+  .offer__form {
+    flex-grow: 2;
+    margin: 40px 0;
+  }
+}
+
+@media only screen and (max-width: $screen-md) {
+    .offer__wrapper {
+        display: flex;
+        flex-direction: column;
+      
+        .offer__text {
+          width: unset;
+          .offer__image {
+            display: none;
+          }
+        }
+      
+        .offer__spacer {
+          display: none;
+        }
+      
+        .offer__form {
+          flex-grow: 2;
+          margin: unset;
+        }
+      }
+}

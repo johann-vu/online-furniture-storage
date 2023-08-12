@@ -1,6 +1,22 @@
 @import "/src/styles/variables";
 
 body {
-    font-family: $body-font;
-    font-size: $base-font-size;
+  font-family: $body-font;
+  font-size: $base-font-size;
+  color: $text-color;
+  font-weight: 400;
+}
+
+h2 {
+  color: $text-color;
+  font-family: $heading-font;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: $screen-md) {
+  h2 {
+    font-size: 36px;
+    margin: 20px 0;
+  }
 }

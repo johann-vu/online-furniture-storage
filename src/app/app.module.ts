@@ -7,6 +7,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { OfferFormComponent } from './components/offer-form/offer-form.component';
 import { OfferComponent } from './pages/offer/offer.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TopbarComponent,
     OfferFormComponent,
     OfferComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
