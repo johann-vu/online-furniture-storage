@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Serif:opsz,wght@8..144,500,700;8..144,700&display=swap");
+@import "/src/styles/typography";
+@import "/src/styles/input.scss";
+@import "/src/styles/button.scss";
+
+body {
+    background-color: $background-color;
+    margin: 0;
+}

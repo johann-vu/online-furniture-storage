@@ -1,0 +1,34 @@
+.input-container {
+  margin-bottom: $spacing-unit * 3;
+
+  label {
+    display: block;
+    margin-bottom: $spacing-unit;
+    font-weight: bold;
+  }
+
+  textarea,
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: $spacing-unit * 1.5;
+    border: 2px solid $text-color;
+    border-radius: $border-radius;
+    font-size: $base-font-size;
+    transition: border-color $transition-duration;
+    margin-top: $spacing-unit;
+    margin-bottom: $spacing-unit;
+    font-family: $body-font;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .help-text {
+    font-size: $small-font-size;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}

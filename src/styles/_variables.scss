@@ -1,0 +1,41 @@
+// Farben
+$primary-color: #4B644A;
+$on-primary-color: #F5F5F5;
+$secondary-color: #F5F5F5;
+$text-color: #000;
+$background-color: #F5F5F5;
+$danger-color: #dc3545;
+
+// Schriftarten
+$body-font: 'Roboto', sans-serif;
+$heading-font: 'Roboto Serif', serif;
+
+// Größen
+$base-font-size: 20px;
+$small-font-size: 16px;
+
+// Abstände und Abmessungen
+$spacing-unit: 8px;
+$border-radius: 5px;
+
+// Containerbreiten
+$container-sm: 576px;
+$container-md: 768px;
+$container-lg: 992px;
+$container-xl: 1200px;
+
+// Zeilenhöhen
+$line-height: 1.5;
+
+// Z-Indizes
+$z-index-dropdown: 1000;
+$z-index-modal: 1100;
+
+// Animationen
+$transition-duration: 0.3s;
+
+// Medienabfragen
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
