@@ -8,16 +8,25 @@ button {
     transition: background-color $transition-duration;
     background-color: $primary-color;
     color: $on-primary-color;
+    font-family: $body-font;
     
     &:hover {
-      background-color: $secondary-color;
-      color: white;
+      background-color: darken($primary-color, 10%);
     }
 
     .icon {
       height: $base-font-size;
       vertical-align: middle;
       margin-right: $spacing-unit;
+    }
+
+    &.on-primary {
+      background-color: $on-primary-color;
+      color: $text-color;
+
+      &:hover {
+        background-color: darken($on-primary-color, 20%);
+      }
     }
   }
   

@@ -8,6 +8,7 @@ import { OfferFormComponent } from './components/offer-form/offer-form.component
 import { OfferComponent } from './pages/offer/offer.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     OfferFormComponent,
     OfferComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    HeroComponent
   ],
   imports: [
     BrowserModule,

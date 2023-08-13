@@ -1,0 +1,22 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.home__article {
+    @include responsive-width;
+    margin-top: $spacing-unit*6;
+    margin-bottom: $spacing-unit*6;
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 300px;
+        transform: scaleX(-1);
+        margin-left: $spacing-unit*2;
+    }
+}
+
+@media only screen and (max-width: $screen-md) {
+    img {
+        display: none;
+    }
+}
