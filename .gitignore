@@ -1,42 +1,48 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+/pb_public
+/pb_data
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,go
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,go
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+### Go ###
+# If you prefer the allow list template instead of the deny list, see community template:
+# https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+#
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Test binary, built with `go test -c`
+*.test
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
 
-# Visual Studio Code
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+!.vscode/*.code-snippets
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+# Local History for Visual Studio Code
+.history/
 
-# System files
-.DS_Store
-Thumbs.db
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,go
