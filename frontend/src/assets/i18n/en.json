@@ -5,6 +5,11 @@
       "DATEINPAST": "Please provide a value in the future.",
       "DATEINFARFUTURE": "Please provide a value in the near future.",
       "INVALIDPHONENUMBER": "Please provide a valid phone number."
+    },
+    "OFFER": {
+        "HEADLINE": "Angebot erstellen",
+        "INTRODUCTION": "Nimm Dir bitte einen Augenblick Zeit, je besser das Angebot beschrieben wird, desto leichter fällt uns das Vermitteln.",
+        "CONTACT": "Wenn Du Fragen hast kannst Du uns einfach per E-Mail kontaktieren."
     }
   }
   
