@@ -1,0 +1,9 @@
+{
+  "VALIDATION": {
+    "REQUIRED": "Pflichtfeld. Bitte gib einen Wert an.",
+    "MINLENGTH": "Bitte gib mehr Informationen an.",
+    "DATEINPAST": "Bitte gib einen Wert in der Zukunft an.",
+    "DATEINFARFUTURE": "Bitte gib einen Wert in der näheren Zukunft an.",
+    "INVALIDPHONENUMBER": "Bitte gib eine gültige Telefonnummer an."
+  }
+}

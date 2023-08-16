@@ -13,9 +13,13 @@
       maxlength="120"
       minlength="3"
     />
-    <p class="help-text" [hidden]="title.invalid && title.touched">Um welches Möbelstück handelt es sich?</p>
+    <p class="help-text" [hidden]="title.invalid && title.touched">
+      Um welches Möbelstück handelt es sich?
+    </p>
     <p class="error-text" [hidden]="title.valid || title.untouched">
-      <span *ngFor="let err of title.errors| keyvalue">{{err.key | uppercase}}</span>
+      <span *ngFor="let err of title.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
     </p>
   </div>
 
@@ -32,9 +36,13 @@
       required
       maxlength="120"
     />
-    <p class="help-text" [hidden]="size.invalid && size.touched">Wie groß ist das Möbelstück ungefähr?</p>
+    <p class="help-text" [hidden]="size.invalid && size.touched">
+      Wie groß ist das Möbelstück ungefähr?
+    </p>
     <p class="error-text" [hidden]="size.valid || size.untouched">
-      <span *ngFor="let err of size.errors| keyvalue">{{err.key | uppercase}}</span>
+      <span *ngFor="let err of size.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
     </p>
   </div>
 
@@ -51,9 +59,19 @@
       dateNotInPast
       dateNotInFarFuture
     />
-    <p class="help-text" [hidden]="available_until.invalid && available_until.touched">Bis wann soll das Angebot gelten?</p>
-    <p class="error-text" [hidden]="available_until.valid || available_until.untouched">
-      <span *ngFor="let err of available_until.errors| keyvalue">{{err.key | uppercase}}</span>
+    <p
+      class="help-text"
+      [hidden]="available_until.invalid && available_until.touched"
+    >
+      Bis wann soll das Angebot gelten?
+    </p>
+    <p
+      class="error-text"
+      [hidden]="available_until.valid || available_until.untouched"
+    >
+      <span *ngFor="let err of available_until.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
     </p>
   </div>
 
@@ -71,9 +89,13 @@
       maxlength="120"
       minlength="3"
     />
-    <p class="help-text" [hidden]="name.invalid && name.touched">Wie lautet Dein Name?</p>
+    <p class="help-text" [hidden]="name.invalid && name.touched">
+      Wie lautet Dein Name?
+    </p>
     <p class="error-text" [hidden]="name.valid || name.untouched">
-      <span *ngFor="let err of name.errors| keyvalue">{{err.key | uppercase}}</span>
+      <span *ngFor="let err of name.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
     </p>
   </div>
 
@@ -88,12 +110,16 @@
       placeholder="02863 1234"
       autocomplete="tel"
       required
+      phoneNumber
       maxlength="120"
-      minlength="3"
     />
-    <p class="help-text" [hidden]="phone.invalid && phone.touched">Unter welcher Telefonnummer erreichen wir Dich?</p>
+    <p class="help-text" [hidden]="phone.invalid && phone.touched">
+      Unter welcher Telefonnummer erreichen wir Dich?
+    </p>
     <p class="error-text" [hidden]="phone.valid || phone.untouched">
-      <span *ngFor="let err of phone.errors| keyvalue">{{err.key | uppercase}}</span>
+      <span *ngFor="let err of phone.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
     </p>
   </div>
 

@@ -12,6 +12,15 @@ import { HeroComponent } from './components/hero/hero.component';
 import { FormsModule } from '@angular/forms';
 import { DateNotInPastValidatorDirective } from './directives/date-not-in-past-validator.directive';
 import { DateNotInFarFutureValidatorDirective } from './directives/date-not-in-far-future-validator.directive';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PhoneNumberValidatorDirective } from './directives/phone-number-validator.directive';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -23,12 +32,21 @@ import { DateNotInFarFutureValidatorDirective } from './directives/date-not-in-f
     HomeComponent,
     HeroComponent,
     DateNotInPastValidatorDirective,
-    DateNotInFarFutureValidatorDirective
+    DateNotInFarFutureValidatorDirective,
+    PhoneNumberValidatorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]
