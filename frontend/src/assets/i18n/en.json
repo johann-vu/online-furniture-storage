@@ -1,0 +1,10 @@
+{
+    "VALIDATION": {
+      "REQUIRED": "Required. Please provide a value.",
+      "MINLENGTH": "Please provide more information.",
+      "DATEINPAST": "Please provide a value in the future.",
+      "DATEINFARFUTURE": "Please provide a value in the near future.",
+      "INVALIDPHONENUMBER": "Please provide a valid phone number."
+    }
+  }
+  
