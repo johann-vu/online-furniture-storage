@@ -48,6 +48,8 @@
       id="inputField"
       autocomplete="off"
       required
+      dateNotInPast
+      dateNotInFarFuture
     />
     <p class="help-text" [hidden]="available_until.invalid && available_until.touched">Bis wann soll das Angebot gelten?</p>
     <p class="error-text" [hidden]="available_until.valid || available_until.untouched">

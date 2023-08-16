@@ -10,6 +10,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { FormsModule } from '@angular/forms';
+import { DateNotInPastValidatorDirective } from './directives/date-not-in-past-validator.directive';
+import { DateNotInFarFutureValidatorDirective } from './directives/date-not-in-far-future-validator.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FormsModule } from '@angular/forms';
     OfferComponent,
     FooterComponent,
     HomeComponent,
-    HeroComponent
+    HeroComponent,
+    DateNotInPastValidatorDirective,
+    DateNotInFarFutureValidatorDirective
   ],
   imports: [
     BrowserModule,
