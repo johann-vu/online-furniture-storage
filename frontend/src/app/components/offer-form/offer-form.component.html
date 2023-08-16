@@ -1,36 +1,102 @@
-<form>
-    <div class="input-container">
-      <label for="input-title">Bezeichnung</label>
-      <input type="text" id="input-title" placeholder="Küchentisch">
-      <p class="help-text">Um welches Möbelstück handelt es sich?</p>
-    </div>
-    
-    <div class="input-container">
-      <label for="input-size">Maße</label>
-      <input type="text" id="input-size" placeholder="1m x 2m">
-      <p class="help-text">Wie groß ist das Möbelstück ungefähr?</p>
-    </div>
-    
-    <div class="input-container">
-      <label for="inputField">Zeitraum</label>
-      <input type="date" id="inputField">
-      <p class="help-text">Bis wann soll das Angebot gelten?</p>
-    </div>
-    
-    <div class="input-container">
-      <label for="input-name">Name</label>
-      <input type="text" id="input-name" placeholder="Helga Herzlich">
-      <p class="help-text">Wie lautet Dein Name?</p>
-    </div>
-  
-    <div class="input-container">
-      <label for="input-phone">Telefonnummer</label>
-      <input type="text" id="input-phone" placeholder="02863 1234">
-      <p class="help-text">Unter welcher Telefonnummer erreichen wir Dich?</p>
-    </div>
-    
-    <button class="offer-form__submit" type="submit">
-      <img class="icon" src="/assets/undraw_rocket.svg" alt="">
-      Erstellen
-    </button>
-</form>  
+<form #offerForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="input-container">
+    <label for="input-title">Bezeichnung</label>
+    <input
+      [(ngModel)]="value.title"
+      name="title"
+      #title="ngModel"
+      type="text"
+      id="input-title"
+      placeholder="Küchentisch"
+      autocomplete="off"
+      required
+      maxlength="120"
+      minlength="3"
+    />
+    <p class="help-text" [hidden]="title.invalid && title.touched">Um welches Möbelstück handelt es sich?</p>
+    <p class="error-text" [hidden]="title.valid || title.untouched">
+      <span *ngFor="let err of title.errors| keyvalue">{{err.key | uppercase}}</span>
+    </p>
+  </div>
+
+  <div class="input-container">
+    <label for="input-size">Maße</label>
+    <input
+      [(ngModel)]="value.size"
+      type="text"
+      id="input-size"
+      name="size"
+      #size="ngModel"
+      placeholder="1m x 2m"
+      autocomplete="off"
+      required
+      maxlength="120"
+    />
+    <p class="help-text" [hidden]="size.invalid && size.touched">Wie groß ist das Möbelstück ungefähr?</p>
+    <p class="error-text" [hidden]="size.valid || size.untouched">
+      <span *ngFor="let err of size.errors| keyvalue">{{err.key | uppercase}}</span>
+    </p>
+  </div>
+
+  <div class="input-container">
+    <label for="inputField">Zeitraum</label>
+    <input
+      [(ngModel)]="value.available_until"
+      type="date"
+      name="available_until"
+      #available_until="ngModel"
+      id="inputField"
+      autocomplete="off"
+      required
+    />
+    <p class="help-text" [hidden]="available_until.invalid && available_until.touched">Bis wann soll das Angebot gelten?</p>
+    <p class="error-text" [hidden]="available_until.valid || available_until.untouched">
+      <span *ngFor="let err of available_until.errors| keyvalue">{{err.key | uppercase}}</span>
+    </p>
+  </div>
+
+  <div class="input-container">
+    <label for="input-name">Name</label>
+    <input
+      type="text"
+      [(ngModel)]="value.name"
+      id="input-name"
+      name="name"
+      #name="ngModel"
+      placeholder="Helga Herzlich"
+      autocomplete="name"
+      required
+      maxlength="120"
+      minlength="3"
+    />
+    <p class="help-text" [hidden]="name.invalid && name.touched">Wie lautet Dein Name?</p>
+    <p class="error-text" [hidden]="name.valid || name.untouched">
+      <span *ngFor="let err of name.errors| keyvalue">{{err.key | uppercase}}</span>
+    </p>
+  </div>
+
+  <div class="input-container">
+    <label for="input-phone">Telefonnummer</label>
+    <input
+      type="text"
+      [(ngModel)]="value.phone"
+      id="input-phone"
+      name="phone"
+      #phone="ngModel"
+      placeholder="02863 1234"
+      autocomplete="tel"
+      required
+      maxlength="120"
+      minlength="3"
+    />
+    <p class="help-text" [hidden]="phone.invalid && phone.touched">Unter welcher Telefonnummer erreichen wir Dich?</p>
+    <p class="error-text" [hidden]="phone.valid || phone.untouched">
+      <span *ngFor="let err of phone.errors| keyvalue">{{err.key | uppercase}}</span>
+    </p>
+  </div>
+
+  <button class="offer-form__submit" type="submit">
+    <img class="icon" src="/assets/undraw_rocket.svg" alt="" />
+    Erstellen
+  </button>
+</form>
