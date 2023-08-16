@@ -7,9 +7,10 @@
       "INVALIDPHONENUMBER": "Please provide a valid phone number."
     },
     "OFFER": {
-        "HEADLINE": "Angebot erstellen",
-        "INTRODUCTION": "Nimm Dir bitte einen Augenblick Zeit, je besser das Angebot beschrieben wird, desto leichter fällt uns das Vermitteln.",
-        "CONTACT": "Wenn Du Fragen hast kannst Du uns einfach per E-Mail kontaktieren."
-    }
+        "HEADLINE": "Create an Offer",
+        "INTRODUCTION": "Please take a moment, the better the offer is described, the easier it is for us to mediate.",
+        "CONTACT": "If you have any questions you can contact us by e-mail."
+      }
+      
   }
   
