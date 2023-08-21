@@ -36,5 +36,7 @@ $z-index-modal: 1100;
 $transition-duration: 0.3s;
 
 // Medienabfragen
-$screen-sm: 576px;
+$screen-sm: 680px;
 $screen-md: 900px;
+
+$screen-breakpoint: $screen-sm;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Offer } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
@@ -9,16 +10,15 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 })
 export class OfferComponent {
 
-  constructor(private pb: PocketbaseService) { }
+  constructor(private pb: PocketbaseService, private router: Router) { }
 
   async handleSubmit(offer: Offer) {
     try {
       console.log(offer);
       let id = await this.pb.CreateOffer(offer)
-      console.log(id);
+      this.router.navigate(["success"], { queryParams: { id: id } })
     } catch (error) {
       console.log(error);
     }
   }
-
 }

@@ -15,7 +15,7 @@
     }
 }
 
-@media only screen and (max-width: $screen-md) {
+@media only screen and (max-width: $screen-breakpoint) {
     img {
         display: none;
     }

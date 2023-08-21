@@ -1,0 +1,13 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.success__subtitle {
+    font-weight: bold;
+    opacity: 80%;
+}
+
+.success__text {
+    @include responsive-width;
+    margin-top: $spacing-unit*6;
+    margin-bottom: $spacing-unit*6;
+}
