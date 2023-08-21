@@ -31,4 +31,15 @@ export class PocketbaseService {
     }
   }
 
+  public async Login(username: string, password: string) {
+    await this.pb.collection('users').authWithPassword(
+      username,
+      password,
+    );
+  }
+
+  public Logout() {
+    this.pb.authStore.clear();
+  }  
+
 }
