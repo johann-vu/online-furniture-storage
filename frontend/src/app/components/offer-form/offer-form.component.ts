@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Offer } from 'src/app/model/offer';
 
@@ -10,6 +10,8 @@ import { Offer } from 'src/app/model/offer';
 export class OfferFormComponent implements OnInit {
 
   @ViewChild('offerForm') form: NgForm | undefined;
+
+  @Output() onSubmit: EventEmitter<Offer> = new EventEmitter();
 
   ngOnInit(): void {
     console.log(this.value);
@@ -26,10 +28,10 @@ export class OfferFormComponent implements OnInit {
     return f.invalid && f.touched
   }
 
-  onSubmit() {
+  submit() {
     if (!this.form) return
     this.form.form.markAllAsTouched();
-    if (this.form.valid) alert(this.value)
+    if (this.form.valid) this.onSubmit.emit(this.form.value)
   }
 
   getDefaultDate(): string {

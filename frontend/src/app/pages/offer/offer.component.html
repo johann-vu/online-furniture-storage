@@ -9,5 +9,5 @@
   <img class="offer__image" src="/assets/undraw_note.svg" alt="">
   </div>
   <div class="offer__spacer"></div>
-  <app-offer-form class="offer__form"> </app-offer-form>
+  <app-offer-form class="offer__form" (onSubmit)="this.handleSubmit($event)"> </app-offer-form>
 </div>
