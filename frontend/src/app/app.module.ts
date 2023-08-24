@@ -19,6 +19,8 @@ import { PhoneNumberValidatorDirective } from './directives/phone-number-validat
 import { SuccessComponent } from './pages/success/success.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 import { FileSizeValidatorDirective } from './directives/file-size-validator.directive';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,7 +41,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     PhoneNumberValidatorDirective,
     SuccessComponent,
     PhotoUploadComponent,
-    FileSizeValidatorDirective
+    FileSizeValidatorDirective,
+    LoginComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

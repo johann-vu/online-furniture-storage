@@ -1,0 +1,16 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.login__wrapper {
+    @include responsive-width;
+    height: 100%;
+}
+
+.login__form {
+    max-width: 400px;
+    margin: $spacing-unit*10 auto;
+}
+
+.login__home-button {
+    width: 100%;
+}
