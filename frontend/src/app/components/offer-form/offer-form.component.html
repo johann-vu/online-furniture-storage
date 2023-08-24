@@ -74,8 +74,23 @@
       }}</span>
     </p>
   </div>
-
-  <app-photo-upload name="photos" [(ngModel)]="value.photos"></app-photo-upload>
+  <div class="input-container">
+    <label for="input-files">Bilder hochladen</label>
+    <p class="help-text" [hidden]="photos.invalid && photos.touched">
+      Du kannst bis zu drei Bilder zu deinem Angebot hinzufügen.
+    </p>
+    <p class="error-text" [hidden]="photos.valid || photos.untouched">
+      <span *ngFor="let err of photos.errors | keyvalue">{{
+        "Validation." + err.key | uppercase | translate
+      }}</span>
+    </p>
+    <app-photo-upload
+      name="photos"
+      [(ngModel)]="value.photos"
+      required
+      #photos="ngModel"
+    ></app-photo-upload>
+  </div>
 
   <div class="input-container">
     <label for="input-name">Name</label>
