@@ -4,7 +4,8 @@
       "MINLENGTH": "Please provide more information.",
       "DATEINPAST": "Please provide a value in the future.",
       "DATEINFARFUTURE": "Please provide a value in the near future.",
-      "INVALIDPHONENUMBER": "Please provide a valid phone number."
+      "INVALIDPHONENUMBER": "Please provide a valid phone number.",
+      "MAXSIZEEXCEEDED": "One of the files exceeds the maximum file size."
     },
     "OFFER": {
         "HEADLINE": "Create an Offer",

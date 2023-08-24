@@ -15,16 +15,21 @@ export class PocketbaseService {
 
   public async CreateOffer(offer: Offer): Promise<string> {
 
-    const data = {
-      "title": offer.title,
-      "size": offer.size,
-      "available_until": offer.available_until.toString(),
-      "name": offer.name,
-      "phone": offer.phone
-    };
+    const formData = new FormData();
+
+    formData.append('title', offer.title);
+    formData.append('size', offer.size);
+    formData.append('available_until', offer.available_until.toString());
+    formData.append('name', offer.name);
+    formData.append('phone', offer.phone);
+
+
+    for (let photo of offer.photos) {
+      formData.append('photos', photo);
+    }
 
     try {
-      let record = await this.pb.collection('offers').create(data);
+      let record = await this.pb.collection('offers').create(formData);
       return record.id
     } catch (error) {
       return ""
@@ -40,6 +45,6 @@ export class PocketbaseService {
 
   public Logout() {
     this.pb.authStore.clear();
-  }  
+  }
 
 }
