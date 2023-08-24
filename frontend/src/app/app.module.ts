@@ -21,6 +21,7 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
 import { FileSizeValidatorDirective } from './directives/file-size-validator.directive';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { OverviewComponent } from './pages/overview/overview.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PhotoUploadComponent,
     FileSizeValidatorDirective,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    OverviewComponent
   ],
   imports: [
     BrowserModule,
