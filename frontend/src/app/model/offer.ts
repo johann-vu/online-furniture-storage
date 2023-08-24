@@ -4,4 +4,5 @@ export interface Offer {
     available_until: string
     name: string
     phone: string
+    photos: File[]
 }

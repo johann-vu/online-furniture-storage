@@ -17,6 +17,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PhoneNumberValidatorDirective } from './directives/phone-number-validator.directive';
 import { SuccessComponent } from './pages/success/success.component';
+import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DateNotInPastValidatorDirective,
     DateNotInFarFutureValidatorDirective,
     PhoneNumberValidatorDirective,
-    SuccessComponent
+    SuccessComponent,
+    PhotoUploadComponent
   ],
   imports: [
     BrowserModule,

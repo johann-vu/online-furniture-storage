@@ -1,0 +1,17 @@
+<div class="input-container">
+  <label for="input-files">Bilder hochladen</label>
+  <p class="help-text">
+    Du kannst bis zu 3 Bilder zu deinem Angebot hinzufügen.
+  </p>
+  <input type="file" name="input-files" id="input-files" (change)="onFileSelect($event)" #photos>
+  <div class="photo-upload__btn-group">
+    <button type="button" (click)="photos.click()">
+      <img class="icon" src="/assets/undraw_cloud-upload.svg" alt="" />
+      Fotos auswählen
+    </button>
+    <button *ngFor="let file of files" type="button" class="black-outline" (click)="onFileDelete(file)">
+      {{file.name}}
+      <img class="trailing-icon" src="/assets/undraw_circled-x.svg" alt="" />
+    </button>
+  </div>
+</div>

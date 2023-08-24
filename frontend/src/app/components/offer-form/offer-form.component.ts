@@ -14,12 +14,10 @@ export class OfferFormComponent implements OnInit {
   @Output() onSubmit: EventEmitter<Offer> = new EventEmitter();
 
   ngOnInit(): void {
-    console.log(this.value);
-    
   }
 
   value: Offer = {
-    title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: ""
+    title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: []
   }
 
   public showErrorMsg(field: string): boolean {
@@ -32,6 +30,8 @@ export class OfferFormComponent implements OnInit {
     if (!this.form) return
     this.form.form.markAllAsTouched();
     if (this.form.valid) this.onSubmit.emit(this.form.value)
+    console.log(this.value);
+    
   }
 
   getDefaultDate(): string {

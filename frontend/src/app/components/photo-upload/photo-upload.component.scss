@@ -1,0 +1,8 @@
+@import "/src/styles/variables";
+
+.photo-upload__btn-group {
+    margin-top: $spacing-unit*2;
+    display: flex;
+    gap: $spacing-unit;
+    flex-wrap: wrap;
+}

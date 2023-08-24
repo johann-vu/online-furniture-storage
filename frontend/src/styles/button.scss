@@ -20,12 +20,27 @@ button {
       margin-right: $spacing-unit;
     }
 
+    .trailing-icon {
+      height: $base-font-size;
+      vertical-align: middle;
+      margin-left: $spacing-unit;
+    }
+
     &.on-primary {
       background-color: $on-primary-color;
       color: $text-color;
 
       &:hover {
         background-color: darken($on-primary-color, 20%);
+      }
+    }
+
+    &.black-outline {
+      color: $text-color;
+      border: 2px solid $text-color;
+      background-color: $background-color;
+      &:hover {
+        background-color: darken($background-color, 20%);
       }
     }
   }

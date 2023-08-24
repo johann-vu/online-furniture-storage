@@ -20,6 +20,10 @@
     font-family: $body-font;
     resize: none;
 
+    &[type=file] {
+      display: none;
+    }
+
     &.ng-invalid.ng-touched {
       border-color: $danger-color;
     }
