@@ -75,7 +75,7 @@
     </p>
   </div>
 
-  <app-photo-upload name="photos" (valueChange)="value.photos = $event"></app-photo-upload>
+  <app-photo-upload name="photos" [(ngModel)]="value.photos"></app-photo-upload>
 
   <div class="input-container">
     <label for="input-name">Name</label>
