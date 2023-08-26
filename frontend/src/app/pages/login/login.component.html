@@ -2,7 +2,7 @@
 <div class="login__wrapper">
   <div class="login__form">
     <h2>Anmeldung</h2>
-    <app-login-form></app-login-form>
+    <app-login-form (onSubmit)="login($event)"></app-login-form>
     <button class="black-outline login__home-button" routerLink="/">
       Zurück zur Startseite
     </button>
