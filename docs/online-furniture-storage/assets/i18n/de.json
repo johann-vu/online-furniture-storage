@@ -1,0 +1,15 @@
+{
+  "VALIDATION": {
+    "REQUIRED": "Pflichtfeld. Bitte gib einen Wert an.",
+    "MINLENGTH": "Bitte gib mehr Informationen an.",
+    "DATEINPAST": "Bitte gib einen Wert in der Zukunft an.",
+    "DATEINFARFUTURE": "Bitte gib einen Wert in der näheren Zukunft an.",
+    "INVALIDPHONENUMBER": "Bitte gib eine gültige Telefonnummer an.",
+    "MAXSIZEEXCEEDED": "Eine der Dateien ist zu groß."
+  },
+  "OFFER": {
+      "HEADLINE": "Angebot erstellen",
+      "INTRODUCTION": "Nimm Dir bitte einen Augenblick Zeit, je besser das Angebot beschrieben wird, desto leichter fällt uns das Vermitteln.",
+      "CONTACT": "Wenn Du Fragen hast kannst Du uns einfach per E-Mail kontaktieren."
+  }
+}

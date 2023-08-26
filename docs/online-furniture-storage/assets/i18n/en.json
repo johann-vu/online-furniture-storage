@@ -1,0 +1,17 @@
+{
+    "VALIDATION": {
+      "REQUIRED": "Required. Please provide a value.",
+      "MINLENGTH": "Please provide more information.",
+      "DATEINPAST": "Please provide a value in the future.",
+      "DATEINFARFUTURE": "Please provide a value in the near future.",
+      "INVALIDPHONENUMBER": "Please provide a valid phone number.",
+      "MAXSIZEEXCEEDED": "One of the files exceeds the maximum file size."
+    },
+    "OFFER": {
+        "HEADLINE": "Create an Offer",
+        "INTRODUCTION": "Please take a moment, the better the offer is described, the easier it is for us to mediate.",
+        "CONTACT": "If you have any questions you can contact us by e-mail."
+      }
+      
+  }
+  
