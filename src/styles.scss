@@ -21,5 +21,23 @@ body {
   img {
     height: 14px;
     margin-right: 8px;
+
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg)
+  }
+  50% {
+    transform: rotate(-10deg)
+  }
+  100% {
+    transform: rotate(10deg)
   }
 }
