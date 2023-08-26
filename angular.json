@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/online-furniture-storage",
+            "outputPath": "docs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -34,7 +34,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/online-furniture-storage",
               "budgets": [
                 {
                   "type": "initial",
