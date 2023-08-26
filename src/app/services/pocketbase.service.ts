@@ -10,7 +10,7 @@ export class PocketbaseService {
   pb: PocketBase
 
   constructor() {
-    this.pb = new PocketBase('http://127.0.0.1:8090');
+    this.pb = new PocketBase('http://82.165.60.164');
   }
 
   public async CreateOffer(offer: Offer): Promise<string> {
