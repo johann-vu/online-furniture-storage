@@ -34,6 +34,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/online-furniture-storage",
               "budgets": [
                 {
                   "type": "initial",
