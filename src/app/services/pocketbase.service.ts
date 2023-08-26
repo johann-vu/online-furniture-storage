@@ -10,7 +10,7 @@ export class PocketbaseService {
   pb: PocketBase
 
   constructor() {
-    this.pb = new PocketBase('http://82.165.60.164');
+    this.pb = new PocketBase('https://online-moebellager.de');
   }
 
   public async CreateOffer(offer: Offer): Promise<string> {
