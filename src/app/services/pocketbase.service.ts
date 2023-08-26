@@ -28,12 +28,8 @@ export class PocketbaseService {
       formData.append('photos', photo);
     }
 
-    try {
-      let record = await this.pb.collection('offers').create(formData);
-      return record.id
-    } catch (error) {
-      return ""
-    }
+    let record = await this.pb.collection('offers').create(formData);
+    return record.id
   }
 
   public async Login(username: string, password: string) {

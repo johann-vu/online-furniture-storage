@@ -19,6 +19,7 @@ export class OfferComponent {
       this.router.navigate(["success"], { queryParams: { id: id } })
     } catch (error) {
       console.log(error);
+      alert(JSON.stringify(error, undefined, " "))
     }
   }
 }
