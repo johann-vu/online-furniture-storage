@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --base-href /online-furniture-storage/",
+    "build": "ng build --base-href /online-furniture-storage/ --deploy-url /online-furniture-storage/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
