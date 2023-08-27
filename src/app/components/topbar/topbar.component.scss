@@ -14,15 +14,20 @@
 }
 
 .topbar__container {
-    @include responsive-width;
-    display: flex;
-    align-items: center;
-    height: 100%;
+  @include responsive-width;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .topbar__logo {
-    height: 25px;
-    margin-right: $spacing-unit;
+  height: 30px;
+  margin-right: $spacing-unit*2;
+
+  &:hover {
+    /* property values: name, duration, iteration, timing-function */
+    animation: jiggle 0.5s infinite linear;
+  }
 }
 
 .spacer {
@@ -30,9 +35,29 @@
 }
 
 a {
-  color: $on-primary-color;
-  text-decoration: none;
-  font-family: $heading-font;
   display: flex;
   align-items: center;
+  color: $on-primary-color;
+  text-decoration: none;
+
+  .topbar__title-container {
+    display: flex;
+    flex-direction: column;
+    .topbar__title {
+      font-family: $heading-font;
+    }
+
+    .topbar__subtitle {
+      font-size: 10px;
+      opacity: 80%;
+    }
+  }
+}
+
+@keyframes jiggle {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(4deg);}
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(-4deg);}
+  100% {transform: rotate(0deg)}
 }
