@@ -4,7 +4,7 @@
             <ng-content></ng-content>
         </div>
         <div>
-            <img class="hero__image" src="assets/undraw_heart.svg" alt="">
+            <img *ngIf="imageSrc" class="hero__image" [src]="imageSrc" alt="">
         </div>
     </div>
 </div>

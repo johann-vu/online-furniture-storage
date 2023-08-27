@@ -21,9 +21,18 @@
 }
 
 .topbar__logo {
-    height: 30px;
+    height: 25px;
+    margin-right: $spacing-unit;
 }
 
 .spacer {
   height: 60px;
+}
+
+a {
+  color: $on-primary-color;
+  text-decoration: none;
+  font-family: $heading-font;
+  display: flex;
+  align-items: center;
 }
