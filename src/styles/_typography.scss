@@ -19,9 +19,25 @@ h3 {
   font-weight: 700;
 }
 
+h4 {
+  font-family: $heading-font;
+  font-size: 32px;
+  font-weight: 700;
+}
+
 @media only screen and (max-width: $screen-breakpoint) {
   h2 {
     font-size: 36px;
     margin: 20px 0;
+  }
+
+  h4 {
+    font-family: $heading-font;
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  body {
+    font-size: 16px;
   }
 }

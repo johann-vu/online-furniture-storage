@@ -22,6 +22,7 @@ import { FileSizeValidatorDirective } from './directives/file-size-validator.dir
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { OverviewComponent } from './pages/overview/overview.component';
+import { OfferCardComponent } from './components/offer-card/offer-card.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FileSizeValidatorDirective,
     LoginComponent,
     LoginFormComponent,
-    OverviewComponent
+    OverviewComponent,
+    OfferCardComponent
   ],
   imports: [
     BrowserModule,
