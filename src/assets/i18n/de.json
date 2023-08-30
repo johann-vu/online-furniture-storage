@@ -1,6 +1,6 @@
 {
   "VALIDATION": {
-    "REQUIRED": "Pflichtfeld. Bitte gib einen Wert an.",
+    "REQUIRED": "Pflichtfeld.",
     "MINLENGTH": "Bitte gib mehr Informationen an.",
     "DATEINPAST": "Bitte gib einen Wert in der Zukunft an.",
     "DATEINFARFUTURE": "Bitte gib einen Wert in der näheren Zukunft an.",
