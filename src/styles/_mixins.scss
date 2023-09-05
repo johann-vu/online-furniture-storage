@@ -5,3 +5,7 @@
     max-width: 1000px;
     margin: 0 auto;
 }
+
+@mixin topbar-space {
+    margin-top: 60px;
+}

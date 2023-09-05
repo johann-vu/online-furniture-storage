@@ -3,7 +3,7 @@
 
 .offer__wrapper {
   @include responsive-width;
-
+  @include topbar-space;
   display: flex;
 
   .offer__text {
