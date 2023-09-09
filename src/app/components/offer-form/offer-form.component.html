@@ -18,7 +18,7 @@
     </p>
     <p class="error-text" [hidden]="title.valid || title.untouched">
       <span *ngFor="let err of title.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
       }}</span>
     </p>
   </div>
@@ -41,7 +41,7 @@
     </p>
     <p class="error-text" [hidden]="size.valid || size.untouched">
       <span *ngFor="let err of size.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
       }}</span>
     </p>
   </div>
@@ -70,7 +70,7 @@
       [hidden]="available_until.valid || available_until.untouched"
     >
       <span *ngFor="let err of available_until.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
       }}</span>
     </p>
   </div>
@@ -81,7 +81,7 @@
     </p>
     <p class="error-text" [hidden]="photos.valid || photos.untouched">
       <span *ngFor="let err of photos.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
       }}</span>
     </p>
     <app-photo-upload
@@ -112,7 +112,7 @@
     </p>
     <p class="error-text" [hidden]="name.valid || name.untouched">
       <span *ngFor="let err of name.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
       }}</span>
     </p>
   </div>
@@ -136,7 +136,27 @@
     </p>
     <p class="error-text" [hidden]="phone.valid || phone.untouched">
       <span *ngFor="let err of phone.errors | keyvalue">{{
-        "Validation." + err.key | uppercase | translate
+        err.key | validationErrors
+      }}</span>
+    </p>
+  </div>
+
+  <div class="input-container">
+    <label for="input-privacy">Datenschutz</label>
+    <input
+      type="checkbox"
+      [(ngModel)]="value.phone"
+      id="input-privacy"
+      name="privacy"
+      #privacy="ngModel"
+      required
+    />
+    <p class="help-text" [hidden]="privacy.invalid && privacy.touched">
+      Unter welcher Telefonnummer erreichen wir Dich?
+    </p>
+    <p class="error-text" [hidden]="privacy.valid || privacy.untouched">
+      <span *ngFor="let err of phone.errors | keyvalue">{{
+        err.key | validationErrors
       }}</span>
     </p>
   </div>
