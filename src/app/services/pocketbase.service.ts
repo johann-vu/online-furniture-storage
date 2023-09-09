@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import PocketBase from 'pocketbase';
-import { Offer } from '../model/offer';
+import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class PocketbaseService {
     this.pb = new PocketBase('https://api.online-moebellager.de:443');
   }
 
-  public async CreateOffer(offer: Offer): Promise<string> {
+  public async CreateOffer(offer: CreateOfferDTO): Promise<string> {
 
     const formData = new FormData();
 
@@ -30,6 +30,31 @@ export class PocketbaseService {
 
     let record = await this.pb.collection('offers').create(formData);
     return record.id
+  }
+
+  public async GetOffers(perPage: number = 10, page: number = 1): Promise<ReadOfferDTO[]> {
+
+    const resultList = await this.pb.collection('offers').getList(page, perPage, {
+      sort: '-created',
+    });
+
+    var results: ReadOfferDTO[] = []
+
+    resultList.items.forEach((o, i) => {
+      results[i] = {
+        title: o['title'],
+        size: o['size'],
+        available_until: o['available_until'],
+        name: o['name'],
+        phone: o['phone'],
+        photos: o['photos'],
+        id: o.id,
+        created: o.created
+      }
+    })
+    console.log(results);
+    
+    return results
   }
 
   public async Login(username: string, password: string) {

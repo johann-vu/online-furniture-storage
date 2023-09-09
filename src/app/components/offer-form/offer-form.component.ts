@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Offer } from 'src/app/model/offer';
+import { CreateOfferDTO } from 'src/app/model/offer';
 
 @Component({
   selector: 'app-offer-form',
@@ -11,9 +11,9 @@ export class OfferFormComponent {
 
   @ViewChild('offerForm') form: NgForm | undefined;
 
-  @Output() onSubmit: EventEmitter<Offer> = new EventEmitter();
+  @Output() onSubmit: EventEmitter<CreateOfferDTO> = new EventEmitter();
 
-  value: Offer = {
+  value: CreateOfferDTO = {
     title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: []
   }
 

@@ -1,17 +1,9 @@
 <div class="overview__wrapper">
-  <div class="overview__text">
-    <h2>Angebote</h2>
-    <p>28. August 2023</p>
-    <app-offer-card></app-offer-card>
-    <app-offer-card></app-offer-card>
-    <p>28. August 2023</p>
-    <app-offer-card></app-offer-card>
-    <app-offer-card></app-offer-card>
-    <app-offer-card></app-offer-card>
-    <app-offer-card></app-offer-card>
+  <h2>Angebote</h2>
+  <div class="overview__result-grid">
+    <app-offer-card class="overview__result-item" *ngFor="let o of offers" [offer]="o"></app-offer-card>
   </div>
-  <div class="overview__spacer"></div>
-  <div class="overview__offers">
-    
-  </div>
+
+  <button class="block" (click)="loadOffers()">Mehr Laden</button>
+
 </div>

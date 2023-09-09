@@ -1,25 +1,39 @@
 @import "/src/styles/variables";
 
 .offer-card__container {
-    width: 100%;
-    box-sizing: border-box;
-    padding: $spacing-unit * 2;
-    border: 2px solid $text-color;
-    border-radius: $border-radius;
-    margin-bottom: $spacing-unit;
-    background-color: white;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid $text-color;
+  border-radius: $border-radius;
+  background-color: white;
+  padding: $spacing-unit;
+  display: flex;
+  align-items: center;
 
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($color: $primary-color, $amount: 50);
+  }
+
+  img {
+    width: 180px;
+    height: 180px;
+    margin-right: $spacing-unit * 4;
+  }
+
+  .offer-card__text {
+    h4 {
+      margin: $spacing-unit 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-breakpoint) {
+  .offer-card__container {
     img {
-        width: 180px;
-        max-width: 30%;
-        margin-right: $spacing-unit * 4;
+      width: 100px;
+      height: 100px;
+      margin-right: $spacing-unit * 2;
     }
-
-    .offer-card__text {
-        h4 {
-            margin: $spacing-unit 0;
-        }
-    }
+  }
 }

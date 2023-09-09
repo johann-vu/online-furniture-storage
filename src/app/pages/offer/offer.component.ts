@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Offer } from 'src/app/model/offer';
+import { CreateOfferDTO } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class OfferComponent {
 
   constructor(private pb: PocketbaseService, private router: Router) { }
 
-  async handleSubmit(offer: Offer) {
+  async handleSubmit(offer: CreateOfferDTO) {
     try {
       console.log(offer);
       let id = await this.pb.CreateOffer(offer)

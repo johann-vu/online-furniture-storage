@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Offer } from 'src/app/model/offer';
+import { ReadOfferDTO } from 'src/app/model/offer';
 
 @Component({
   selector: 'app-offer-card',
@@ -7,6 +7,10 @@ import { Offer } from 'src/app/model/offer';
   styleUrls: ['./offer-card.component.scss']
 })
 export class OfferCardComponent {
-  @Input() offer: Offer | undefined
+  @Input() offer: ReadOfferDTO | undefined
 
+  imageURL() {
+    if (!this.offer) return
+    return "http://api.online-moebellager.de/api/files/offers/" + this.offer?.id + "/" + this.offer?.photos[0] + "?thumb=180x180"
+  }
 }

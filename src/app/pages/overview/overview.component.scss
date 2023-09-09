@@ -4,48 +4,16 @@
 .overview__wrapper {
   @include responsive-width;
 
-  display: flex;
-  height: 100vh;
   padding-top: 60px;
-  box-sizing: border-box;
 
-  .overview__text {
-    width: 450px;
-    height: 100%;
-    overflow-y: scroll;
-  }
-
-  .overview__spacer {
-    width: 10%;
-    min-width: 16px;
-  }
-
-  .overview__offers {
-    flex-grow: 2;
-    margin: 40px 0;
-
-    p {
-        opacity: 80%;
+  .overview__result-grid {
+    .overview__result-item {
+      margin: $spacing-unit *2;
     }
   }
-}
 
-@media only screen and (max-width: $screen-breakpoint) {
-  .overview__wrapper {
-    display: flex;
-    flex-direction: column;
-
-    .overview__text {
-      width: unset;
-    }
-
-    .overview__spacer {
-      display: none;
-    }
-
-    .overview__offers {
-      flex-grow: 2;
-      margin: 0 0 40px 0;
-    }
+  button {
+    width: 100%;
+    margin: $spacing-unit * 3 0;
   }
 }
