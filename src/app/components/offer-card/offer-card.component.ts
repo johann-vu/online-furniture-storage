@@ -11,6 +11,6 @@ export class OfferCardComponent {
 
   imageURL() {
     if (!this.offer) return
-    return "http://api.online-moebellager.de/api/files/offers/" + this.offer?.id + "/" + this.offer?.photos[0] + "?thumb=180x180"
+    return this.offer?.photos[0]
   }
 }

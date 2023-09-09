@@ -28,9 +28,4 @@ export class DetailComponent implements OnInit, OnDestroy {
      this.sub?.unsubscribe();
   }
 
-  imageURL(filename: string) {
-    if (!this.offer) return
-    return "http://api.online-moebellager.de/api/files/offers/" + this.offer?.id + "/" + filename + "?thumb=180x180"
-  }
-
 }

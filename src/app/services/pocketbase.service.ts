@@ -39,15 +39,22 @@ export class PocketbaseService {
     });
 
     var results: ReadOfferDTO[] = []
+    let token = await this.pb.files.getToken()
+
 
     resultList.items.forEach((o, i) => {
+
+    let photos = o["photos"].map((p: string) => {
+      return this.pb.files.getUrl(o, p, {'token': token, 'thumb': '180x180'})
+    })
+
       results[i] = {
         title: o['title'],
         size: o['size'],
         available_until: o['available_until'],
         name: o['name'],
         phone: o['phone'],
-        photos: o['photos'],
+        photos: photos,
         id: o.id,
         created: o.created
       }
@@ -61,16 +68,24 @@ export class PocketbaseService {
 
     const o = await this.pb.collection('offers').getOne(id)
 
-    return {
+    let token = await this.pb.files.getToken()
+
+    let photos = o["photos"].map((p: string) => {
+      return this.pb.files.getUrl(o, p, {'token': token, 'thumb': '180x180'})
+    })
+
+    let r: ReadOfferDTO =  {
       title: o['title'],
       size: o['size'],
       available_until: o['available_until'],
       name: o['name'],
       phone: o['phone'],
-      photos: o['photos'],
+      photos: photos,
       id: o.id,
       created: o.created
     }
+
+    return r
   }
 
   public async Login(username: string, password: string) {

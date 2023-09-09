@@ -29,6 +29,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 2*$spacing-unit;
+    margin-bottom: 3*$spacing-unit;
     .detail__infos-value {
         width: $screen-breakpoint *0.5;
         margin-top: $spacing-unit;

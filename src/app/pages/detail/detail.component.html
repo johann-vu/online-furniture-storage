@@ -4,7 +4,7 @@
         <p>von {{offer?.name}}</p>
     </div>
     <div class="detail__photos">
-        <img *ngFor="let p of offer?.photos" [src]="imageURL(p)">
+        <img *ngFor="let p of offer?.photos" [src]="p">
     </div>
     <div class="detail__infos">
         <div>

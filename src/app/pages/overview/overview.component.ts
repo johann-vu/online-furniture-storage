@@ -12,7 +12,7 @@ export class OverviewComponent implements OnInit {
 
   offers : ReadOfferDTO[] = []
 
-  perPage = 1;
+  perPage = 50;
   page = 1;
 
   constructor(private pb: PocketbaseService, private router: Router) {}
