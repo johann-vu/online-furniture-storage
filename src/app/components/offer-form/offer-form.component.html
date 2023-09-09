@@ -141,26 +141,6 @@
     </p>
   </div>
 
-  <div class="input-container">
-    <label for="input-privacy">Datenschutz</label>
-    <input
-      type="checkbox"
-      [(ngModel)]="value.phone"
-      id="input-privacy"
-      name="privacy"
-      #privacy="ngModel"
-      required
-    />
-    <p class="help-text" [hidden]="privacy.invalid && privacy.touched">
-      Unter welcher Telefonnummer erreichen wir Dich?
-    </p>
-    <p class="error-text" [hidden]="privacy.valid || privacy.untouched">
-      <span *ngFor="let err of phone.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
-    </p>
-  </div>
-
   <button class="offer-form__submit" type="submit">
     <img class="icon" src="assets/undraw_rocket.svg" alt="" />
     Erstellen

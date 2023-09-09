@@ -53,8 +53,24 @@ export class PocketbaseService {
       }
     })
     console.log(results);
-    
+
     return results
+  }
+
+  public async GetOfferByID(id: string): Promise<ReadOfferDTO> {
+
+    const o = await this.pb.collection('offers').getOne(id)
+
+    return {
+      title: o['title'],
+      size: o['size'],
+      available_until: o['available_until'],
+      name: o['name'],
+      phone: o['phone'],
+      photos: o['photos'],
+      id: o.id,
+      created: o.created
+    }
   }
 
   public async Login(username: string, password: string) {

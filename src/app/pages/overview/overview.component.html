@@ -1,7 +1,7 @@
 <div class="overview__wrapper">
   <h2>Angebote</h2>
   <div class="overview__result-grid">
-    <app-offer-card class="overview__result-item" *ngFor="let o of offers" [offer]="o"></app-offer-card>
+    <app-offer-card (click)="openOffer(o)" class="overview__result-item" *ngFor="let o of offers" [offer]="o"></app-offer-card>
   </div>
 
   <button class="block" (click)="loadOffers()">Mehr Laden</button>

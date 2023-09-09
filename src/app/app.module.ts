@@ -21,6 +21,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { OverviewComponent } from './pages/overview/overview.component';
 import { OfferCardComponent } from './components/offer-card/offer-card.component';
 import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
+import { DetailComponent } from './pages/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
     LoginFormComponent,
     OverviewComponent,
     OfferCardComponent,
-    ValidationErrorsPipe
+    ValidationErrorsPipe,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

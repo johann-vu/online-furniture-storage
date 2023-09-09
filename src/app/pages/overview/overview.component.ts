@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ReadOfferDTO } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
@@ -14,7 +15,7 @@ export class OverviewComponent implements OnInit {
   perPage = 1;
   page = 1;
 
-  constructor(private pb: PocketbaseService) {}
+  constructor(private pb: PocketbaseService, private router: Router) {}
 
   ngOnInit(): void {
     this.pb.GetOffers(this.perPage, this.page).then(o => this.offers = o)
@@ -24,6 +25,10 @@ export class OverviewComponent implements OnInit {
     let loadedOffers = await this.pb.GetOffers(this.perPage, this.page+1)
     loadedOffers.forEach(o => this.offers.push(o))
     this.page++
+  }
+
+  openOffer(o: ReadOfferDTO) {
+    this.router.navigate(["detail", o.id])
   }
 
 }
