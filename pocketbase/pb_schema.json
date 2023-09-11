@@ -136,15 +136,17 @@
                         "image/gif",
                         "image/webp"
                     ],
-                    "thumbs": [],
+                    "thumbs": [
+                        "180x180"
+                    ],
                     "protected": true
                 }
             }
         ],
         "indexes": [],
-        "listRule": null,
-        "viewRule": null,
-        "createRule": null,
+        "listRule": "@request.auth.id != ''",
+        "viewRule": "@request.auth.id != ''",
+        "createRule": "",
         "updateRule": null,
         "deleteRule": null,
         "options": {}
