@@ -88,6 +88,10 @@ export class PocketbaseService {
     return r
   }
 
+  public async DeleteOfferByID(id: string): Promise<boolean> {
+    return this.pb.collection('offers').delete(id);
+  }
+
   public async Login(username: string, password: string) {
     await this.pb.collection('users').authWithPassword(
       username,
