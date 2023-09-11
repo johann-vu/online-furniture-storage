@@ -5,6 +5,7 @@
     display: block;
     margin-bottom: $spacing-unit * 1.5;
     font-weight: bold;
+    font-size: $base-font-size;
   }
 
   textarea,
@@ -20,7 +21,7 @@
     font-family: $body-font;
     resize: none;
 
-    &[type=file] {
+    &[type="file"] {
       display: none;
     }
 
@@ -44,5 +45,41 @@
     margin-top: 4px;
     margin-bottom: 0;
     color: $danger-color;
+  }
+
+  &.checkbox-container {
+
+    label {
+      display: flex;
+      align-items: center;
+      font-weight: normal;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        appearance: none;
+        background-color: #fff;
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid $text-color;
+        border-radius: 0.15em;
+        transform: translateY(-0.075em);
+        margin: 0 $spacing-unit 0 0;
+
+        &.ng-invalid.ng-touched {
+          border-color: $danger-color;
+        }
+
+        &:checked {
+          background-color: $primary-color;
+          background-image: url(/assets/undraw_check.svg);
+          background-size: 1em 1em;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
   }
 }

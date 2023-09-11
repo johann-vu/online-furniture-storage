@@ -141,6 +141,28 @@
     </p>
   </div>
 
+  <div class="input-container checkbox-container">
+    <!-- Für Checkbox -->
+      <label for="checkbox-nearby">
+        <input type="checkbox" id="checkbox-nearby" name="nearby" [(ngModel)]="value.nearby" #nearby="ngModel" required/>
+        Das Angebot kommt aus der Nähe von Velen, Ramsdorf oder Hochmoor
+      </label>
+      <p class="error-text" [hidden]="nearby.valid || nearby.untouched">
+        Wir können nur Angebote aus der Nähe vermitteln.
+      </p>
+  </div>
+
+  <div class="input-container checkbox-container">
+    <!-- Für Checkbox -->
+      <label for="checkbox-privacy">
+        <input type="checkbox" id="checkbox-privacy" name="privacy" [(ngModel)]="value.privacy" #privacy="ngModel" required/>
+        Ich habe die Datenschutzerklärung gelesen und akzeptiert.
+      </label>
+      <p class="error-text" [hidden]="privacy.valid || privacy.untouched">
+       Bitte akzeptiere die Datenschutzerklärung, damit wir die Daten verarbeiten können.
+      </p>
+  </div>
+
   <button class="offer-form__submit" type="submit">
     <img class="icon" src="assets/undraw_rocket.svg" alt="" />
     Erstellen

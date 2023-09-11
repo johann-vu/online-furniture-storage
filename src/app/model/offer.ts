@@ -5,6 +5,8 @@ export interface CreateOfferDTO {
     name: string
     phone: string
     photos: File[]
+    privacy: boolean
+    nearby: boolean
 }
 
 export interface ReadOfferDTO {

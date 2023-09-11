@@ -14,11 +14,13 @@ export class OfferFormComponent {
   @Output() onSubmit: EventEmitter<CreateOfferDTO> = new EventEmitter();
 
   value: CreateOfferDTO = {
-    title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: []
+    title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: [],
+    privacy: false,
+    nearby: false
   }
 
   public showErrorMsg(field: string): boolean {
-    const f  = this.form?.controls[field]
+    const f = this.form?.controls[field]
     if (!f) return false;
     return f.invalid && f.touched
   }
@@ -28,17 +30,17 @@ export class OfferFormComponent {
     this.form.form.markAllAsTouched();
     if (this.form.valid) this.onSubmit.emit(this.form.value)
     console.log(this.value);
-    
+
   }
 
   getDefaultDate(): string {
     const date = new Date();
-    date.setDate(date.getDate() + 7*6)
-  
+    date.setDate(date.getDate() + 7 * 6)
+
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
     const day = String(date.getDate()).padStart(2, '0');
-  
+
     return `${year}-${month}-${day}`;
   }
 }
