@@ -61,6 +61,10 @@
       input[type="checkbox"] {
         appearance: none;
         background-color: #fff;
+        background-image: url(/online-furniture-storage/assets/undraw_check.svg);
+        background-size: 1em 1em;
+        background-position: center;
+        background-repeat: no-repeat;
         width: 1.15em;
         height: 1.15em;
         border: 0.15em solid $text-color;
@@ -72,12 +76,13 @@
           border-color: $danger-color;
         }
 
+        &:hover {
+          background-color: lighten($color: $primary-color, $amount: 60);
+          cursor: pointer;
+        }
+
         &:checked {
           background-color: $primary-color;
-          background-image: url(/online-furniture-storage/assets/undraw_check.svg);
-          background-size: 1em 1em;
-          background-position: center;
-          background-repeat: no-repeat;
         }
       }
     }
