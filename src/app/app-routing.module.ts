@@ -6,6 +6,7 @@ import { SuccessComponent } from './pages/success/success.component';
 import { LoginComponent } from './pages/login/login.component';
 import { OverviewComponent } from './pages/overview/overview.component';
 import { DetailComponent } from './pages/detail/detail.component';
+import { ImprintComponent } from './pages/imprint/imprint.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "detail/:id",
     component: DetailComponent
+  },
+  {
+    path: "imprint",
+    component: ImprintComponent
   },
   {
     path: "",
