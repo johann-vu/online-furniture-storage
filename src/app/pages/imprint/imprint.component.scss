@@ -4,4 +4,5 @@
 .imprint__wrapper {
     @include responsive-width;
     @include topbar-space;
+    height: 100%;
 }

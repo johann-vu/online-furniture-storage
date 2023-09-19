@@ -1,10 +1,10 @@
 <div class="hero__wrapper">
-    <div class="hero__container">
-        <div class="hero__slot">
-            <ng-content></ng-content>
-        </div>
-        <div>
-            <img *ngIf="imageSrc" class="hero__image" [src]="imageSrc" alt="">
-        </div>
+  <div class="hero__container">
+    <div class="hero__slot">
+      <ng-content></ng-content>
     </div>
+    <div>
+      <img *ngIf="imageSrc" class="hero__image" [src]="imageSrc" alt="" />
+    </div>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-<header class="topbar__wrapper">
+<header class="topbar__wrapper" [class.shadow]="isScrolled" (window:scroll)="onScroll()">
   <div class="topbar__container">
     <a routerLink="/">
       <div class="topbar__title-container">
