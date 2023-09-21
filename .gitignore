@@ -1,6 +1,5 @@
 /pb_public
 /pb_data
-/deployment
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,go
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,go
 
@@ -51,12 +50,13 @@ go.work
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-/tmp
-/out-tsc
-/bazel-out
+tmp
+out-tsc
+bazel-out
+cache
 
 # Node
-/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 
