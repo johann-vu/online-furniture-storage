@@ -10,7 +10,7 @@ export class PocketbaseService {
   pb: PocketBase
 
   constructor() {
-    this.pb = new PocketBase('https://api.online-moebellager.de:443');
+    this.pb = new PocketBase('http://localhost:8090');
   }
 
   public async CreateOffer(offer: CreateOfferDTO): Promise<string> {
