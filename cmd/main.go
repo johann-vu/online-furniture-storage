@@ -17,7 +17,6 @@ func main() {
 	cryptoService, err := encryption.NewService(config.GetSecret())
 	if err != nil {
 		log.Fatalf("starting cryptoservice: %s", err)
-		os.Exit(1)
 	}
 
 	app := pocketbase.New()
