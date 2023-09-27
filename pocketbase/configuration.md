@@ -39,4 +39,4 @@ ExecStart      = /home/service_user/service/furniture-storage/app serve --http="
 WantedBy = multi-user.target
 ```
 
--
+- Allow Programm to bind to privileged port: sudo setcap CAP_NET_BIND_SERVICE=+eip /path/to/binary
