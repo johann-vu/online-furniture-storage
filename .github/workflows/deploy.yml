@@ -30,7 +30,7 @@ jobs:
           go-version: 1.x
 
       - name: Build Go Project
-        run: go build -o furniture-storage/app cmd/main.go
+        run: go build -o app cmd/main.go
 
       - name: Copy Files to VM
         uses: appleboy/scp-action@v0.1.4
@@ -38,6 +38,6 @@ jobs:
           host: ${{ vars.VM_IP }}
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: furniture-storage/
+          source: app
           target: /home/service_user/service/
-          args: -r
+          overwrite: true

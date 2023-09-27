@@ -1,8 +1,9 @@
 package main
 
 import (
+	"embed"
+	"io/fs"
 	"log"
-	"os"
 
 	"github.com/johann-vu/online-furniture-storage/internal/config"
 	"github.com/johann-vu/online-furniture-storage/internal/encryption"
@@ -10,7 +11,8 @@ import (
 	"github.com/pocketbase/pocketbase"
 )
 
-var frontendDirectory = os.DirFS(config.FrontendDirectory)
+//go:embed frontend
+var frontendDirectory embed.FS
 
 func main() {
 
@@ -20,8 +22,12 @@ func main() {
 	}
 
 	app := pocketbase.New()
+	subFS, err := fs.Sub(frontendDirectory, "frontend")
+	if err != nil {
+		log.Fatalf("creating sub directory: %s", err)
+	}
 
-	app.OnBeforeServe().Add(hooks.ServeFrontend(frontendDirectory))
+	app.OnBeforeServe().Add(hooks.ServeFrontend(subFS))
 
 	app.OnBeforeServe().Add(hooks.DeleteOldOffers(app, config.NightlyCronExpression))
 
