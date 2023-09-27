@@ -39,5 +39,5 @@ jobs:
           username: ${{ vars.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: service/
-          target: /home/service_user/
+          target: /home/service_user/service/
           args: -r
