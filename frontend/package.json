@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --output-path=../service/frontend",
+    "build": "ng build --output-path=../furniture-storage/frontend",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

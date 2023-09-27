@@ -12,21 +12,19 @@
 - Copy the executable into the services directory (e.g. `pb`)
 ## Service konfigurieren
 - In `/lib/systemd/system` wechseln
-- `sudo nano pocketbase.service`
+- `sudo nano furniture-storage.service`
 ```
 [Unit]
-Description = pocketbase
+Description = online furniture storage
 
 [Service]
 Type           = simple
-User           = root
-Group          = root
-LimitNOFILE    = 4096
+User           = service_user
 Restart        = always
 RestartSec     = 5s
-StandardOutput = append:/root/pb/errors.log
-StandardError  = append:/root/pb/errors.log
-ExecStart      = /root/pb/pocketbase serve --http="yourdomain.com:80" --https="yourdomain.com:443"
+StandardOutput = append:/home/service_user/service/errors.log
+StandardError  = append:/home/service_user/service/errors.log
+ExecStart      = /home/service_user/service/app serve --http="online-moebellager.de:80" --https="online-moebellager.de:443"
 
 [Install]
 WantedBy = multi-user.target
