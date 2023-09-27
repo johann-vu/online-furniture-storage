@@ -35,8 +35,8 @@ jobs:
       - name: Copy Files to VM
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: $VM_IP
-          username: $VM_USER
+          host: ${{ vars.VM_IP }}
+          username: ${{ vars.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: service/
           target: /home/service_user/
