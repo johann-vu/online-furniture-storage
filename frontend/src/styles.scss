@@ -11,38 +11,3 @@ body {
   background-color: $background-color;
   margin: 0;
 }
-
-.banner {
-  background-color: red;
-  color: white;
-  padding: 8px 16px;
-  font-size: 14px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-  border-bottom-left-radius: 4px;
-
-  img {
-    height: 14px;
-    margin-right: 8px;
-
-    /* Start the shake animation and make the animation last for 0.5 seconds */
-    animation: shake 5s;
-
-    /* When the animation is finished, start again */
-    animation-iteration-count: infinite;
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: rotate(10deg)
-  }
-  50% {
-    transform: rotate(-10deg)
-  }
-  100% {
-    transform: rotate(10deg)
-  }
-}
