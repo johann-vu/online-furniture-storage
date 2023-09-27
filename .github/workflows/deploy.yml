@@ -1,0 +1,47 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Build Angular Project
+        run: |
+          cd frontend
+          npm install
+          ng build --prod --output-path=../pb_public
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.x
+
+      - name: Build Go Project
+        run: |
+          cd cmd
+          go build -o app main.go
+
+      - name: Copy Files to VM
+        uses: appleboy/scp-action@v2
+        with:
+          host: your-vm-ip-address
+          username: serviceuser
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: |
+            app
+            pb_public/
+          target: /home/serviceuser/service/
+          args: -ru

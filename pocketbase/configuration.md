@@ -5,6 +5,7 @@
 - `usermod -aG sudo johann`
 ## Enable SSH access for admin user
 - `cp /root/.ssh/authorized_keys /home/johann/.ssh/`
+- You might need to create the .ssh folder first
 - `chown johann:johann /home/johann/.ssh/authorized_keys`
 ## Pocketbase installieren
 - Download and unzip the latest release
