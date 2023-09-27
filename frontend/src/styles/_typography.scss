@@ -9,25 +9,25 @@ body {
 
 h2 {
   font-family: $heading-font;
-  font-size: 48px;
+  font-size: 2em;
   font-weight: 700;
 }
 
 h3 {
   font-family: $heading-font;
-  font-size: 36px;
+  font-size: 1.8em;
   font-weight: 700;
 }
 
 h4 {
   font-family: $heading-font;
-  font-size: 32px;
+  font-size: 1.5em;
   font-weight: 700;
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
   h2 {
-    font-size: 36px;
+    font-size: 1.8em;
     margin: 20px 0;
   }
 
