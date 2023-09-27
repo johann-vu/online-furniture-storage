@@ -21,7 +21,19 @@
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
-    img {
-        display: none;
+    .home__article {
+        @include responsive-width;
+        margin-top: $spacing-unit*6;
+        margin-bottom: $spacing-unit*6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+        img {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 5*$spacing-unit;
+        }
     }
 }
