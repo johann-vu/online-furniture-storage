@@ -35,7 +35,7 @@ jobs:
           go build -o app main.go
 
       - name: Copy Files to VM
-        uses: appleboy/scp-action@v2
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: your-vm-ip-address
           username: serviceuser
