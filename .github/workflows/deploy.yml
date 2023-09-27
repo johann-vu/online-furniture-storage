@@ -44,4 +44,4 @@ jobs:
             app
             pb_public/
           target: /home/serviceuser/service/
-          args: -ru
+          args: -r
