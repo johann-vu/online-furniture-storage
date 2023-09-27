@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --base-href https://johann-vu.github.io/online-furniture-storage/ --deploy-url https://johann-vu.github.io/online-furniture-storage/",
+    "build": "ng build --output-path=../pb_public",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

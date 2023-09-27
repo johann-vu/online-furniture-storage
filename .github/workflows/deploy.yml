@@ -22,7 +22,7 @@ jobs:
         run: |
           cd frontend
           npm install
-          ng build --prod --output-path=../pb_public
+          npm run build
 
       - name: Set up Go
         uses: actions/setup-go@v2
