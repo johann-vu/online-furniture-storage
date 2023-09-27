@@ -5,16 +5,16 @@
 - `adduser johann`
 - `usermod -aG sudo johann`
 
+## Create service user
+
+- `adduser service_user`
+
+
 ## Enable SSH access for admin user
 
 - `cp /root/.ssh/authorized_keys /home/johann/.ssh/`
 - You might need to create the .ssh folder first
 - `chown johann:johann /home/johann/.ssh/authorized_keys`
-
-## Pocketbase installieren
-
-- Download and unzip the latest release
-- Copy the executable into the services directory (e.g. `pb`)
 
 ## Service konfigurieren
 
@@ -40,3 +40,10 @@ WantedBy = multi-user.target
 ```
 
 - Allow Programm to bind to privileged port: sudo setcap CAP_NET_BIND_SERVICE=+eip /path/to/binary
+
+# Deployment
+
+- Stop Service manually with admin user
+- Start Deployment using Github Actions
+- Allow new File to use ports 80 and 443
+- Start Service manually with admin user

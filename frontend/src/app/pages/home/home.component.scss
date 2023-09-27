@@ -8,10 +8,15 @@
     display: flex;
     align-items: center;
 
+    p {
+        text-align: justify;
+    }
+
     img {
-        height: 300px;
-        transform: scaleX(-1);
-        margin-left: $spacing-unit*2;
+        margin-left: 5*$spacing-unit;
+        max-width: 300px;
+        width: 30%;
+        max-height: 300px;
     }
 }
 
