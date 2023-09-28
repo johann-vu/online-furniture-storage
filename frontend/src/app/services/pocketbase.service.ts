@@ -103,4 +103,8 @@ export class PocketbaseService {
     this.pb.authStore.clear();
   }
 
+  public IsLoggedIn(): boolean {
+    return this.pb.authStore.isValid
+  }
+
 }
