@@ -2,7 +2,6 @@
     <img [src]="imageURL()" alt="">
     <div class="offer-card__text">
         <h4 class="offer-card__title">{{offer?.title}}</h4>
-        <p>von {{offer?.name}}</p>
         <p>bis {{offer?.available_until | date:'dd.MM.yyyy'}}</p>
     </div>
 </div>
