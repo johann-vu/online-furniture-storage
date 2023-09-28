@@ -22,6 +22,10 @@
     min-width: 2*$spacing-unit;
   }
 
+  hr {
+    display: none;
+  }
+
   .footer__links {
     display: flex;
     flex-direction: column;
@@ -38,11 +42,17 @@
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
-  .footer__spacer {
-    display: none;
-  }
-
   .footer__container {
     flex-direction: column;
+
+    .footer__spacer {
+      display: none;
+    }
+  
+  
+    hr {
+      display: block;
+      width: 100%;
+    }
   }
 }
