@@ -1,0 +1,49 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.splash__wrapper {
+  z-index: $z-index-modal;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary-color;
+
+  .splash__container {
+    @include responsive-width;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $on-primary-color;
+
+    .splash__title {
+      text-align: center;
+    }
+
+    .splash__spacer {
+      height: 10%;
+    }
+
+    .splash__loader {
+      width: 48px;
+      height: 48px;
+      border: 5px solid $on-primary-color;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      box-sizing: border-box;
+      animation: rotation 1s linear infinite;
+    }
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
