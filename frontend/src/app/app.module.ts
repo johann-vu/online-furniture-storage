@@ -23,6 +23,7 @@ import { OfferCardComponent } from './components/offer-card/offer-card.component
 import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
 import { DetailComponent } from './pages/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
+import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ImprintComponent } from './pages/imprint/imprint.component';
     OfferCardComponent,
     ValidationErrorsPipe,
     DetailComponent,
-    ImprintComponent
+    ImprintComponent,
+    SplashScreenComponent
   ],
   imports: [
     BrowserModule,

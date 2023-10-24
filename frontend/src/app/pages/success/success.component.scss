@@ -11,3 +11,9 @@
     margin-top: $spacing-unit*6;
     margin-bottom: $spacing-unit*6;
 }
+
+.success__buttons {
+    * {
+        margin-right: 3*$spacing-unit;
+    }
+}
