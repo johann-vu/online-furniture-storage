@@ -1,0 +1,50 @@
+@mixin animate-scale-in($delay: 0) {
+  animation-name: scale-in;
+
+  animation-timing-function: ease;
+  animation-duration: 2s;
+  animation-fill-mode: backwards;
+
+  animation-delay: $delay;
+}
+
+@mixin animate-slide-in($direction: 'left', $delay: 0) {
+    animation-name: slide-in- + $direction;
+  
+    animation-timing-function: ease;
+    animation-duration: 2s;
+    animation-fill-mode: backwards;
+  
+    animation-delay: $delay;
+  }
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+    }
+  }

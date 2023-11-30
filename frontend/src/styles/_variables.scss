@@ -3,8 +3,8 @@ $primary-color: #4B644A;
 $on-primary-color: #F5F5F5;
 $secondary-color: #324331;
 $on-secondary-color: #F5F5F5;
-$text-color: #000;
-$background-color: #F5F5F5;
+$text-color: #000000;
+$background-color: white;
 $danger-color: #dc3545;
 
 // Schriftarten
@@ -16,8 +16,8 @@ $base-font-size: 20px;
 $small-font-size: 16px;
 
 // Abstände und Abmessungen
-$spacing-unit: 8px;
-$border-radius: 5px;
+$spacing-unit: 10px;
+$border-radius: 8px;
 
 // Containerbreiten
 $container-sm: 576px;
@@ -33,7 +33,7 @@ $z-index-dropdown: 1000;
 $z-index-modal: 1100;
 
 // Animationen
-$transition-duration: 0.3s;
+$transition-duration: 0.5s;
 
 // Medienabfragen
 $screen-sm: 680px;
