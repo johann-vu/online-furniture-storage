@@ -24,6 +24,7 @@ import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
 import { DetailComponent } from './pages/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
+import { StepsWidgetComponent } from './components/steps-widget/steps-widget.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { SplashScreenComponent } from './components/splash-screen/splash-screen.
     ValidationErrorsPipe,
     DetailComponent,
     ImprintComponent,
-    SplashScreenComponent
+    SplashScreenComponent,
+    StepsWidgetComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
   animation-name: scale-in;
 
   animation-timing-function: ease;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-fill-mode: backwards;
 
   animation-delay: $delay;
@@ -12,7 +12,7 @@
     animation-name: slide-in- + $direction;
   
     animation-timing-function: ease;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
     animation-fill-mode: backwards;
   
     animation-delay: $delay;
