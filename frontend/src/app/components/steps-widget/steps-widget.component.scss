@@ -1,0 +1,57 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+@import "/src/styles/animations";
+
+.steps__wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 4 * $spacing-unit;
+
+  .steps__card {
+    background-color: $background-color;
+    border-radius: $border-radius;
+    position: relative;
+    flex-wrap: wrap;
+    flex: 1 1 0;
+
+    .steps__header {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 2 * $spacing-unit;
+
+      .steps__title {
+        margin: 0;
+      }
+      .steps__number {
+        font-family: $heading-font;
+        color: $primary-color;
+        font-weight: bold;
+        font-size: 80px;
+      }
+    }
+
+    .steps__description {
+      text-align: justify;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .steps__wrapper {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: $screen-breakpoint) {
+  .steps__wrapper {
+    flex-direction: column;
+    .steps__card {
+      .steps__header {
+        .steps__number {
+          font-size: 50px;
+        }
+      }
+    }
+  }
+}

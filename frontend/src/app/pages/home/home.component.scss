@@ -20,6 +20,12 @@
     }
 }
 
+.home__article--widget {
+    @include responsive-width;
+    margin-top: $spacing-unit*6;
+    margin-bottom: $spacing-unit*6;
+}
+
 @media only screen and (max-width: $screen-breakpoint) {
     .home__article {
         @include responsive-width;
