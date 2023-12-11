@@ -8,12 +8,18 @@
 
   .offer__text {
     width: 300px;
-    
-    .offer__image {
-      opacity: 40%;
-      width: 200px;
-      margin: 50px;
-      rotate: -20deg;
+    position: relative;
+
+    .offer__text-sticky {
+      position: sticky;
+      top: 100px;
+
+      .offer__image {
+        opacity: 40%;
+        width: 200px;
+        margin: 50px;
+        rotate: -20deg;
+      }
     }
   }
 
@@ -29,24 +35,28 @@
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
-    .offer__wrapper {
-        display: flex;
-        flex-direction: column;
-      
-        .offer__text {
-          width: unset;
-          .offer__image {
-            display: none;
-          }
-        }
-      
-        .offer__spacer {
+  .offer__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .offer__text {
+      width: unset;
+      .offer__text-sticky {
+        position: unset;
+        top: unset;
+        .offer__image {
           display: none;
         }
-      
-        .offer__form {
-          flex-grow: 2;
-          margin: 0 0 40px 0;
-        }
       }
+    }
+
+    .offer__spacer {
+      display: none;
+    }
+
+    .offer__form {
+      flex-grow: 2;
+      margin: 0 0 40px 0;
+    }
+  }
 }
