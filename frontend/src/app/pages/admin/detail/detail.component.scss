@@ -3,11 +3,10 @@
 
 .detail__wrapper {
   @include responsive-width;
-  @include topbar-space;
 }
 
 .detail__title {
-    padding: 4*$spacing-unit 0;
+    padding: $spacing-unit 0;
     h2, p {
         margin: 0;
     }
@@ -37,10 +36,16 @@
     }
 }
 
+.detail__actions{
+    display: flex;
+    gap: 2*$spacing-unit;
+    flex-wrap: wrap;
+}
+
 .detail__delete-btn {
     background-color: $danger-color;
     margin-bottom: 3*$spacing-unit;
-
+    border: 2px solid $danger-color;
 
     &:hover {
         background-color: darken($color: $danger-color, $amount: 20);

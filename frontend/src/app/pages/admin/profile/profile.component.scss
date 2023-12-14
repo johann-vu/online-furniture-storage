@@ -1,0 +1,5 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+.profile__wrapper {
+    @include responsive-width;
+}

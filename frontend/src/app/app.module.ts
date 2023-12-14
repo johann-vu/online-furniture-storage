@@ -18,13 +18,15 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
 import { FileSizeValidatorDirective } from './directives/file-size-validator.directive';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { OverviewComponent } from './pages/overview/overview.component';
+import { OverviewComponent } from './pages/admin/overview/overview.component';
 import { OfferCardComponent } from './components/offer-card/offer-card.component';
 import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
-import { DetailComponent } from './pages/detail/detail.component';
+import { DetailComponent } from './pages/admin/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { StepsWidgetComponent } from './components/steps-widget/steps-widget.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ProfileComponent } from './pages/admin/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { StepsWidgetComponent } from './components/steps-widget/steps-widget.com
     DetailComponent,
     ImprintComponent,
     SplashScreenComponent,
-    StepsWidgetComponent
+    StepsWidgetComponent,
+    AdminComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
