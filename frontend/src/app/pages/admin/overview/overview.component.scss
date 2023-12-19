@@ -4,18 +4,13 @@
 .overview__wrapper {
   @include responsive-width;
 
-  margin-bottom: 5*$spacing-unit;
+  margin-bottom: 2*$spacing-unit;
+  margin-top: 2*$spacing-unit;
 
   .overview__result-grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: $spacing-unit * 2;
-  }
-
-  .overview__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 
   button.block {
