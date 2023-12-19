@@ -1,8 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, of } from 'rxjs';
 import { ReadOfferDTO } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import Viewer from 'viewerjs';
 
 @Component({
   selector: 'app-detail',
@@ -11,6 +12,8 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 })
 export class DetailComponent implements OnInit, OnDestroy {
 
+  @ViewChild('images', { static: false }) imagesElement: ElementRef | undefined;
+  gallery: Viewer | undefined
   sub: Subscription | undefined
   id: string = ""
   offer: ReadOfferDTO | undefined
@@ -18,12 +21,27 @@ export class DetailComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private pb: PocketbaseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.pb.GetOfferByID(this.id)
-        .then(o => this.offer = o)
-        .catch(e => alert(JSON.stringify(e, undefined, " ")))
+    this.sub = this.route.params.subscribe(async (params) => {
+      try {
+        this.id = params['id'];
+        var offer = await this.pb.GetOfferByID(this.id)
+        if (!offer) return
+        this.offer = offer
+      } catch (e) {
+        alert(JSON.stringify(e, undefined, " "))
+      }
     });
+  }
+
+  openImage(id: number) {
+    if (this.imagesElement && !this.gallery) {
+      this.gallery = new Viewer(this.imagesElement.nativeElement, {
+        toolbar: 3, url(image: { src: string; }) {
+          return image.src.replace('&thumb=180x180', '');
+        }
+      })
+    }
+    this.gallery?.moveTo(id)
   }
 
   ngOnDestroy(): void {
