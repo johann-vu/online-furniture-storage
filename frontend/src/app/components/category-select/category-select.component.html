@@ -1,5 +1,15 @@
-<select [(ngModel)]="selectedValue" (ngModelChange)="onChange($event)">
+<!-- <select [(ngModel)]="selectedValue" (ngModelChange)="onChange($event)">
   <option *ngFor="let option of options" [value]="option.value">
     {{ option.label }}
   </option>
-</select>
+</select> -->
+<div class="category__wrapper">
+  <div
+    class="category__card"
+    *ngFor="let option of options"
+    (click)="selectOption(option)"
+    [class.selected]="isSelected(option)"
+  >
+    {{ option.label }}
+  </div>
+</div>

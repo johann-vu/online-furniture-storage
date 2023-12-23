@@ -45,4 +45,14 @@ export class CategorySelectComponent implements ControlValueAccessor {
     // You can implement this if you want to handle disabling of the control
   }
 
+  selectOption(option: any): void {
+    this.selectedValue = option.value;
+    this.onChange(this.selectedValue);
+    this.onTouched();
+  }
+
+  isSelected(option: any): boolean {
+    return option.value === this.selectedValue;
+  }
+
 }
