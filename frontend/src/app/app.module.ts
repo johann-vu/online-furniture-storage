@@ -28,6 +28,7 @@ import { StepsWidgetComponent } from './components/steps-widget/steps-widget.com
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { CategorySelectComponent } from './components/category-select/category-select.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     StepsWidgetComponent,
     AdminComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CategorySelectComponent
   ],
   imports: [
     BrowserModule,

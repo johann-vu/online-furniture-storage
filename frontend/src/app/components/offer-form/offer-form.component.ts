@@ -16,7 +16,8 @@ export class OfferFormComponent {
   value: CreateOfferDTO = {
     title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: [],
     privacy: false,
-    nearby: false
+    nearby: false,
+    category: "furniture"
   }
 
   public showErrorMsg(field: string): boolean {

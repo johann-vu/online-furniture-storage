@@ -22,6 +22,7 @@ export class PocketbaseService {
     formData.append('available_until', offer.available_until.toString());
     formData.append('name', offer.name);
     formData.append('phone', offer.phone);
+    formData.append('category', offer.category);
 
 
     for (let photo of offer.photos) {
@@ -54,6 +55,7 @@ export class PocketbaseService {
         available_until: o['available_until'],
         name: o['name'],
         phone: o['phone'],
+        category: o['category'],
         photos: photos,
         id: o.id,
         created: o.created
@@ -80,6 +82,7 @@ export class PocketbaseService {
       available_until: o['available_until'],
       name: o['name'],
       phone: o['phone'],
+      category: o['category'],
       photos: photos,
       id: o.id,
       created: o.created

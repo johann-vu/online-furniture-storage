@@ -7,6 +7,7 @@ export interface CreateOfferDTO {
     photos: File[]
     privacy: boolean
     nearby: boolean
+    category: string
 }
 
 export interface ReadOfferDTO {
@@ -18,4 +19,5 @@ export interface ReadOfferDTO {
     photos: string[]
     id: string,
     created: string
+    category: string
 }
