@@ -27,6 +27,7 @@ import { SplashScreenComponent } from './components/splash-screen/splash-screen.
 import { StepsWidgetComponent } from './components/steps-widget/steps-widget.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ProfileComponent } from './pages/admin/profile/profile.component';
     SplashScreenComponent,
     StepsWidgetComponent,
     AdminComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,6 @@ export class OfferFormComponent {
     this.form.form.markAllAsTouched();
     if (this.form.valid) this.onSubmit.emit(this.form.value)
     console.log(this.value);
-
   }
 
   getDefaultDate(): string {

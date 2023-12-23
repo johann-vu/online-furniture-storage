@@ -2,4 +2,5 @@
 @import "/src/styles/variables";
 .profile__wrapper {
     @include responsive-width;
+    margin-bottom: 3*$spacing-unit;
 }
