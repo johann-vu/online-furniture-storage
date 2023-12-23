@@ -1,0 +1,35 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.admin__wrapper {
+ @include topbar-space
+}
+
+.admin__top-bar {
+    background-color: $secondary-color;
+    color: $on-secondary-color;
+    height: 3rem;
+}
+
+.admin__top-bar-content {
+    @include responsive-width;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: $spacing-unit*3;
+    overflow-y: scroll;
+
+    .spacer {
+        flex: 1 1 0;
+    }
+
+    a {
+        color: $on-secondary-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: inherit;
+            cursor: pointer;
+        }
+    }
+}

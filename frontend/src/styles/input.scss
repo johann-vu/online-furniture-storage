@@ -33,6 +33,12 @@
       outline: none;
       border-color: $primary-color;
     }
+
+    &:disabled {
+      border-color: lighten($color: $text-color, $amount: 40%);
+      background-color: lighten($color: $text-color, $amount: 90%);
+      cursor: not-allowed;
+    }
   }
 
   .help-text {

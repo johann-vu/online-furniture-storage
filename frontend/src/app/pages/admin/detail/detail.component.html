@@ -1,0 +1,39 @@
+<div class="detail__wrapper">
+  <div class="detail__title">
+    <h2>{{ offer?.title }}</h2>
+    <p>von {{ offer?.name }}</p>
+  </div>
+  <div #images class="detail__photos">
+    <img *ngFor="let p of offer?.photos; index as i;" (click)="openImage(i)" [src]="p" />
+  </div>
+  <div class="detail__infos">
+    <div>
+      <div>Verfügbar bis</div>
+      <div class="detail__infos-value">
+        {{ offer?.available_until | date : "dd.MM.yyyy" }}
+      </div>
+    </div>
+    <div>
+      <div>Erstellt am</div>
+      <div class="detail__infos-value">
+        {{ offer?.created | date : "dd.MM.yyyy" }}
+      </div>
+    </div>
+    <div>
+      <div>Maße</div>
+      <div class="detail__infos-value">{{ offer?.size }}</div>
+    </div>
+    <div>
+      <div>Telefonnummer</div>
+      <div class="detail__infos-value">{{ offer?.phone }}</div>
+    </div>
+  </div>
+  <div class="detail__actions">
+    <a class="detail__call-btn" href="tel:{{ offer?.phone }}"
+      ><button class="outline">Anrufen</button></a
+    >
+    <button class="detail__delete-btn" (click)="deleteOffer()">
+      Angebot löschen
+    </button>
+  </div>
+</div>

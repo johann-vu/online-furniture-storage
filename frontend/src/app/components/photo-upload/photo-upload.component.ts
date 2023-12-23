@@ -49,7 +49,6 @@ export class PhotoUploadComponent implements ControlValueAccessor {
 
   onFileSelect(event: any): void {
     this.markAsTouched()
-    this.files = []
     const fileList: FileList = event.target.files;
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];

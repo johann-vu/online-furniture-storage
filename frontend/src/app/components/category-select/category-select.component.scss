@@ -1,0 +1,32 @@
+@import "/src/styles/variables";
+@import "/src//styles/mixins";
+
+.category__wrapper {
+  display: flex;
+  width: 100%;
+  overflow-x: scroll;
+  gap: $spacing-unit;
+
+  .category__card {
+    flex: 1 1 0px;
+    border: solid $text-color 2px;
+    border-radius: $border-radius;
+    padding: 2 * $spacing-unit $spacing-unit;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit;
+
+    img {
+        height: 30px;
+        fill: $background-color;
+    }
+
+    &.selected {
+      background-color: $primary-color;
+      color: $on-primary-color;
+      border: solid $primary-color 2px;
+    }
+  }
+}

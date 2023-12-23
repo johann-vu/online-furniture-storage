@@ -16,7 +16,8 @@ export class OfferFormComponent {
   value: CreateOfferDTO = {
     title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: [],
     privacy: false,
-    nearby: false
+    nearby: false,
+    category: "furniture"
   }
 
   public showErrorMsg(field: string): boolean {
@@ -30,7 +31,6 @@ export class OfferFormComponent {
     this.form.form.markAllAsTouched();
     if (this.form.valid) this.onSubmit.emit(this.form.value)
     console.log(this.value);
-
   }
 
   getDefaultDate(): string {

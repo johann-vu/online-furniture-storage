@@ -1,0 +1,11 @@
+<div class="admin__wrapper">
+  <div class="admin__top-bar">
+    <div class="admin__top-bar-content">
+      <a [routerLink]="['overview']">Angebote</a>
+      <a [routerLink]="['profile']">Profil</a>
+      <div class="spacer"></div>
+      <a (click)="logout()">Abmelden</a>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

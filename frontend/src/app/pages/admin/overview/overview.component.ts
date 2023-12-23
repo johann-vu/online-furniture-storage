@@ -27,13 +27,8 @@ export class OverviewComponent implements OnInit {
     this.page++
   }
 
-  async logout() {
-    this.pb.Logout()
-    this.router.navigate([""])
-  }
-
   openOffer(o: ReadOfferDTO) {
-    this.router.navigate(["detail", o.id])
+    this.router.navigate(["admin", "detail", o.id])
   }
 
 }

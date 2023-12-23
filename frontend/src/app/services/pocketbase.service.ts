@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import PocketBase from 'pocketbase';
+import PocketBase, { Record } from 'pocketbase';
 import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
 
 @Injectable({
@@ -22,6 +22,7 @@ export class PocketbaseService {
     formData.append('available_until', offer.available_until.toString());
     formData.append('name', offer.name);
     formData.append('phone', offer.phone);
+    formData.append('category', offer.category);
 
 
     for (let photo of offer.photos) {
@@ -44,9 +45,9 @@ export class PocketbaseService {
 
     resultList.items.forEach((o, i) => {
 
-    let photos = o["photos"].map((p: string) => {
-      return this.pb.files.getUrl(o, p, {'token': token, 'thumb': '180x180'})
-    })
+      let photos = o["photos"].map((p: string) => {
+        return this.pb.files.getUrl(o, p, { 'token': token, 'thumb': '180x180' })
+      })
 
       results[i] = {
         title: o['title'],
@@ -54,6 +55,7 @@ export class PocketbaseService {
         available_until: o['available_until'],
         name: o['name'],
         phone: o['phone'],
+        category: o['category'],
         photos: photos,
         id: o.id,
         created: o.created
@@ -71,15 +73,16 @@ export class PocketbaseService {
     let token = await this.pb.files.getToken()
 
     let photos = o["photos"].map((p: string) => {
-      return this.pb.files.getUrl(o, p, {'token': token, 'thumb': '180x180'})
+      return this.pb.files.getUrl(o, p, { 'token': token, 'thumb': '180x180' })
     })
 
-    let r: ReadOfferDTO =  {
+    let r: ReadOfferDTO = {
       title: o['title'],
       size: o['size'],
       available_until: o['available_until'],
       name: o['name'],
       phone: o['phone'],
+      category: o['category'],
       photos: photos,
       id: o.id,
       created: o.created
@@ -105,6 +108,20 @@ export class PocketbaseService {
 
   public IsLoggedIn(): boolean {
     return this.pb.authStore.isValid
+  }
+
+  public async ChangePassword(oldPassword: string, newPassword: string, verifyPassword: string) {
+    const user = this.pb.authStore.model
+    if (!user) return
+    alert(JSON.stringify(user))
+
+    const data = {
+      "password": newPassword,
+      "passwordConfirm": verifyPassword,
+      "oldPassword": oldPassword
+    };
+
+    await this.pb.collection('users').update(user.id, data);
   }
 
 }

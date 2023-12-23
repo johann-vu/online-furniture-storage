@@ -6,6 +6,7 @@
 @import "/src/styles/typography";
 @import "/src/styles/input.scss";
 @import "/src/styles/button.scss";
+@import 'viewerjs/dist/viewer.css';
 
 body {
   background-color: $background-color;

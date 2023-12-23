@@ -4,9 +4,11 @@ import { OfferComponent } from './pages/offer/offer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SuccessComponent } from './pages/success/success.component';
 import { LoginComponent } from './pages/login/login.component';
-import { OverviewComponent } from './pages/overview/overview.component';
-import { DetailComponent } from './pages/detail/detail.component';
+import { OverviewComponent } from './pages/admin/overview/overview.component';
+import { DetailComponent } from './pages/admin/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { ProfileComponent } from './pages/admin/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -14,7 +16,7 @@ const routes: Routes = [
     component: OfferComponent
   },
   {
-    path:"success",
+    path: "success",
     component: SuccessComponent
   },
   {
@@ -22,12 +24,19 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: "overview",
-    component: OverviewComponent
-  },
-  {
-    path: "detail/:id",
-    component: DetailComponent
+    path: "admin",
+    component: AdminComponent,
+    children: [{
+      path: "overview",
+      component: OverviewComponent,
+    },
+    {
+      path: "profile",
+      component: ProfileComponent,
+    },  {
+      path: "detail/:id",
+      component: DetailComponent
+    }]
   },
   {
     path: "imprint",
@@ -40,7 +49,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
