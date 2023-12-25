@@ -29,6 +29,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CategorySelectComponent } from './components/category-select/category-select.component';
+import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CategorySelectComponent } from './components/category-select/category-s
     SuccessComponent,
     PhotoUploadComponent,
     FileSizeValidatorDirective,
+    FileCountValidatorDirective,
     LoginComponent,
     LoginFormComponent,
     OverviewComponent,
