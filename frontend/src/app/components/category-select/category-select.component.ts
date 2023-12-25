@@ -19,30 +19,23 @@ export class CategorySelectComponent implements ControlValueAccessor {
 
   selectedValue: any;
 
-  // Function to call when the value changes (required by ControlValueAccessor)
   onChange: any = () => {};
 
-  // Function to call when the input is touched (required by ControlValueAccessor)
   onTouched: any = () => {};
 
-  // Write value from the model into the view (required by ControlValueAccessor)
   writeValue(value: any): void {
     this.selectedValue = value;
   }
 
-  // Register a function to be called when the model changes (required by ControlValueAccessor)
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  // Register a function to be called when the input is touched (required by ControlValueAccessor)
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 
-  // Set the disabled state of the control (required by ControlValueAccessor)
   setDisabledState?(isDisabled: boolean): void {
-    // You can implement this if you want to handle disabling of the control
   }
 
   selectOption(option: any): void {

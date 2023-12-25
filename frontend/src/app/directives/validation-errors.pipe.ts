@@ -6,7 +6,8 @@ const MESSAGES: { [key: string]: string } = {
   "DATEINPAST": "Bitte gib einen Wert in der Zukunft an.",
   "DATEINFARFUTURE": "Bitte gib einen Wert in der näheren Zukunft an.",
   "INVALIDPHONENUMBER": "Bitte gib eine gültige Telefonnummer an.",
-  "MAXSIZEEXCEEDED": "Eine der Dateien ist zu groß."
+  "MAXSIZEEXCEEDED": "Eine der Dateien ist zu groß.",
+  "MAXCOUNTEXCEEDED": "Bitte wähle nur bis zu drei Dateien aus."
 }
 
 const FALLBACK_MESSAGE = "Ungültige Eingabe."

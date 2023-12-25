@@ -1,9 +1,6 @@
 <form #offerForm="ngForm" (ngSubmit)="submit()">
   <div class="input-container">
     <label for="input-category">Art des Angebots</label>
-    <!-- <p class="help-text" [hidden]="category.invalid && category.touched">
-      Du kannst bis zu drei Bilder zu deinem Angebot hinzufügen.
-    </p> -->
     <p class="error-text" [hidden]="category.valid || category.untouched">
       <span *ngFor="let err of category.errors | keyvalue">{{
         err.key | validationErrors
@@ -20,54 +17,103 @@
       required
     ></app-category-select>
   </div>
+  <div *ngIf="value.category == 'furniture'">
+    <div class="input-container">
+      <label for="input-title">Bezeichnung</label>
+      <input
+        [(ngModel)]="value.title"
+        name="title"
+        #title="ngModel"
+        type="text"
+        id="input-title"
+        placeholder="Küchentisch"
+        autocomplete="off"
+        required
+        maxlength="120"
+        minlength="3"
+      />
+      <p class="help-text" [hidden]="title.invalid && title.touched">
+        Um welches Möbelstück handelt es sich?
+      </p>
+      <p class="error-text" [hidden]="title.valid || title.untouched">
+        <span *ngFor="let err of title.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
 
-  <div class="input-container">
-    <label for="input-title">Bezeichnung</label>
-    <input
-      [(ngModel)]="value.title"
-      name="title"
-      #title="ngModel"
-      type="text"
-      id="input-title"
-      placeholder="Küchentisch"
-      autocomplete="off"
-      required
-      maxlength="120"
-      minlength="3"
-    />
-    <p class="help-text" [hidden]="title.invalid && title.touched">
-      Um welches Möbelstück handelt es sich?
-    </p>
-    <p class="error-text" [hidden]="title.valid || title.untouched">
-      <span *ngFor="let err of title.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
-    </p>
+    <div class="input-container">
+      <label for="input-size">Maße</label>
+      <input
+        [(ngModel)]="value.size"
+        type="text"
+        id="input-size"
+        name="size"
+        #size="ngModel"
+        placeholder="1m x 2m"
+        autocomplete="off"
+        required
+        maxlength="120"
+      />
+      <p class="help-text" [hidden]="size.invalid && size.touched">
+        Wie groß ist das Möbelstück ungefähr?
+      </p>
+      <p class="error-text" [hidden]="size.valid || size.untouched">
+        <span *ngFor="let err of size.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
   </div>
 
-  <div class="input-container">
-    <label for="input-size">Maße</label>
-    <input
-      [(ngModel)]="value.size"
-      type="text"
-      id="input-size"
-      name="size"
-      #size="ngModel"
-      placeholder="1m x 2m"
-      autocomplete="off"
-      required
-      maxlength="120"
-    />
-    <p class="help-text" [hidden]="size.invalid && size.touched">
-      Wie groß ist das Möbelstück ungefähr?
-    </p>
-    <p class="error-text" [hidden]="size.valid || size.untouched">
-      <span *ngFor="let err of size.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
-    </p>
-  </div>
+  <div *ngIf="value.category == 'bike'">
+    <div class="input-container">
+      <label for="input-title">Bezeichnung</label>
+      <input
+        [(ngModel)]="value.title"
+        name="title"
+        #title="ngModel"
+        type="text"
+        id="input-title"
+        placeholder="Hollandrad für Herren"
+        autocomplete="off"
+        required
+        maxlength="120"
+        minlength="3"
+      />
+      <p class="help-text" [hidden]="title.invalid && title.touched">
+        Um was für ein Fahrrad handelt es sich?
+      </p>
+      <p class="error-text" [hidden]="title.valid || title.untouched">
+        <span *ngFor="let err of title.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
 
+    <div class="input-container">
+      <label for="input-size">Größe</label>
+      <input
+        [(ngModel)]="value.size"
+        type="text"
+        id="input-size"
+        name="size"
+        #size="ngModel"
+        placeholder="53 cm"
+        autocomplete="off"
+        required
+        maxlength="120"
+      />
+      <p class="help-text" [hidden]="size.invalid && size.touched">
+        Welche Rahmengröße hat das Fahrrad oder wie groß ist es ungefähr?
+      </p>
+      <p class="error-text" [hidden]="size.valid || size.untouched">
+        <span *ngFor="let err of size.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
+  </div>
   <div class="input-container">
     <label for="inputField">Zeitraum</label>
     <input
@@ -111,6 +157,7 @@
       [(ngModel)]="value.photos"
       required
       fileSizeNotTooBig
+      fileCountNotTooBig
       #photos="ngModel"
     ></app-photo-upload>
   </div>

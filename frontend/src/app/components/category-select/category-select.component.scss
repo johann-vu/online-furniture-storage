@@ -4,8 +4,8 @@
 .category__wrapper {
   display: flex;
   width: 100%;
-  overflow-x: scroll;
   gap: $spacing-unit;
+  overflow-x: scroll;
 
   .category__card {
     flex: 1 1 0px;
