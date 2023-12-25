@@ -1,5 +1,8 @@
 button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-unit;
   padding: $spacing-unit $spacing-unit * 2;
   font-size: $base-font-size;
   border: none;
@@ -9,6 +12,7 @@ button {
   background-color: $primary-color;
   color: $on-primary-color;
   font-family: $body-font;
+  flex-wrap: wrap;
 
   &:hover {
     background-color: darken($primary-color, 10%);
@@ -17,7 +21,6 @@ button {
   .icon {
     height: $base-font-size;
     vertical-align: middle;
-    margin-right: $spacing-unit;
   }
 
   .trailing-icon {

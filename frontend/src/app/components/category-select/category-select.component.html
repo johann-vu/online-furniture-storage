@@ -4,12 +4,32 @@
   </option>
 </select> -->
 <div class="category__wrapper">
-  <div
+  <button
+    [class.black-outline]="!isSelected(option)"
+    *ngFor="let option of options"
+    (click)="selectOption(option)"
+    type="button"
+  >
+    <img
+      class="icon"
+      [hidden]="isSelected(option)"
+      [src]="'assets/undraw_'+ option.value + '.svg'"
+    />
+    <img
+      class="icon"
+      [hidden]="!isSelected(option)"
+      [src]="'assets/undraw_'+ option.value + '-white.svg'"
+    />
+    {{ option.label }}
+  </button>
+  <!-- <div
     class="category__card"
     *ngFor="let option of options"
     (click)="selectOption(option)"
     [class.selected]="isSelected(option)"
   >
+    <img *ngIf="!isSelected(option)" src="assets/undraw_bike.svg" alt="" />
+    <img *ngIf="isSelected(option)" src="assets/undraw_bike-white.svg" alt="" />
     {{ option.label }}
-  </div>
+  </div> -->
 </div>
