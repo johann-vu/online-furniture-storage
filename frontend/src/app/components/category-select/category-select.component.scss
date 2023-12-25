@@ -7,26 +7,10 @@
   gap: $spacing-unit;
   overflow-x: scroll;
 
-  .category__card {
-    flex: 1 1 0px;
-    border: solid $text-color 2px;
-    border-radius: $border-radius;
-    padding: 2 * $spacing-unit $spacing-unit;
-    text-align: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-unit;
+}
 
-    img {
-        height: 30px;
-        fill: $background-color;
-    }
-
-    &.selected {
-      background-color: $primary-color;
-      color: $on-primary-color;
-      border: solid $primary-color 2px;
-    }
+@media only screen and (min-width: $screen-breakpoint) {
+  .category__button {
+    flex: 1 1 0;
   }
 }
