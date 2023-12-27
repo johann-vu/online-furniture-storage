@@ -5,6 +5,7 @@
 </select> -->
 <div class="category__wrapper">
   <button
+    class="category__button"
     [class.black-outline]="!isSelected(option)"
     *ngFor="let option of options"
     (click)="selectOption(option)"
@@ -13,12 +14,12 @@
     <img
       class="icon"
       [hidden]="isSelected(option)"
-      [src]="'assets/undraw_'+ option.value + '.svg'"
+      [src]="'assets/undraw_' + option.value + '.svg'"
     />
     <img
       class="icon"
       [hidden]="!isSelected(option)"
-      [src]="'assets/undraw_'+ option.value + '-white.svg'"
+      [src]="'assets/undraw_' + option.value + '-white.svg'"
     />
     {{ option.label }}
   </button>

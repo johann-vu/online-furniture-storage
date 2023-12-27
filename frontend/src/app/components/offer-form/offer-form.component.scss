@@ -1,3 +1,11 @@
+@import "/src/styles/variables";
+
 .offer-form__submit {
     float: right;
 }
+
+@media only screen and (max-width: $screen-breakpoint) {
+    .offer-form__submit {
+        width: 100%;
+    }
+  }
