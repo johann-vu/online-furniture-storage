@@ -16,7 +16,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://online-moebellager.de)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `johann-vu`, `online-furniture-storage`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+The "Online Furniture Storage" is a service to donate furniture for a good cause.
 
 
 
@@ -29,18 +29,17 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+<!-- ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Please ensure the following prerequisites are fulfilled
+
+* node.js and npm
+* Go
 
 ### Installation
 
@@ -56,7 +55,7 @@ This is an example of how to list things you need to use the software and how to
 4. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
-   ```
+   ``` -->
 
 
 <!-- CONTRIBUTING -->
@@ -78,25 +77,6 @@ Don't forget to give the project a star! Thanks again!
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/johann-vu/online-furniture-storage](https://github.com/johann-vu/online-furniture-storage)
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -128,7 +108,7 @@ Project Link: [https://github.com/johann-vu/online-furniture-storage](https://gi
 [Go-url]: https://go.dev/
 
 [pocketbase-shield]: https://img.shields.io/badge/Pocketbase-B8DBE4?style=for-the-badge&logo=pocketbase&logoColor=black
-[pocketbase-url]: https://go.dev/
+[pocketbase-url]: https://pocketbase.io
 
 [SCSS-shield]: https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white
 [scss-url]: https://sass-lang.com
