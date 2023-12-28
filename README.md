@@ -16,7 +16,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://online-moebellager.de)
 
-The "Online Furniture Storage" is a service to donate furniture for a good cause.
+The "Online Furniture Storage" is a service to donate furniture for a good cause. 
 
 
 
