@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
-const MAX_FILESIZE = 1048576*5
+export const MAX_FILESIZE = 1048576*5
 
 @Directive({
   selector: '[fileSizeNotTooBig][ngModel]',
