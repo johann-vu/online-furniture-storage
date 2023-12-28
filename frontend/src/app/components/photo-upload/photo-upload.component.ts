@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
+import { MAX_FILESIZE } from 'src/app/directives/file-size-validator.directive';
+import { ImageResizeService } from 'src/app/services/image-resize.service';
 
 @Component({
   selector: 'app-photo-upload',
@@ -18,6 +20,8 @@ export class PhotoUploadComponent implements ControlValueAccessor {
   errors: ValidationErrors | null | undefined
 
   files: File[] = [];
+
+  constructor(private resizeService: ImageResizeService) {}
 
   onChange = (x: any) => { console.log(x)  }
   onTouched: any
@@ -47,13 +51,21 @@ export class PhotoUploadComponent implements ControlValueAccessor {
     this.disabled = disabled;
   }
 
-  onFileSelect(event: any): void {
-    this.markAsTouched()
+  async onFileSelect(event: any) {
     const fileList: FileList = event.target.files;
     for (let i = 0; i < fileList.length; i++) {
-      const file = fileList[i];
+      var file = fileList[i];
+      if (file.size > MAX_FILESIZE) {
+        try {
+          file = await this.resizeService.resizeImage(file, 1200, 1200)
+        } catch (e) {
+          console.error(e);
+          
+        }
+      }
       this.files.push(file)
     }
+    this.markAsTouched()
     this.onChange(this.files)
   }
 
