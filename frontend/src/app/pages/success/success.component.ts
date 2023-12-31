@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./success.component.scss']
 })
 export class SuccessComponent implements OnInit {
-  
+
   ngOnInit(): void {
     if (!navigator.share) return
     this.supportsShare = true
@@ -18,7 +18,7 @@ export class SuccessComponent implements OnInit {
     const shareData = {
       title: 'Online Möbellager',
       text: 'Über das Online Möbellager kannst Du Möbel und Fahrräder spenden. Sieh es Dir doch mal an!',
-      url: 'https://online-mobellager.de'
+      url: 'https://online-moebellager.de'
     };
     navigator.share(shareData)
   }
