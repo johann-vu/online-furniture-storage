@@ -9,14 +9,14 @@
   #photoupload
 />
 <div class="photo-upload__btn-group">
-  <button type="button" (click)="photoupload.click()">
+  <button type="button" class="with-icon" (click)="photoupload.click()">
     <img class="icon" src="assets/undraw_cloud-upload.svg" alt="" />
     Fotos auswählen
   </button>
   <button
     *ngFor="let file of files"
     type="button"
-    class="black-outline"
+    class="black-outline with-icon"
     (click)="onFileDelete(file)"
   >
     {{ file.name }}
