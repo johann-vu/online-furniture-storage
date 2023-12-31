@@ -1,45 +1,76 @@
 @import "/src/styles/mixins";
 @import "/src/styles/variables";
 
+.home__action-card {
+  @include responsive-width;
+  max-width: 600px;
+  background-color: $primary-color;
+  color: $on-primary-color;
+  border-radius: $border-radius;
+  padding: 2 * $spacing-unit;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  p {
+    margin-top: 0;
+    max-width: 55%;
+  }
+  img {
+    opacity: 60%;
+    transform: rotate(-20deg);
+    position: absolute;
+    bottom: -10%;
+    right: -5%;
+    min-height: 80%;
+    min-width: 30%;
+  }
+}
+
 .home__article {
-    @include responsive-width;
-    margin-top: $spacing-unit*6;
-    margin-bottom: $spacing-unit*6;
-    display: flex;
-    align-items: center;
+  @include responsive-width;
+  margin-top: $spacing-unit * 6;
+  margin-bottom: $spacing-unit * 6;
+  display: flex;
+  align-items: center;
 
-    p {
-        text-align: justify;
-    }
+  p {
+    text-align: justify;
+  }
 
-    img {
-        margin-left: 5*$spacing-unit;
-        max-width: 300px;
-        width: 30%;
-        max-height: 300px;
-    }
+  img {
+    margin-left: 5 * $spacing-unit;
+    max-width: 300px;
+    width: 30%;
+    max-height: 300px;
+  }
 }
 
 .home__article--widget {
-    @include responsive-width;
-    margin-top: $spacing-unit*6;
-    margin-bottom: $spacing-unit*6;
+  @include responsive-width;
+  margin-top: $spacing-unit * 6;
+  margin-bottom: $spacing-unit * 6;
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
-    .home__article {
-        @include responsive-width;
-        margin-top: $spacing-unit*6;
-        margin-bottom: $spacing-unit*6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    
-        img {
-            width: 100%;
-            margin-left: 0;
-            margin-top: 5*$spacing-unit;
-        }
+  .home__article {
+    margin-top: $spacing-unit * 3;
+    margin-bottom: $spacing-unit * 3;
+
+    img {
+      display: none;
     }
+  }
+}
+
+@media only screen and (max-width: $container-sm) {
+  .home__action-card {
+    p {
+      margin-top: 0;
+      max-width: 55%;
+    }
+    img {
+      bottom: 10%;
+      right: -15%;
+    }
+  }
 }

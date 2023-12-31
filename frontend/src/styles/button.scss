@@ -1,7 +1,5 @@
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   gap: $spacing-unit;
   padding: $spacing-unit $spacing-unit * 2;
   font-size: $base-font-size;
@@ -16,6 +14,12 @@ button {
 
   &:hover {
     background-color: darken($primary-color, 10%);
+  }
+
+  &.with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .icon {
@@ -68,5 +72,11 @@ button {
   &.dense {
     font-size: $small-font-size;
     padding: $spacing-unit * 0.5 $spacing-unit;
+  }
+}
+
+@media only screen and (max-width: $screen-breakpoint) {
+  button {
+    font-size: $small-font-size;
   }
 }
