@@ -1,7 +1,8 @@
 <div class="offer-card__container">
     <img [src]="imageURL()" alt="">
     <div class="offer-card__text">
-        <h4 class="offer-card__title">{{offer?.title}}</h4>
-        <p>bis {{offer?.available_until | date:'dd.MM.yyyy'}}</p>
+        <span class="offer-card__title">{{offer?.title}}</span> <br>
+        <span class="offer-card__subtitle">noch {{calculateRemainingDays(offer?.available_until)}} Tage</span>
+        <span class="offer-card__subtitle"> · {{offer?.category == 'bike' ? 'Fahrrad' : 'Möbel'}}</span>
     </div>
 </div>

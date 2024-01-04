@@ -7,23 +7,8 @@
   margin-bottom: 2*$spacing-unit;
   margin-top: 2*$spacing-unit;
 
-  .overview__result-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-unit * 2;
-  }
-
   button.block {
     width: 100%;
     margin: $spacing-unit * 3 0;
-  }
-}
-
-@media only screen and (max-width: $screen-md) {
-  .overview__wrapper {
-    .overview__result-grid {
-      display: grid;
-      grid-template-columns: auto;
-    }
   }
 }

@@ -25,6 +25,12 @@ h4 {
   font-weight: 700;
 }
 
+h5 {
+  font-family: $heading-font;
+  font-size: $base-font-size;
+  font-weight: 700;
+}
+
 a {
   color: $primary-color;
 }
@@ -38,6 +44,12 @@ a {
   h4 {
     font-family: $heading-font;
     font-size: 26px;
+    font-weight: 700;
+  }
+
+  h5 {
+    font-family: $heading-font;
+    font-size: $small-font-size;
     font-weight: 700;
   }
 

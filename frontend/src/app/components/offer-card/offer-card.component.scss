@@ -3,9 +3,6 @@
 .offer-card__container {
   overflow: hidden;
   width: 100%;
-  box-sizing: border-box;
-  border: 2px solid $text-color;
-  border-radius: $border-radius;
   background-color: white;
   padding: $spacing-unit;
   display: flex;
@@ -17,14 +14,20 @@
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     margin-right: $spacing-unit * 2;
   }
 
   .offer-card__text {
-    h4 {
-      margin: $spacing-unit 0;
+    .offer-card__title {
+      font-weight: bold;
+      margin-bottom: 0.5*$spacing-unit;
+    }
+
+    .offer-card__subtitle {
+      opacity: 0.7;
+      font-size: $small-font-size;
     }
   }
 }
