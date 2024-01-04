@@ -1,0 +1,153 @@
+# Impressum
+
+Verantwortlich für den Inhalt:
+
+Pfarrgemeinde St. Peter und Paul
+Kirchplatz 3
+46342 Velen
+
+Telefon: 02863 4365
+
+E-Mail: stpeterundpaul-velen@bistum-muenster.de
+
+# Datenschutzerlärung 
+## Allgemeine Texte zur Datenschutzerklärung 
+### Allgemeine Hinweise zum Schutz Ihrer Daten 
+Für den Anbieter dieser Webseite hat der Schutz Ihrer persönlichen Daten eine große Bedeutung. Er 
+behandelt Ihre personenbezogenen Daten vertraulich und entsprechend den geltenden gesetzlichen 
+Datenschutzvorschriften.
+Wenn Sie diese Webseite besuchen, werden unterschiedliche personenbezogene Daten erhoben. 
+Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die 
+vorliegende Datenschutzerklärung erläutert, welche Daten erhoben werden und wofür sie genutzt 
+werden. Es wird beschrieben, wie und zu welchem Zweck dies geschieht.
+Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) 
+Risiken im Bereich der Datensicherheit aufweisen kann. Ein vollständiger Schutz der Daten vor dem 
+Zugriff durch ungebefugte Dritte ist nicht möglich.
+
+### Datenerhebung auf unserer Webseite 
+Die Datenverarbeitung auf dieser Webseite erfolgt durch die verantwortliche Stelle. Name und 
+Kontaktdaten sind nachfolgend unter dem Punkt "Verantwortliche Stelle" aufgeführt.
+
+### Wie erfassen wir Daten?
+Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. über unser 
+Kontaktformular), andere Daten werden automatisch beim Besuch der Webseite durch unsere IT-
+Systeme erfasst. Das sind vor allem technische Daten (z.B. der Internetbrowser, das Betriebssystem 
+oder die Uhrzeit des Besuchs unserer Seite). Die Erfassung dieser Daten erfolgt automatisch, wenn 
+Sie die Webseite aufrufen. Eine mittelbare Datenerhebung findet nicht statt. 
+
+### Zu welchem Zweck erheben wir Daten? 
+Einige der Daten werden erhoben, um eine fehlerfreie Bereitstellung der Webseite zu gewährleisten, 
+andere Daten können auf Grundlage Ihrer Einwilligung zur Analyse des Nutzerverhaltens verwendet 
+werden.
+
+### Welche Rechte haben Sie bezüglich Ihrer Daten?
+Ihnen stehen laut den Bestimmungen des Gesetz über den kirchlichen Datenschutz (KDG) die 
+folgende Rechte zu: 
+- das Recht auf Auskunft über die von ihnen gespeicherten Daten (§ 17 KDG)
+- das Recht auf Berichtigung von falschen Daten (§ 18 KDG)
+- das Recht auf Löschung ihrer Daten („Recht auf Vergessenwerden“) (§ 19 KDG)
+- das Recht auf Einschränkung der Verarbeitung ihrer Daten (§ 20 KDG)
+- das Recht auf einer Mitteilung wenn ihre Daten berichtigt, gelöscht oder die Verarbeitungen 
+eingeschränkt worden sind (§ 21 
+KDG).
+- das Recht auf einer maschinenlesbaren Datenübertragung (§ 22 KDG)
+- ein Widerspruchsrecht, dass sie jederzeit mit Wirkung auf die Zukunft ausüben können (§ 23 KDG)
+- das Recht, einer ausschließlich auf einer automatisierten Verarbeitung, z. B. der Erstellung eines 
+Profils — beruhenden 
+Entscheidung zu widersprechen(§ 24 KDG)
+Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder Ihre 
+datenschutzrechtlichen Ansprüche sonst in einer Weise verletzt worden sind, können Sie sich an 
+Katholisches Datenschutzzentrum – Körperschaft des öffentlichen Rechts (KdöR) wenden und eine 
+Beschwerde einlegen. 
+
+## Allgemeine Hinweise und Pflichtinformationen 
+### Verantwortlichen Stelle 
+Die verantwortliche Stelle für die Datenverarbeitung auf dieser Webseite ist: 
+
+Pfarrgemeinde St. Peter und Paul 
+
+Kirchplatz 3, 
+46342 Velen 
+
+Telefon: 02863 4365
+
+E-Mail: stpeterundpaul-velen@bistum-muenster.de
+
+### Widerruf Ihrer Einwilligung zur Datenverarbeitung 
+Viele Datenerhebungen sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine 
+bereits erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Dazu reicht eine formlose 
+Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung 
+bleibt hiervon unberührt. 
+### Gesetzlich vorgeschriebener Datenschutzbeauftragter 
+Wir haben einen Datenschutzbeauftragten bestellt.
+Sie erreichen unseren Datenschutzbeauftragten über die Adresse:
+
+Bischöfliches Generalvikariat
+
+Fachstelle 105 Datenschutz
+
+Rainer Timmerhinrich
+
+Domplatz 27
+
+48143 Münster
+
+Telefon: 0251 495-17055
+
+E-Mail: datenschutz@bistum-muenster.de
+
+Sie können sich aber auch jederzeit direkt an die verantwortliche Stelle für diese Webseite wenden. 
+### Gesetzlich vorgeschriebener Datenschutzbeauftragter 
+Wir haben eine Datenschutzbeauftragte bestellt.
+Sie erreichen unsere Datenschutzbeauftragte über die Adresse:
+
+Bischöfliches Generalvikariat
+
+Fachstelle 105 Datenschutz
+
+Christel Dierkes
+
+Domplatz 27
+
+48143 Münster
+
+Telefon: 0251 495-17056
+
+E-Mail: datenschutz-kirchengemeinden@bistum-muenster.de
+
+Sie können sich aber auch jederzeit direkt an die verantwortliche Stelle für diese Webseite wenden.
+Beschwerderecht bei der zuständigen Aufsichtsbehörde
+Sie haben ein Beschwerderecht bei der zuständigen Aufsichtsbehörde (§ 48 KDG). Die für die 
+katholischen Einrichtungen im Bistum Münster zuständige Aufsichtsbehörde ist das
+Katholisches Datenschutzzentrum – Körperschaft des öffentlichen Rechts, 
+Brackeler Hellweg 144, 
+44309 Dortmund, 
+Telefon: 0231 138985-0, 
+E-Mail: info@kdsz.de 
+
+### SSL- bzw. TLS-Verschlüsselung 
+Diese Seite nutzt zur Absicherung der Übertragung vertraulicher Inhalte, wie z.B. elektronische 
+Anfragen, die Sie an uns senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte 
+Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von “http://” auf “https://” wechselt 
+und an dem Schloss-Symbol. 
+
+## Datenerfassung auf unserer Webseite 
+### Kontaktformular 
+Die personenbezogenen Daten, die Sie uns im Rahmen einer Anfrage über unser Kontaktformular zur 
+Verfügung stellen, werden nur für die Beantwortung Ihre Anliegens, bzw. zur Kontaktaufnahme mit 
+ihnen verwendet. Die Weitergabe an Dritte findet in der Regel nicht statt.
+Die Verarbeitung dieser Daten erfolgt auf Grundlage von § 6 Abs. 1 lit. c KDG, sofern Ihre Anfrage mit 
+der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen 
+erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an 
+der Bearbeitung der an uns gerichteten Anfragen (§ 6 Abs. 1 lit. g KDG) oder auf Ihrer Einwilligung (§ 
+6 Abs. 1 lit. b KDG), sofern diese eingeholt worden ist. 
+Die von Ihnen im Kontaktformular eingegebenen Daten werden gespeichert, bis Sie uns zur Löschung 
+auffordern, Ihre Einwilligung zur Aufbewahrung widerrufen oder der Zweck für die Speicherung entfällt 
+(z.B. nach einer abgeschlossenen Bearbeitung ihrer Anfrage). Zwingende gesetzliche Bestimmungen 
+– insbesondere Aufbewahrungsfristen – bleiben hiervon unberührt.
+Sie können sich jederzeit über die zu Ihrer Person gespeicherten Daten Auskunft verlangen.
+
+### Stand und Aktualisierung der Datenschutzerklärung 
+Diese Datenschutzerklärung hat den Stand vom 4. Januar 2024. Wir behalten uns vor, die 
+Datenschutzerklärung in regelmäßigen Abständen den zugrundeliegenden 
+Datenverarbeitungsprozessen und rechtlichen Anforderungen anzupassen.
