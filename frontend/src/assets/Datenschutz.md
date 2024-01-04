@@ -10,7 +10,7 @@ Telefon: 02863 4365
 
 E-Mail: stpeterundpaul-velen@bistum-muenster.de
 
-# Datenschutzerlärung 
+# Datenschutzerklärung 
 ## Allgemeine Texte zur Datenschutzerklärung 
 ### Allgemeine Hinweise zum Schutz Ihrer Daten 
 Für den Anbieter dieser Webseite hat der Schutz Ihrer persönlichen Daten eine große Bedeutung. Er 
