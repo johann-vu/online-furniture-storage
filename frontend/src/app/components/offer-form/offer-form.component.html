@@ -56,7 +56,7 @@
         maxlength="120"
       />
       <p class="help-text" [hidden]="size.invalid && size.touched">
-        Wie groß ist das Möbelstück ungefähr?
+        Wie groß ist das Möbelstück ungefähr? Zum Beispel Höhe x Breite x Tiefe.
       </p>
       <p class="error-text" [hidden]="size.valid || size.untouched">
         <span *ngFor="let err of size.errors | keyvalue">{{
