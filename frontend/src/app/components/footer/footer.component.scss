@@ -9,7 +9,8 @@
 
 .footer__container {
   @include responsive-width;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   .footer__contact {
     .footer__contact-title {
       font-family: $heading-font;
@@ -17,9 +18,11 @@
     }
   }
 
-  .footer__spacer {
-    flex-grow: 2;
-    min-width: 2*$spacing-unit;
+  .footer__externals {
+    grid-column-start: 1;
+    grid-column-end: end;
+    display: flex;
+    align-items: center;
   }
 
   hr {
@@ -32,27 +35,22 @@
     justify-content: center;
     gap: $spacing-unit * 2;
     padding: $spacing-unit * 2 0;
-
-    a {
-      color: $on-primary-color;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
   }
+}
+
+a {
+  color: $on-primary-color;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.carbonbadge {
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: $screen-breakpoint) {
   .footer__container {
+    display: flex;
     flex-direction: column;
-
-    .footer__spacer {
-      display: none;
-    }
-  
-  
-    hr {
-      display: block;
-      width: 100%;
-    }
   }
 }
