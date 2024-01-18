@@ -54,7 +54,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "index": "src/index.dev.html"
             }
           },
           "defaultConfiguration": "production"
@@ -63,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "online-furniture-storage:build:production"
+              "buildTarget": "online-furniture-storage:build:production"
             },
             "development": {
-              "browserTarget": "online-furniture-storage:build:development"
+              "buildTarget": "online-furniture-storage:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "online-furniture-storage:build"
+            "buildTarget": "online-furniture-storage:build"
           }
         },
         "test": {

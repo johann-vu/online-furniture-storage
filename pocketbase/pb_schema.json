@@ -6,11 +6,13 @@
         "system": false,
         "schema": [
             {
+                "system": false,
                 "id": "users_name",
                 "name": "name",
                 "type": "text",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": null,
                     "max": null,
@@ -18,14 +20,14 @@
                 }
             },
             {
+                "system": false,
                 "id": "users_avatar",
                 "name": "avatar",
                 "type": "file",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
-                    "maxSelect": 1,
-                    "maxSize": 5242880,
                     "mimeTypes": [
                         "image/jpeg",
                         "image/png",
@@ -34,6 +36,8 @@
                         "image/webp"
                     ],
                     "thumbs": null,
+                    "maxSelect": 1,
+                    "maxSize": 5242880,
                     "protected": false
                 }
             }
@@ -52,6 +56,7 @@
             "manageRule": null,
             "minPasswordLength": 8,
             "onlyEmailDomains": null,
+            "onlyVerified": false,
             "requireEmail": false
         }
     },
@@ -62,11 +67,13 @@
         "system": false,
         "schema": [
             {
+                "system": false,
                 "id": "9i0gllic",
                 "name": "title",
                 "type": "text",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": null,
                     "max": null,
@@ -74,11 +81,13 @@
                 }
             },
             {
+                "system": false,
                 "id": "svilsize",
                 "name": "size",
                 "type": "text",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": null,
                     "max": null,
@@ -86,22 +95,26 @@
                 }
             },
             {
+                "system": false,
                 "id": "zzgzbyvz",
                 "name": "available_until",
                 "type": "date",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": "",
                     "max": ""
                 }
             },
             {
+                "system": false,
                 "id": "7rf7cfnl",
                 "name": "name",
                 "type": "text",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": null,
                     "max": null,
@@ -109,11 +122,13 @@
                 }
             },
             {
+                "system": false,
                 "id": "amnbviye",
                 "name": "phone",
                 "type": "text",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
                     "min": null,
                     "max": null,
@@ -121,14 +136,14 @@
                 }
             },
             {
+                "system": false,
                 "id": "btj9dmdi",
                 "name": "photos",
                 "type": "file",
-                "system": false,
                 "required": false,
+                "presentable": false,
+                "unique": false,
                 "options": {
-                    "maxSelect": 3,
-                    "maxSize": 5242880,
                     "mimeTypes": [
                         "image/jpeg",
                         "image/png",
@@ -139,7 +154,25 @@
                     "thumbs": [
                         "180x180"
                     ],
+                    "maxSelect": 3,
+                    "maxSize": 5242880,
                     "protected": true
+                }
+            },
+            {
+                "system": false,
+                "id": "uatcovcw",
+                "name": "category",
+                "type": "select",
+                "required": true,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "maxSelect": 1,
+                    "values": [
+                        "furniture",
+                        "bike"
+                    ]
                 }
             }
         ],
@@ -148,7 +181,7 @@
         "viewRule": "@request.auth.id != ''",
         "createRule": "",
         "updateRule": null,
-        "deleteRule": null,
+        "deleteRule": "@request.auth.id != ''",
         "options": {}
     }
 ]
