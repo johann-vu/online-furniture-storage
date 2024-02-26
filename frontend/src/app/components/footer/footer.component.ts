@@ -5,14 +5,6 @@ import { AfterContentInit, AfterViewInit, Component, ElementRef, ViewChild } fro
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements AfterViewInit {
+export class FooterComponent {
 
-  @ViewChild('wcb') wcb: ElementRef | undefined;
-
-  ngAfterViewInit(): void {
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/website-carbon-badges@1.1.3/b.min.js';
-    script.defer = true;
-    this.wcb?.nativeElement.appendChild(script)
-  }
 }
