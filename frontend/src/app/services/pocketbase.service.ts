@@ -23,6 +23,7 @@ export class PocketbaseService {
     formData.append('name', offer.name);
     formData.append('phone', offer.phone);
     formData.append('category', offer.category);
+    formData.append('description', offer.description);
 
 
     for (let photo of offer.photos) {
