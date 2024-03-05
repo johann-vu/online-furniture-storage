@@ -5,6 +5,10 @@
   margin: 2*$spacing-unit 0;
 }
 
+.home_hero-button {
+  margin-top: $spacing-unit
+}
+
 .home__action-card {
   @include responsive-width;
   max-width: 600px;
