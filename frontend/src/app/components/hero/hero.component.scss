@@ -40,5 +40,11 @@
         @include animate-slide-in('bottom');
       }
     }
+
+    .hero__image {
+      height: 40vw;
+      max-width: 40vw;
+      @include animate-scale-in;
+    }
   }
 }

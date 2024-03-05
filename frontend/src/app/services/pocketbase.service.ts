@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import PocketBase, { Record } from 'pocketbase';
+import PocketBase from 'pocketbase';
 import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
 
 @Injectable({
@@ -23,6 +23,7 @@ export class PocketbaseService {
     formData.append('name', offer.name);
     formData.append('phone', offer.phone);
     formData.append('category', offer.category);
+    formData.append('description', offer.description);
 
 
     for (let photo of offer.photos) {
@@ -58,7 +59,9 @@ export class PocketbaseService {
         category: o['category'],
         photos: photos,
         id: o.id,
-        created: o.created
+        created: o.created,
+        number: o['number'],
+        description: o['description']
       }
     })
     console.log(results);
@@ -85,7 +88,9 @@ export class PocketbaseService {
       category: o['category'],
       photos: photos,
       id: o.id,
-      created: o.created
+      created: o.created,
+      number: o['number'],
+      description: o['description']
     }
 
     return r

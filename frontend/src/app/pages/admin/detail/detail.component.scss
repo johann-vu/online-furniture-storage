@@ -6,48 +6,78 @@
 }
 
 .detail__title {
-    padding: $spacing-unit 0;
-    h2, p {
-        margin: 0;
-    }
+  padding: $spacing-unit 0;
+  margin: 2 * $spacing-unit 0;
+  h2,
+  p {
+    margin: 0;
+  }
 }
 
 .detail__photos {
-    display: flex;
-    gap: $spacing-unit *3;
-    width: 100%;
-    overflow-x: scroll;
-    margin-bottom: 4*$spacing-unit;
+  display: flex;
+  gap: $spacing-unit * 3;
+  width: 100%;
+  overflow-x: scroll;
+  margin: 2 * $spacing-unit 0;
 
-    img:hover {
-        cursor: pointer;
+  img:hover {
+    cursor: pointer;
+  }
+}
+
+.detail__section {
+  margin: 3 * $spacing-unit 0;
+  .detail__section-headline {
+    display: flex;
+    margin: $spacing-unit 0;
+    h4 {
+      margin: 0;
     }
+    .detail__section-divider {
+      background-color: $primary-color;
+      align-self: center;
+      height: 3px;
+      width: 100%;
+      border-radius: $border-radius;
+      margin-left: $spacing-unit;
+    }
+  }
 }
 
 .detail__infos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2*$spacing-unit;
-    margin-bottom: 3*$spacing-unit;
-    .detail__infos-value {
-        width: $screen-breakpoint *0.5;
-        margin-top: $spacing-unit;
-        font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2 * $spacing-unit;
+  margin-bottom: $spacing-unit;
+
+  .detail__infos-value {
+    margin-top: $spacing-unit;
+    font-weight: bold;
+  }
+
+  .detail__infos--full-width {
+    .detail__infos-description {
+      margin-top: $spacing-unit;
     }
+
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }
 
-.detail__actions{
-    display: flex;
-    gap: 2*$spacing-unit;
-    flex-wrap: wrap;
+.detail__actions {
+  display: flex;
+  gap: 2 * $spacing-unit;
+  flex-wrap: wrap;
 }
 
 .detail__delete-btn {
-    background-color: $danger-color;
-    margin-bottom: 3*$spacing-unit;
-    border: 2px solid $danger-color;
+  background-color: $danger-color;
+  margin-bottom: 3 * $spacing-unit;
+  border: 2px solid $danger-color;
 
-    &:hover {
-        background-color: darken($color: $danger-color, $amount: 20);
-    }
+  &:hover {
+    background-color: darken($color: $danger-color, $amount: 20);
+  }
 }

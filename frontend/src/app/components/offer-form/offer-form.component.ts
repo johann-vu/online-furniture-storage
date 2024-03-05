@@ -17,7 +17,8 @@ export class OfferFormComponent {
     title: "", size: "", available_until: this.getDefaultDate(), name: "", phone: "", photos: [],
     privacy: false,
     nearby: false,
-    category: "furniture"
+    category: "furniture",
+    description: ""
   }
 
   public showErrorMsg(field: string): boolean {

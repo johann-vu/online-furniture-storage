@@ -4,30 +4,65 @@
     <p>von {{ offer?.name }}</p>
   </div>
   <div #images class="detail__photos">
-    <img *ngFor="let p of offer?.photos; index as i;" (click)="openImage(i)" [src]="p" />
+    <img
+      *ngFor="let p of offer?.photos; index as i"
+      (click)="openImage(i)"
+      [src]="p"
+    />
   </div>
-  <div class="detail__infos">
-    <div>
-      <div>Verfügbar bis</div>
-      <div class="detail__infos-value">
-        {{ offer?.available_until | date : "dd.MM.yyyy" }}
+  <div class="detail__section">
+    <div class="detail__section-headline">
+      <h4>Fakten</h4>
+      <div class="detail__section-divider"></div>
+    </div>
+    <div class="detail__section-content detail__infos">
+      <div>
+        <div>Verfügbar bis</div>
+        <div class="detail__infos-value">
+          {{ offer?.available_until | date : "dd.MM.yyyy" }}
+        </div>
+      </div>
+      <div>
+        <div>Erstellt am</div>
+        <div class="detail__infos-value">
+          {{ offer?.created | date : "dd.MM.yyyy" }}
+        </div>
+      </div>
+      <div>
+        <div>Maße</div>
+        <div class="detail__infos-value">{{ offer?.size }}</div>
+      </div>
+      <div>
+        <div>Telefonnummer</div>
+        <div class="detail__infos-value">{{ offer?.phone }}</div>
+      </div>
+      <div>
+        <div>Angebotsnummer</div>
+        <div class="detail__infos-value">{{ offer?.number }}</div>
       </div>
     </div>
-    <div>
-      <div>Erstellt am</div>
-      <div class="detail__infos-value">
-        {{ offer?.created | date : "dd.MM.yyyy" }}
-      </div>
-    </div>
-    <div>
-      <div>Maße</div>
-      <div class="detail__infos-value">{{ offer?.size }}</div>
-    </div>
-    <div>
-      <div>Telefonnummer</div>
-      <div class="detail__infos-value">{{ offer?.phone }}</div>
-    </div>
   </div>
+
+  <div class="detail__section">
+    <div class="detail__section-headline">
+      <h4>Beschreibung</h4>
+      <div class="detail__section-divider"></div>
+    </div>
+    <p>
+      {{ offer?.description ? offer?.description : "Keine Beschreibung vorhanden." }}
+    </p>
+  </div>
+  <!-- <div class="detail__section">
+    <div class="detail__section-headline">
+      <h4>Kommentare</h4>
+      <div class="detail__section-divider"></div>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sint neque
+      odio doloribus consequatur possimus ipsum modi minima nemo labore, in quae
+      nisi dolorum, dolore doloremque, porro accusamus vitae tempora!
+    </p>
+  </div> -->
   <div class="detail__actions">
     <a class="detail__call-btn" href="tel:{{ offer?.phone }}"
       ><button class="outline">Anrufen</button></a

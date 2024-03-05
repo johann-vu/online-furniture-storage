@@ -43,6 +43,27 @@
     </div>
 
     <div class="input-container">
+      <label for="input-title">Beschreibung</label>
+      <textarea
+        #description="ngModel"
+        [(ngModel)]="value.description"
+        name="description"
+        id="input-description"
+        rows="2"
+        maxlength="1000"
+        placeholder="Die Tischplatte ist aus Holz hat eine kleine Macke."
+      ></textarea>
+      <p class="help-text" [hidden]="description.invalid && description.touched">
+        Beschreibe das Möbelstück etwas genauer. Die Beschreibung ist optional.
+      </p>
+      <p class="error-text" [hidden]="description.valid || description.untouched">
+        <span *ngFor="let err of description.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
+
+    <div class="input-container">
       <label for="input-size">Maße</label>
       <input
         [(ngModel)]="value.size"
@@ -86,6 +107,27 @@
       </p>
       <p class="error-text" [hidden]="title.valid || title.untouched">
         <span *ngFor="let err of title.errors | keyvalue">{{
+          err.key | validationErrors
+        }}</span>
+      </p>
+    </div>
+
+    <div class="input-container">
+      <label for="input-title">Beschreibung</label>
+      <textarea
+        #description="ngModel"
+        [(ngModel)]="value.description"
+        name="description"
+        id="input-description"
+        rows="2"
+        placeholder="Es müsste eine Klingel nachgerüstet werden."
+        maxlength="1000"
+      ></textarea>
+      <p class="help-text" [hidden]="description.invalid && description.touched">
+        Beschreibe das Fahrrad etwas genauer. Die Beschreibung ist optional.
+      </p>
+      <p class="error-text" [hidden]="description.valid || description.untouched">
+        <span *ngFor="let err of description.errors | keyvalue">{{
           err.key | validationErrors
         }}</span>
       </p>
@@ -249,7 +291,10 @@
 
   <p>
     Hier geht es zur
-    <a target="_blank" rel="noopener noreferrer" href="/imprint#datenschutzerklaerung"
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="/imprint#datenschutzerklaerung"
       >Datenschutzerklärung</a
     >.
   </p>

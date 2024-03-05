@@ -76,7 +76,7 @@
                 "unique": false,
                 "options": {
                     "min": null,
-                    "max": null,
+                    "max": 32,
                     "pattern": ""
                 }
             },
@@ -90,7 +90,7 @@
                 "unique": false,
                 "options": {
                     "min": null,
-                    "max": null,
+                    "max": 32,
                     "pattern": ""
                 }
             },
@@ -117,7 +117,7 @@
                 "unique": false,
                 "options": {
                     "min": null,
-                    "max": null,
+                    "max": 250,
                     "pattern": ""
                 }
             },
@@ -131,7 +131,7 @@
                 "unique": false,
                 "options": {
                     "min": null,
-                    "max": null,
+                    "max": 250,
                     "pattern": ""
                 }
             },
@@ -173,6 +173,34 @@
                         "furniture",
                         "bike"
                     ]
+                }
+            },
+            {
+                "system": false,
+                "id": "tps0duyu",
+                "name": "number",
+                "type": "number",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": null,
+                    "noDecimal": false
+                }
+            },
+            {
+                "system": false,
+                "id": "jishongb",
+                "name": "description",
+                "type": "text",
+                "required": false,
+                "presentable": false,
+                "unique": false,
+                "options": {
+                    "min": null,
+                    "max": 1024,
+                    "pattern": ""
                 }
             }
         ],
