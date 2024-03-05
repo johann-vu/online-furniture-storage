@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import PocketBase, { Record } from 'pocketbase';
+import PocketBase from 'pocketbase';
 import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
 
 @Injectable({
@@ -59,7 +59,8 @@ export class PocketbaseService {
         photos: photos,
         id: o.id,
         created: o.created,
-        number: o['number']
+        number: o['number'],
+        description: o['description']
       }
     })
     console.log(results);
@@ -87,7 +88,8 @@ export class PocketbaseService {
       photos: photos,
       id: o.id,
       created: o.created,
-      number: o['number']
+      number: o['number'],
+      description: o['description']
     }
 
     return r

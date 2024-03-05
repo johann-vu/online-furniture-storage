@@ -8,6 +8,7 @@ export interface CreateOfferDTO {
     privacy: boolean
     nearby: boolean
     category: string
+    description: string
 }
 
 export interface ReadOfferDTO {
@@ -21,4 +22,5 @@ export interface ReadOfferDTO {
     created: string
     category: string
     number: number
+    description: string
 }
