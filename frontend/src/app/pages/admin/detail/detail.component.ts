@@ -52,12 +52,15 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  deleteOffer() {
+  async deleteOffer() {
     if (!this.offer) return
-    if (confirm("Möchtest du das Angebot \"" + this.offer.title + "\" wirklich löschen?") == true) {
-      this.pb.DeleteOfferByID(this.offer.id)
-        .then(() => this.router.navigate(["overview"]))
-        .catch(e => alert(JSON.stringify(e, undefined, " ")))
+
+    if (!confirm("Möchtest du das Angebot \"" + this.offer.title + "\" wirklich löschen?")) return
+    
+    try {
+      await this.pb.DeleteOfferByID(this.offer.id)
+    } finally {
+      this.router.navigate(["admin", "overview"])
     }
   }
 
