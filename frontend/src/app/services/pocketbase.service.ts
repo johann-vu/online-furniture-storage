@@ -58,7 +58,8 @@ export class PocketbaseService {
         category: o['category'],
         photos: photos,
         id: o.id,
-        created: o.created
+        created: o.created,
+        number: o['number']
       }
     })
     console.log(results);
@@ -85,7 +86,8 @@ export class PocketbaseService {
       category: o['category'],
       photos: photos,
       id: o.id,
-      created: o.created
+      created: o.created,
+      number: o['number']
     }
 
     return r

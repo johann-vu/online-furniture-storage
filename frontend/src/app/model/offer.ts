@@ -20,4 +20,5 @@ export interface ReadOfferDTO {
     id: string,
     created: string
     category: string
+    number: number
 }
