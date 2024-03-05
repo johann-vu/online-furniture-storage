@@ -33,6 +33,8 @@ func main() {
 
 	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EncryptFieldsOnCreate(cryptoService, config.FieldName, config.FieldPhoneNumber))
 
+	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EnumerateOfferOnCreate(config.CollectionOffers, "number", app))
+
 	app.OnRecordViewRequest(config.CollectionOffers).Add(hooks.DecryptFieldsOnView(cryptoService, config.FieldName, config.FieldPhoneNumber))
 
 	if err := app.Start(); err != nil {

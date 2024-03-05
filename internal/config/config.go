@@ -1,6 +1,10 @@
 package config
 
-import "os"
+import (
+	"os"
+
+	_ "github.com/joho/godotenv/autoload"
+)
 
 const (
 	FieldName             = "name"
