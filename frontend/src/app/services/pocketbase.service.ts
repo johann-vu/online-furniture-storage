@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import PocketBase from 'pocketbase';
+import PocketBase, { Record } from 'pocketbase';
 import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
+import { OfferComment } from '../model/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +65,6 @@ export class PocketbaseService {
         description: o['description']
       }
     })
-    console.log(results);
 
     return results
   }
@@ -127,6 +127,38 @@ export class PocketbaseService {
     };
 
     await this.pb.collection('users').update(user.id, data);
+  }
+
+  public async GetComments(offerId: string): Promise<OfferComment[]> {
+    const records = await this.pb.collection('comments').getList(1, 50, {
+      filter: `offer="${offerId}"`,
+      expand: "author",
+      sort: 'created',
+    })
+
+    const comments = records.items.map<OfferComment>(r => {
+      const author = r.expand['author']
+      const authorName = author instanceof Record ? author['name'] : author[0]['name']
+      return {
+        text: r['text'],
+        author: authorName,
+        created: r.created
+      }
+    })
+
+    return comments
+  }
+
+  public async CreateComment(offerId: string, text: string) {
+    const user = this.pb.authStore.model
+    if (!user) return
+    const formData = new FormData();
+
+    formData.append('offer', offerId);
+    formData.append('text', text);
+    formData.append('author', user.id);
+
+    await this.pb.collection('comments').create(formData);
   }
 
 }

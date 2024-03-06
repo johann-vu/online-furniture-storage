@@ -1,0 +1,45 @@
+@import "/src/styles/variables";
+
+.comments__comment {
+    display: grid;
+    grid-template-columns: 25px auto;
+    gap: $spacing-unit;
+    margin-bottom: 2*$spacing-unit;
+
+    .comments__comment-header {
+        align-self: center;
+        font-size: $small-font-size;
+        font-weight: bold;
+        opacity: 0.5;
+    }
+
+    .comments__comment-text {
+        grid-column-start: 2;
+    }
+}
+
+.comments__comment-avatar {
+    background-color: $secondary-color;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 15px;
+    color: $on-secondary-color;
+    font-size: $small-font-size;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.comments__text-field {
+    display: grid;
+    grid-template-columns: 25px auto max-content;
+    gap: $spacing-unit;
+
+    .input-container {
+        margin-bottom: 0;
+    }
+
+    button {
+        align-self: start;
+    }
+}

@@ -52,17 +52,15 @@
       {{ offer?.description ? offer?.description : "Keine Beschreibung vorhanden." }}
     </p>
   </div>
-  <!-- <div class="detail__section">
+  <div class="detail__section">
     <div class="detail__section-headline">
       <h4>Kommentare</h4>
       <div class="detail__section-divider"></div>
     </div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sint neque
-      odio doloribus consequatur possimus ipsum modi minima nemo labore, in quae
-      nisi dolorum, dolore doloremque, porro accusamus vitae tempora!
-    </p>
-  </div> -->
+      <p style="max-width: 600px;">
+        <app-comment-section [comments]="comments" (onSubmit)="createComment($event)"></app-comment-section>
+      </p>
+  </div>
   <div class="detail__actions">
     <a class="detail__call-btn" href="tel:{{ offer?.phone }}"
       ><button class="outline">Anrufen</button></a

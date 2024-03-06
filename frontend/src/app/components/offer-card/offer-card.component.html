@@ -5,4 +5,7 @@
         <span class="offer-card__subtitle">noch {{calculateRemainingDays(offer?.available_until)}} Tage</span>
         <span class="offer-card__subtitle"> · {{offer?.category == 'bike' ? 'Fahrrad' : 'Möbel'}}</span>
     </div>
+    <div class="offer-card__trailing">
+        #{{offer?.number}}
+    </div>
 </div>

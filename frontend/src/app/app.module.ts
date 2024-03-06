@@ -30,6 +30,7 @@ import { ProfileComponent } from './pages/admin/profile/profile.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { CategorySelectComponent } from './components/category-select/category-select.component';
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { FileCountValidatorDirective } from './directives/file-count-validator.d
     AdminComponent,
     ProfileComponent,
     ChangePasswordComponent,
-    CategorySelectComponent
+    CategorySelectComponent,
+    CommentSectionComponent
   ],
   imports: [
     BrowserModule,

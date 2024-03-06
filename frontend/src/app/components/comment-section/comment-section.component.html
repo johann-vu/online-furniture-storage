@@ -1,0 +1,18 @@
+<div *ngFor="let c of comments" class="comments__comment">
+  <div class="comments__comment-avatar">{{ c.author[0] }}</div>
+  <span class="comments__comment-header"
+    >{{ c.author }} {{ c.created | date : "dd.MM HH:mm" }}</span
+  >
+  <span class="comments__comment-text">{{ c.text }}</span>
+</div>
+<div *ngIf="!comments || comments.length == 0" class="comments__comment">
+  <div class="comments__comment-avatar">!</div>
+  <span class="comments__comment-header">Es gibt noch keine Kommentare</span>
+</div>
+<div class="comments__text-field">
+  <div></div>
+  <div class="input-container">
+    <textarea [(ngModel)]="inputText" rows="3"></textarea>
+  </div>
+  <button (click)="submit()">Senden</button>
+</div>
