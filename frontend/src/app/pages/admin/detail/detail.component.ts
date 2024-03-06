@@ -30,7 +30,6 @@ export class DetailComponent implements OnInit, OnDestroy {
         if (!offer) return
         this.offer = offer
         this.comments = await this.pb.GetComments(this.id)
-        console.log(this.comments);
         
       } catch (e) {
         alert(JSON.stringify(e, undefined, " "))

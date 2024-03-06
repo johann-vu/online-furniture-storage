@@ -5,6 +5,10 @@
   >
   <span class="comments__comment-text">{{ c.text }}</span>
 </div>
+<div *ngIf="!comments || comments.length == 0" class="comments__comment">
+  <div class="comments__comment-avatar">!</div>
+  <span class="comments__comment-header">Es gibt noch keine Kommentare</span>
+</div>
 <div class="comments__text-field">
   <div></div>
   <div class="input-container">

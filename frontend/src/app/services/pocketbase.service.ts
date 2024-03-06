@@ -65,7 +65,6 @@ export class PocketbaseService {
         description: o['description']
       }
     })
-    console.log(results);
 
     return results
   }
