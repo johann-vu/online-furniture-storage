@@ -11,7 +11,7 @@ export class PocketbaseService {
   pb: PocketBase
 
   constructor() {
-    this.pb = new PocketBase('http://127.0.0.1:8090');
+    this.pb = new PocketBase('https://online-moebellager.de:443');
   }
 
   public async CreateOffer(offer: CreateOfferDTO): Promise<string> {
@@ -134,7 +134,7 @@ export class PocketbaseService {
     const records = await this.pb.collection('comments').getList(1, 50, {
       filter: `offer="${offerId}"`,
       expand: "author",
-      sort: '-created',
+      sort: 'created',
     })
 
     const comments = records.items.map<OfferComment>(r => {
