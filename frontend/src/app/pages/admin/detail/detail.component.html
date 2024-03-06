@@ -57,9 +57,9 @@
       <h4>Kommentare</h4>
       <div class="detail__section-divider"></div>
     </div>
-    <div style="max-width: 600px;">
-      <app-comment-section [comments]="comments"></app-comment-section>
-    </div>
+      <p style="max-width: 600px;">
+        <app-comment-section [comments]="comments" (onSubmit)="createComment($event)"></app-comment-section>
+      </p>
   </div>
   <div class="detail__actions">
     <a class="detail__call-btn" href="tel:{{ offer?.phone }}"

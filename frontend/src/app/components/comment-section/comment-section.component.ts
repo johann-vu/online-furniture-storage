@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OfferComment } from 'src/app/model/comment';
 
 @Component({
@@ -8,4 +8,13 @@ import { OfferComment } from 'src/app/model/comment';
 })
 export class CommentSectionComponent {
   @Input() comments: OfferComment[] | undefined = [];
+  @Output() onSubmit: EventEmitter<string> = new EventEmitter();
+
+  inputText = ""
+
+  submit() {
+    if (this.inputText == "") return
+    this.onSubmit.emit(this.inputText)
+    this.inputText = ""
+  }
 }

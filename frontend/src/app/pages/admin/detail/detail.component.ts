@@ -69,4 +69,9 @@ export class DetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  async createComment(text:string) {
+    await this.pb.CreateComment(this.id, text)
+    this.comments = await this.pb.GetComments(this.id)
+  }
+
 }
