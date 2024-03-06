@@ -1,0 +1,14 @@
+<div *ngFor="let c of comments" class="comments__comment">
+  <div class="comments__comment-avatar">{{ c.author[0] }}</div>
+  <span class="comments__comment-header"
+    >{{ c.author }} {{ c.created | date : "dd.MM hh:mm" }}</span
+  >
+  <span class="comments__comment-text">{{ c.text }}</span>
+</div>
+<div class="comments__text-field">
+  <div></div>
+  <div class="input-container">
+    <textarea name="" id="" rows="3"></textarea>
+  </div>
+  <button>Senden</button>
+</div>
