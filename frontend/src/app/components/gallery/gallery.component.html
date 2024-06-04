@@ -1,0 +1,7 @@
+<div #images class="gallery__photos">
+    <img
+      *ngFor="let p of image_urls; index as i"
+      (click)="openImage(i)"
+      [src]="p"
+    />
+  </div>

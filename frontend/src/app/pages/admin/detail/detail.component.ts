@@ -37,21 +37,6 @@ export class DetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  openImage(id: number) {
-    if (this.imagesElement && !this.gallery) {
-      this.gallery = new Viewer(this.imagesElement.nativeElement, {
-        toolbar: 3, url(image: { src: string; }) {
-          const urlObj = new URL(image.src);
-          const searchParams = new URLSearchParams(urlObj.search);
-          searchParams.delete('thumb');
-          urlObj.search = searchParams.toString();
-          return urlObj.toString();
-        }
-      })
-    }
-    this.gallery?.moveTo(id)
-  }
-
   ngOnDestroy(): void {
     this.sub?.unsubscribe();
   }

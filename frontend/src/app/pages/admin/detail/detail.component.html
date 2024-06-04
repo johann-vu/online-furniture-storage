@@ -3,13 +3,7 @@
     <h2>{{ offer?.title }}</h2>
     <p>von {{ offer?.name }}</p>
   </div>
-  <div #images class="detail__photos">
-    <img
-      *ngFor="let p of offer?.photos; index as i"
-      (click)="openImage(i)"
-      [src]="p"
-    />
-  </div>
+  <app-gallery [image_urls]="offer?.photos ?? []"></app-gallery>
   <div class="detail__section">
     <div class="detail__section-headline">
       <h4>Fakten</h4>

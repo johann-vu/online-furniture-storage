@@ -14,18 +14,6 @@
   }
 }
 
-.detail__photos {
-  display: flex;
-  gap: $spacing-unit * 3;
-  width: 100%;
-  overflow-x: scroll;
-  margin: 2 * $spacing-unit 0;
-
-  img:hover {
-    cursor: pointer;
-  }
-}
-
 .detail__section {
   margin: 3 * $spacing-unit 0;
   .detail__section-headline {

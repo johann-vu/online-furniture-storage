@@ -1,0 +1,13 @@
+<div class="public-offer__wrapper">
+  <div class="public-offer__card">
+    <div class="public-offer__infos">
+      <h2 class="public-offer__title">{{ offer?.title }}</h2>
+      <chip [text]="'#005'"></chip>
+    </div>
+    <app-gallery [image_urls]="offer?.photos ?? []"></app-gallery>
+    <p>
+      Dieses Angebot wird vom Sachausschuss der Caritas verwaltet. Bei Interesse
+      melden Sie sich bitte bei Ihrem Ansprechpartner.
+    </p>
+  </div>
+</div>

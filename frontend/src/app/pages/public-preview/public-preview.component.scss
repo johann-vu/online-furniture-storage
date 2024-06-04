@@ -1,0 +1,24 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.public-offer__wrapper {
+  @include responsive-width;
+  @include topbar-space;
+  padding: $spacing-unit;
+}
+
+.public-offer__title {
+  padding: $spacing-unit 0;
+  margin: 0;
+}
+
+.public-offer__card {
+  max-width: 800px;
+}
+
+.public-offer__infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-unit;
+}

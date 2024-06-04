@@ -31,6 +31,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { CategorySelectComponent } from './components/category-select/category-select.component';
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { PublicPreviewComponent } from './pages/public-preview/public-preview.component';
+import { ChipComponent } from './components/chip/chip.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -60,7 +63,10 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
         ProfileComponent,
         ChangePasswordComponent,
         CategorySelectComponent,
-        CommentSectionComponent
+        CommentSectionComponent,
+        GalleryComponent,
+        PublicPreviewComponent,
+        ChipComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,

@@ -9,6 +9,7 @@ import { DetailComponent } from './pages/admin/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
+import { PublicPreviewComponent } from './pages/public-preview/public-preview.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "preview/:id",
+    component: PublicPreviewComponent
   },
   {
     path: "admin",

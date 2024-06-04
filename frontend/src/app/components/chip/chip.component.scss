@@ -1,0 +1,6 @@
+@import "/src/styles/variables";
+div {
+	border-radius: $border-radius;
+	background-color: lighten($color: $primary-color, $amount: 50);
+	padding: 0.5 * $spacing-unit;
+}

@@ -24,3 +24,9 @@ export interface ReadOfferDTO {
     number: number
     description: string
 }
+
+export interface PublicOfferDTO {
+    title: string
+    photos: string[]
+    id: string
+}
