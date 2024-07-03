@@ -11,7 +11,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { FormsModule } from '@angular/forms';
 import { DateNotInPastValidatorDirective } from './directives/date-not-in-past-validator.directive';
 import { DateNotInFarFutureValidatorDirective } from './directives/date-not-in-far-future-validator.directive';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { PhoneNumberValidatorDirective } from './directives/phone-number-validator.directive';
 import { SuccessComponent } from './pages/success/success.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
@@ -32,44 +32,37 @@ import { CategorySelectComponent } from './components/category-select/category-s
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TopbarComponent,
-    OfferFormComponent,
-    OfferComponent,
-    FooterComponent,
-    HomeComponent,
-    HeroComponent,
-    DateNotInPastValidatorDirective,
-    DateNotInFarFutureValidatorDirective,
-    PhoneNumberValidatorDirective,
-    SuccessComponent,
-    PhotoUploadComponent,
-    FileSizeValidatorDirective,
-    FileCountValidatorDirective,
-    LoginComponent,
-    LoginFormComponent,
-    OverviewComponent,
-    OfferCardComponent,
-    ValidationErrorsPipe,
-    DetailComponent,
-    ImprintComponent,
-    SplashScreenComponent,
-    StepsWidgetComponent,
-    AdminComponent,
-    ProfileComponent,
-    ChangePasswordComponent,
-    CategorySelectComponent,
-    CommentSectionComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        TopbarComponent,
+        OfferFormComponent,
+        OfferComponent,
+        FooterComponent,
+        HomeComponent,
+        HeroComponent,
+        DateNotInPastValidatorDirective,
+        DateNotInFarFutureValidatorDirective,
+        PhoneNumberValidatorDirective,
+        SuccessComponent,
+        PhotoUploadComponent,
+        FileSizeValidatorDirective,
+        FileCountValidatorDirective,
+        LoginComponent,
+        LoginFormComponent,
+        OverviewComponent,
+        OfferCardComponent,
+        ValidationErrorsPipe,
+        DetailComponent,
+        ImprintComponent,
+        SplashScreenComponent,
+        StepsWidgetComponent,
+        AdminComponent,
+        ProfileComponent,
+        ChangePasswordComponent,
+        CategorySelectComponent,
+        CommentSectionComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

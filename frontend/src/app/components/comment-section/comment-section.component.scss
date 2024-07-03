@@ -32,7 +32,7 @@
 
 .comments__text-field {
     display: grid;
-    grid-template-columns: 25px auto max-content;
+    grid-template-columns: auto max-content;
     gap: $spacing-unit;
 
     .input-container {
