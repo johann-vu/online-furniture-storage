@@ -22,7 +22,7 @@ func main() {
 	}
 
 	app := pocketbase.New()
-	subFS, err := fs.Sub(frontendDirectory, "frontend")
+	subFS, err := fs.Sub(frontendDirectory, "frontend/browser")
 	if err != nil {
 		log.Fatalf("creating sub directory: %s", err)
 	}
