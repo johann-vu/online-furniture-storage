@@ -4,6 +4,7 @@ import (
 	"io/fs"
 
 	"github.com/labstack/echo/v5"
+	"github.com/labstack/echo/v5/middleware"
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -25,8 +26,10 @@ func ServeFrontend(frontendDirectory fs.FS) func(*core.ServeEvent) error {
 		}
 	}
 
+	var gzipFunc echo.MiddlewareFunc = middleware.Gzip()
+
 	return func(se *core.ServeEvent) error {
-		se.Router.GET("/*", apis.StaticDirectoryHandler(frontendDirectory, true), cacheFunc)
+		se.Router.GET("/*", apis.StaticDirectoryHandler(frontendDirectory, true), cacheFunc, gzipFunc)
 		return nil
 	}
 }
