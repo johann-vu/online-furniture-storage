@@ -20,6 +20,8 @@
     "@angular/router": "^18.0.1",
     "@fontsource/inter": "^5.0.8",
     "@fontsource/roboto-serif": "^5.0.8",
+    "lottie-web": "^5.12.2",
+    "ngx-lottie": "^12.0.0",
     "pocketbase": "^0.16.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

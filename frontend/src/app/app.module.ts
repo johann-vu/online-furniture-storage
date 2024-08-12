@@ -31,38 +31,44 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { CategorySelectComponent } from './components/category-select/category-select.component';
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { provideLottieOptions, LottieComponent } from 'ngx-lottie';
+import player from 'lottie-web';
 
-@NgModule({ declarations: [
-        AppComponent,
-        TopbarComponent,
-        OfferFormComponent,
-        OfferComponent,
-        FooterComponent,
-        HomeComponent,
-        HeroComponent,
-        DateNotInPastValidatorDirective,
-        DateNotInFarFutureValidatorDirective,
-        PhoneNumberValidatorDirective,
-        SuccessComponent,
-        PhotoUploadComponent,
-        FileSizeValidatorDirective,
-        FileCountValidatorDirective,
-        LoginComponent,
-        LoginFormComponent,
-        OverviewComponent,
-        OfferCardComponent,
-        ValidationErrorsPipe,
-        DetailComponent,
-        ImprintComponent,
-        SplashScreenComponent,
-        StepsWidgetComponent,
-        AdminComponent,
-        ProfileComponent,
-        ChangePasswordComponent,
-        CategorySelectComponent,
-        CommentSectionComponent
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+	declarations: [
+		AppComponent,
+		TopbarComponent,
+		OfferFormComponent,
+		OfferComponent,
+		FooterComponent,
+		HomeComponent,
+		HeroComponent,
+		DateNotInPastValidatorDirective,
+		DateNotInFarFutureValidatorDirective,
+		PhoneNumberValidatorDirective,
+		SuccessComponent,
+		PhotoUploadComponent,
+		FileSizeValidatorDirective,
+		FileCountValidatorDirective,
+		LoginComponent,
+		LoginFormComponent,
+		OverviewComponent,
+		OfferCardComponent,
+		ValidationErrorsPipe,
+		DetailComponent,
+		ImprintComponent,
+		SplashScreenComponent,
+		StepsWidgetComponent,
+		AdminComponent,
+		ProfileComponent,
+		ChangePasswordComponent,
+		CategorySelectComponent,
+		CommentSectionComponent
+	],
+	bootstrap: [AppComponent], imports: [BrowserModule,
+		AppRoutingModule, LottieComponent,
+		FormsModule], providers: [provideHttpClient(withInterceptorsFromDi()), provideLottieOptions({
+			player: () => player,
+		}),]
+})
 export class AppModule { }

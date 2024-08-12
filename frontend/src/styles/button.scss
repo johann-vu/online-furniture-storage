@@ -51,6 +51,24 @@ button {
     }
   }
 
+  &.secondary {
+    background-color: $secondary-color;
+    color: $text-color;
+
+    &:hover {
+      background-color: darken($secondary-color, 20%);
+    }
+
+    &.outline {
+      color: $secondary-color;
+      border: 2px solid $secondary-color;
+      background-color: $secondary-color;
+      &:hover {
+        background-color: darken($secondary-color, 20%);
+      }
+    }
+  }
+
   &.outline {
     color: $primary-color;
     border: 2px solid $primary-color;
