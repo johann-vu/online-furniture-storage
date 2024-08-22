@@ -23,7 +23,6 @@ import { OfferCardComponent } from './components/offer-card/offer-card.component
 import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
 import { DetailComponent } from './pages/admin/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
-import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { StepsWidgetComponent } from './components/steps-widget/steps-widget.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
@@ -55,7 +54,6 @@ import { CommentSectionComponent } from './components/comment-section/comment-se
 		ValidationErrorsPipe,
 		DetailComponent,
 		ImprintComponent,
-		SplashScreenComponent,
 		StepsWidgetComponent,
 		AdminComponent,
 		ProfileComponent,
