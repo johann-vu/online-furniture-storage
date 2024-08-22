@@ -23,7 +23,6 @@ import { OfferCardComponent } from './components/offer-card/offer-card.component
 import { ValidationErrorsPipe } from './directives/validation-errors.pipe';
 import { DetailComponent } from './pages/admin/detail/detail.component';
 import { ImprintComponent } from './pages/imprint/imprint.component';
-import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { StepsWidgetComponent } from './components/steps-widget/steps-widget.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ProfileComponent } from './pages/admin/profile/profile.component';
@@ -32,37 +31,38 @@ import { CategorySelectComponent } from './components/category-select/category-s
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 
-@NgModule({ declarations: [
-        AppComponent,
-        TopbarComponent,
-        OfferFormComponent,
-        OfferComponent,
-        FooterComponent,
-        HomeComponent,
-        HeroComponent,
-        DateNotInPastValidatorDirective,
-        DateNotInFarFutureValidatorDirective,
-        PhoneNumberValidatorDirective,
-        SuccessComponent,
-        PhotoUploadComponent,
-        FileSizeValidatorDirective,
-        FileCountValidatorDirective,
-        LoginComponent,
-        LoginFormComponent,
-        OverviewComponent,
-        OfferCardComponent,
-        ValidationErrorsPipe,
-        DetailComponent,
-        ImprintComponent,
-        SplashScreenComponent,
-        StepsWidgetComponent,
-        AdminComponent,
-        ProfileComponent,
-        ChangePasswordComponent,
-        CategorySelectComponent,
-        CommentSectionComponent
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+	declarations: [
+		AppComponent,
+		TopbarComponent,
+		OfferFormComponent,
+		OfferComponent,
+		FooterComponent,
+		HomeComponent,
+		HeroComponent,
+		DateNotInPastValidatorDirective,
+		DateNotInFarFutureValidatorDirective,
+		PhoneNumberValidatorDirective,
+		SuccessComponent,
+		PhotoUploadComponent,
+		FileSizeValidatorDirective,
+		FileCountValidatorDirective,
+		LoginComponent,
+		LoginFormComponent,
+		OverviewComponent,
+		OfferCardComponent,
+		ValidationErrorsPipe,
+		DetailComponent,
+		ImprintComponent,
+		StepsWidgetComponent,
+		AdminComponent,
+		ProfileComponent,
+		ChangePasswordComponent,
+		CategorySelectComponent,
+		CommentSectionComponent
+	],
+	bootstrap: [AppComponent], imports: [BrowserModule,
+		AppRoutingModule,
+		FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())]
+})
 export class AppModule { }

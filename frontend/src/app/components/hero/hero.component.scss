@@ -37,7 +37,7 @@
       .hero__slot {
         text-align: center;
         width: 100%;
-        @include animate-slide-in('bottom');
+        @include animate-slide-in("bottom");
       }
     }
 
