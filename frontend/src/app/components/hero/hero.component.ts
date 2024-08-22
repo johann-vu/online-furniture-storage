@@ -12,8 +12,8 @@ export class HeroComponent {
   @Input() lottieSrc: string | undefined
 
   lottieConfig: AnimationOptions = {
-    path: 'assets/Smaller_Furniture.json', // Der Pfad zu deiner JSON-Datei
-    renderer: 'svg', // Anderer Renderer können sein: 'canvas', 'html'
+    path: 'assets/Smaller_Furniture.json',
+    renderer: 'svg',
     loop: true,
     autoplay: true,
   };

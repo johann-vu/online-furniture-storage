@@ -31,8 +31,6 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { CategorySelectComponent } from './components/category-select/category-select.component';
 import { FileCountValidatorDirective } from './directives/file-count-validator.directive';
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
-import { provideLottieOptions, LottieComponent } from 'ngx-lottie';
-import player from 'lottie-web';
 
 @NgModule({
 	declarations: [
@@ -66,9 +64,7 @@ import player from 'lottie-web';
 		CommentSectionComponent
 	],
 	bootstrap: [AppComponent], imports: [BrowserModule,
-		AppRoutingModule, LottieComponent,
-		FormsModule], providers: [provideHttpClient(withInterceptorsFromDi()), provideLottieOptions({
-			player: () => player,
-		}),]
+		AppRoutingModule,
+		FormsModule], providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }
