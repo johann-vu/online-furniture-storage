@@ -4,9 +4,9 @@
   overflow: hidden;
   width: 100%;
   background-color: white;
-  padding: $spacing-unit;
   display: flex;
   align-items: center;
+  margin-bottom: $spacing-unit;
 
   &:hover {
     cursor: pointer;
@@ -16,7 +16,7 @@
   img {
     width: 60px;
     height: 60px;
-    margin-right: $spacing-unit * 2;
+    margin: $spacing-unit;
   }
 
   .offer-card__text {
@@ -38,5 +38,6 @@
     border: $text-color solid 1px;
     border-radius: $border-radius;
     padding: 0.5*$spacing-unit;
+	margin: $spacing-unit;
   }
 }

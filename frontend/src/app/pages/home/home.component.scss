@@ -63,10 +63,12 @@
   .home__article {
     margin-top: $spacing-unit * 3;
     margin-bottom: $spacing-unit * 3;
+	flex-direction: column;
 
-    img {
-      display: none;
-    }
+	img {
+		margin-left: 0;
+		width: 90%;
+	  }
   }
 }
 
