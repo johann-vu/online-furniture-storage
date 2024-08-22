@@ -8,6 +8,5 @@ import { Component, Input } from '@angular/core';
 export class HeroComponent {
 
   @Input() imageSrc: string | undefined
-  @Input() lottieSrc: string | undefined
 
 }
