@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
 
 jobs:
   build-and-deploy:
@@ -35,8 +36,15 @@ jobs:
           cd backend
           go build -o ../app cmd/main.go
 
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: go-build
+          path: app
+
       - name: Copy Files to VM
         uses: appleboy/scp-action@v0.1.4
+        if: github.ref == 'refs/heads/main'
         with:
           host: ${{ vars.VM_IP }}
           username: ${{ vars.VM_USER }}
