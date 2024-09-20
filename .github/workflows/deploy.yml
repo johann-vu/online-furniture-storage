@@ -31,7 +31,9 @@ jobs:
           go-version: 1.x
 
       - name: Build Go Project
-        run: go build -o app cmd/main.go
+        run: |
+          cd backend
+          go build -o ../app cmd/main.go
 
       - name: Copy Files to VM
         uses: appleboy/scp-action@v0.1.4
