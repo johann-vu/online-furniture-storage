@@ -1,14 +1,13 @@
-name: Build and Deploy
+name: Build
 
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    environment: production
 
     steps:
       - name: Checkout Repository
@@ -40,13 +39,3 @@ jobs:
         with:
           name: go-build
           path: app
-
-      - name: Copy Files to VM
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ vars.VM_IP }}
-          username: ${{ vars.VM_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: app
-          target: /home/service_user/service/
-          overwrite: true
