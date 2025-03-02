@@ -2,14 +2,15 @@ import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[dateNotInFarFuture][ngModel]',
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: DateNotInFarFutureValidatorDirective,
-      multi: true,
-    },
-  ],
+    selector: '[dateNotInFarFuture][ngModel]',
+    providers: [
+        {
+            provide: NG_VALIDATORS,
+            useExisting: DateNotInFarFutureValidatorDirective,
+            multi: true,
+        },
+    ],
+    standalone: false
 })
 export class DateNotInFarFutureValidatorDirective {
 

@@ -13,7 +13,8 @@ const MESSAGES: { [key: string]: string } = {
 const FALLBACK_MESSAGE = "Ungültige Eingabe."
 
 @Pipe({
-  name: 'validationErrors'
+    name: 'validationErrors',
+    standalone: false
 })
 export class ValidationErrorsPipe implements PipeTransform {
 

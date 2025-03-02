@@ -2,14 +2,15 @@ import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[phoneNumber][ngModel]',
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: PhoneNumberValidatorDirective,
-      multi: true,
-    },
-  ],
+    selector: '[phoneNumber][ngModel]',
+    providers: [
+        {
+            provide: NG_VALIDATORS,
+            useExisting: PhoneNumberValidatorDirective,
+            multi: true,
+        },
+    ],
+    standalone: false
 })
 export class PhoneNumberValidatorDirective {
 

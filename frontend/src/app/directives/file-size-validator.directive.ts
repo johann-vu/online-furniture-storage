@@ -4,14 +4,15 @@ import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 export const MAX_FILESIZE = 1048576*5
 
 @Directive({
-  selector: '[fileSizeNotTooBig][ngModel]',
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: FileSizeValidatorDirective,
-      multi: true,
-    },
-  ],
+    selector: '[fileSizeNotTooBig][ngModel]',
+    providers: [
+        {
+            provide: NG_VALIDATORS,
+            useExisting: FileSizeValidatorDirective,
+            multi: true,
+        },
+    ],
+    standalone: false
 })
 export class FileSizeValidatorDirective {
 

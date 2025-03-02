@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { ReadOfferDTO } from 'src/app/model/offer';
 
 @Component({
-  selector: 'app-offer-card',
-  templateUrl: './offer-card.component.html',
-  styleUrls: ['./offer-card.component.scss']
+    selector: 'app-offer-card',
+    templateUrl: './offer-card.component.html',
+    styleUrls: ['./offer-card.component.scss'],
+    standalone: false
 })
 export class OfferCardComponent {
   @Input() offer: ReadOfferDTO | undefined

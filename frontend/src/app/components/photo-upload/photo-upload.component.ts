@@ -4,16 +4,17 @@ import { MAX_FILESIZE } from 'src/app/directives/file-size-validator.directive';
 import { ImageResizeService } from 'src/app/services/image-resize.service';
 
 @Component({
-  selector: 'app-photo-upload',
-  templateUrl: './photo-upload.component.html',
-  styleUrls: ['./photo-upload.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: PhotoUploadComponent,
-      multi: true,
-    }
-  ]
+    selector: 'app-photo-upload',
+    templateUrl: './photo-upload.component.html',
+    styleUrls: ['./photo-upload.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: PhotoUploadComponent,
+            multi: true,
+        }
+    ],
+    standalone: false
 })
 export class PhotoUploadComponent implements ControlValueAccessor {
 

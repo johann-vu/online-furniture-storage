@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-steps-widget',
-  templateUrl: './steps-widget.component.html',
-  styleUrls: ['./steps-widget.component.scss']
+    selector: 'app-steps-widget',
+    templateUrl: './steps-widget.component.html',
+    styleUrls: ['./steps-widget.component.scss'],
+    standalone: false
 })
 export class StepsWidgetComponent {
 
