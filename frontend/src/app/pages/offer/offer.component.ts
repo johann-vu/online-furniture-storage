@@ -4,9 +4,10 @@ import { CreateOfferDTO } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
 @Component({
-  selector: 'app-offer',
-  templateUrl: './offer.component.html',
-  styleUrls: ['./offer.component.scss']
+    selector: 'app-offer',
+    templateUrl: './offer.component.html',
+    styleUrls: ['./offer.component.scss'],
+    standalone: false
 })
 export class OfferComponent {
 

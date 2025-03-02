@@ -1,9 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-topbar',
-  templateUrl: './topbar.component.html',
-  styleUrls: ['./topbar.component.scss']
+    selector: 'app-topbar',
+    templateUrl: './topbar.component.html',
+    styleUrls: ['./topbar.component.scss'],
+    standalone: false
 })
 export class TopbarComponent {
 

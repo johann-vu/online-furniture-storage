@@ -2,14 +2,15 @@ import { Directive } from '@angular/core';
 import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
-  selector: '[dateNotInPast][ngModel]',
-  providers: [
-    {
-      provide: NG_VALIDATORS,
-      useExisting: DateNotInPastValidatorDirective,
-      multi: true,
-    },
-  ],
+    selector: '[dateNotInPast][ngModel]',
+    providers: [
+        {
+            provide: NG_VALIDATORS,
+            useExisting: DateNotInPastValidatorDirective,
+            multi: true,
+        },
+    ],
+    standalone: false
 })
 export class DateNotInPastValidatorDirective {
   

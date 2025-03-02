@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+    selector: 'app-admin',
+    templateUrl: './admin.component.html',
+    styleUrls: ['./admin.component.scss'],
+    standalone: false
 })
 export class AdminComponent {
 

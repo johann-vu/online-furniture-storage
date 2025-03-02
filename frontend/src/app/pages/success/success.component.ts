@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-success',
-  templateUrl: './success.component.html',
-  styleUrls: ['./success.component.scss']
+    selector: 'app-success',
+    templateUrl: './success.component.html',
+    styleUrls: ['./success.component.scss'],
+    standalone: false
 })
 export class SuccessComponent implements OnInit {
 
