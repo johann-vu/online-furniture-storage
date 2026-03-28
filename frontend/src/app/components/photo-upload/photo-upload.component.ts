@@ -6,7 +6,7 @@ import { ImageResizeService } from 'src/app/services/image-resize.service';
 @Component({
     selector: 'app-photo-upload',
     templateUrl: './photo-upload.component.html',
-    styleUrls: ['./photo-upload.component.scss'],
+    styleUrls: ['./photo-upload.component.css'],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

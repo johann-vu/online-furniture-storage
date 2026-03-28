@@ -1,0 +1,11 @@
+.imprint__wrapper {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 60px;
+  height: 100%;
+}
+
+.imprint__container {
+  padding: var(--spacing-unit) 0;
+}

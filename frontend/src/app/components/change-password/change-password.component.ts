@@ -6,7 +6,7 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 @Component({
     selector: 'app-change-password',
     templateUrl: './change-password.component.html',
-    styleUrls: ['./change-password.component.scss'],
+    styleUrls: ['./change-password.component.css'],
     standalone: false
 })
 export class ChangePasswordComponent {

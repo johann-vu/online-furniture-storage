@@ -1,0 +1,17 @@
+.success__subtitle {
+  font-weight: bold;
+  opacity: 80%;
+}
+
+.success__text {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: calc(var(--spacing-unit) * 6);
+  margin-bottom: calc(var(--spacing-unit) * 6);
+}
+
+.success__buttons * {
+  margin-right: calc(var(--spacing-unit) * 3);
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}

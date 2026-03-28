@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app-steps-widget',
     templateUrl: './steps-widget.component.html',
-    styleUrls: ['./steps-widget.component.scss'],
+    styleUrls: ['./steps-widget.component.css'],
     standalone: false
 })
 export class StepsWidgetComponent {

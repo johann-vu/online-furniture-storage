@@ -1,0 +1,6 @@
+.profile__wrapper {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}

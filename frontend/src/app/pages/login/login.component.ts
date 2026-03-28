@@ -6,7 +6,7 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss'],
+    styleUrls: ['./login.component.css'],
     standalone: false
 })
 export class LoginComponent implements OnInit{

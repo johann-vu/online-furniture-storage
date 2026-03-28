@@ -25,7 +25,7 @@ The "Online Furniture Storage" is a service to donate furniture for a good cause
 [![Pocketbase][pocketbase-shield]][pocketbase-url]
 [![Angular][Angular.io]][Angular-url]
 [![go][Go-shield]][Go-url]
-[![scss][SCSS-shield]][SCSS-url]
+[![css][CSS-shield]][CSS-url]
 
 
 <!-- GETTING STARTED -->
@@ -110,5 +110,5 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [pocketbase-shield]: https://img.shields.io/badge/Pocketbase-B8DBE4?style=for-the-badge&logo=pocketbase&logoColor=black
 [pocketbase-url]: https://pocketbase.io
 
-[SCSS-shield]: https://img.shields.io/badge/Scss-CC6699?style=for-the-badge&logo=sass&logoColor=white
-[scss-url]: https://sass-lang.com
+[CSS-shield]: https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white
+[CSS-url]: https://developer.mozilla.org/docs/Web/CSS

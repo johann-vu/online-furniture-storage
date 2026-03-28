@@ -3,7 +3,7 @@ import { AfterContentInit, AfterViewInit, Component, ElementRef, ViewChild } fro
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
+    styleUrls: ['./footer.component.css'],
     standalone: false
 })
 export class FooterComponent {

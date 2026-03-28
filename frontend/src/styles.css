@@ -1,0 +1,271 @@
+@import '@fontsource/roboto-serif/500.css';
+@import '@fontsource/roboto-serif/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/700.css';
+@import 'viewerjs/dist/viewer.css';
+
+:root {
+  --primary-color: #16374E;
+  --on-primary-color: #F5F5F5;
+  --secondary-color: #DBDB47;
+  --on-secondary-color: #000000;
+  --text-color: #000000;
+  --background-color: white;
+  --danger-color: #dc3545;
+
+  --body-font: "Inter", sans-serif;
+  --heading-font: "Roboto Serif", sans-serif;
+
+  --base-font-size: 20px;
+  --small-font-size: 16px;
+
+  --spacing-unit: 10px;
+  --border-radius: 8px;
+
+  --container-sm: 576px;
+  --container-md: 768px;
+  --container-lg: 992px;
+  --container-xl: 1200px;
+
+  --line-height: 1.5;
+
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1100;
+
+  --transition-duration: 0.5s;
+
+  --screen-sm: 680px;
+  --screen-md: 900px;
+  --screen-breakpoint: var(--screen-sm);
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: var(--heading-font);
+  font-size: var(--base-font-size);
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+@media only screen and (max-width: 680px) {
+  h2 {
+    font-size: 1.8em;
+    margin: calc(var(--spacing-unit) * 2) 0;
+  }
+  h4 {
+    font-family: var(--heading-font);
+    font-size: 26px;
+    font-weight: 700;
+  }
+  h5 {
+    font-family: var(--heading-font);
+    font-size: var(--small-font-size);
+    font-weight: 700;
+  }
+  body {
+    font-size: var(--small-font-size);
+  }
+}
+.input-container {
+  margin-bottom: calc(var(--spacing-unit) * 3);
+}
+.input-container label {
+  display: block;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+  font-weight: bold;
+  font-size: var(--base-font-size);
+}
+.input-container textarea,
+.input-container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: calc(var(--spacing-unit) * 1.5);
+  border: 2px solid var(--text-color);
+  border-radius: var(--border-radius);
+  font-size: var(--base-font-size);
+  transition: border-color var(--transition-duration);
+  margin-bottom: var(--spacing-unit);
+  font-family: var(--body-font);
+  resize: none;
+}
+.input-container textarea[type=file],
+.input-container input[type=file] {
+  display: none;
+}
+.input-container textarea.ng-invalid.ng-touched,
+.input-container input.ng-invalid.ng-touched {
+  border-color: var(--danger-color);
+}
+.input-container textarea:focus,
+.input-container input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+.input-container textarea:disabled,
+.input-container input:disabled {
+  border-color: #666666;
+  background-color: rgb(229.5, 229.5, 229.5);
+  cursor: not-allowed;
+}
+.input-container .help-text {
+  font-size: var(--small-font-size);
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.input-container .error-text {
+  font-size: var(--small-font-size);
+  margin-top: 4px;
+  margin-bottom: 0;
+  color: var(--danger-color);
+}
+.input-container.checkbox-container label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+.input-container.checkbox-container label:hover {
+  cursor: pointer;
+}
+.input-container.checkbox-container label input[type=checkbox] {
+  appearance: none;
+  background-color: #fff;
+  background-image: url(/assets/undraw_check.svg);
+  background-size: 1em 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--text-color);
+  border-radius: 0.15em;
+  margin: 0 var(--spacing-unit) 0 0;
+}
+.input-container.checkbox-container label input[type=checkbox].ng-invalid.ng-touched {
+  border-color: var(--danger-color);
+}
+.input-container.checkbox-container label input[type=checkbox]:hover {
+  background-color: rgb(173.88, 208.2, 232.12);
+  cursor: pointer;
+}
+.input-container.checkbox-container label input[type=checkbox]:checked {
+  background-color: var(--primary-color);
+}
+
+button {
+  display: inline-block;
+  gap: var(--spacing-unit);
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  font-size: var(--base-font-size);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+  font-family: var(--body-font);
+  flex-wrap: wrap;
+}
+button:hover {
+  background-color: rgb(10.78, 26.95, 38.22);
+}
+button.with-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button .icon {
+  height: var(--base-font-size);
+  vertical-align: middle;
+}
+button .trailing-icon {
+  height: var(--base-font-size);
+  vertical-align: middle;
+  margin-left: var(--spacing-unit);
+}
+button.on-primary {
+  background-color: var(--on-primary-color);
+  color: var(--text-color);
+}
+button.on-primary:hover {
+  background-color: #c2c2c2;
+}
+button.on-primary.outline {
+  color: var(--on-primary-color);
+  border: 2px solid var(--on-primary-color);
+  background-color: var(--primary-color);
+}
+button.on-primary.outline:hover {
+  background-color: black;
+}
+button.secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+button.secondary:hover {
+  background-color: rgb(157.2363636364, 157.2363636364, 30.7636363636);
+}
+button.secondary.outline {
+  color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+}
+button.secondary.outline:hover {
+  background-color: rgb(157.2363636364, 157.2363636364, 30.7636363636);
+}
+button.outline {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  background-color: var(--background-color);
+}
+button.outline:hover {
+  background-color: rgb(44.44, 111.1, 157.56);
+}
+button.black-outline {
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+  background-color: var(--background-color);
+}
+button.black-outline:hover {
+  background-color: #cccccc;
+}
+button.dense {
+  font-size: var(--small-font-size);
+  padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+}
+
+@media only screen and (max-width: 680px) {
+  button {
+    font-size: var(--small-font-size);
+  }
+}
+body {
+  background-color: var(--background-color);
+  margin: 0;
+}

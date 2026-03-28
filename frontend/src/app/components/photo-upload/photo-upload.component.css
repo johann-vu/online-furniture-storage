@@ -1,0 +1,6 @@
+.photo-upload__btn-group {
+  margin-top: calc(var(--spacing-unit) * 2);
+  display: flex;
+  gap: var(--spacing-unit);
+  flex-wrap: wrap;
+}

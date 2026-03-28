@@ -5,7 +5,7 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
-    styleUrls: ['./admin.component.scss'],
+    styleUrls: ['./admin.component.css'],
     standalone: false
 })
 export class AdminComponent {

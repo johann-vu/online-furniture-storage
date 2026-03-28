@@ -5,7 +5,7 @@ import { CreateOfferDTO } from 'src/app/model/offer';
 @Component({
     selector: 'app-offer-form',
     templateUrl: './offer-form.component.html',
-    styleUrls: ['./offer-form.component.scss'],
+    styleUrls: ['./offer-form.component.css'],
     standalone: false
 })
 export class OfferFormComponent {

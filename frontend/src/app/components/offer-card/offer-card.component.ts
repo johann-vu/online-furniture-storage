@@ -4,7 +4,7 @@ import { ReadOfferDTO } from 'src/app/model/offer';
 @Component({
     selector: 'app-offer-card',
     templateUrl: './offer-card.component.html',
-    styleUrls: ['./offer-card.component.scss'],
+    styleUrls: ['./offer-card.component.css'],
     standalone: false
 })
 export class OfferCardComponent {

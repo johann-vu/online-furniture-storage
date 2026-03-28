@@ -4,7 +4,7 @@ import { OfferComment } from 'src/app/model/comment';
 @Component({
     selector: 'app-comment-section',
     templateUrl: './comment-section.component.html',
-    styleUrl: './comment-section.component.scss',
+    styleUrl: './comment-section.component.css',
     standalone: false
 })
 export class CommentSectionComponent {

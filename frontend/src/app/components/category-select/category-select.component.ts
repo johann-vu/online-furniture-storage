@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
     selector: 'app-category-select',
     templateUrl: './category-select.component.html',
-    styleUrls: ['./category-select.component.scss'],
+    styleUrls: ['./category-select.component.css'],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,

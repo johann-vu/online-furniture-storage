@@ -1,0 +1,31 @@
+.admin__wrapper {
+  margin-top: 60px;
+}
+
+.admin__top-bar {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  height: 3rem;
+}
+
+.admin__top-bar-content {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: calc(var(--spacing-unit) * 3);
+  overflow-y: scroll;
+}
+.admin__top-bar-content .spacer {
+  flex: 1 1 0;
+}
+.admin__top-bar-content a {
+  color: var(--on-secondary-color);
+  text-decoration: none;
+}
+.admin__top-bar-content a:hover {
+  text-decoration: inherit;
+  cursor: pointer;
+}

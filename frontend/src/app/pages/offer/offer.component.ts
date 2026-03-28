@@ -6,7 +6,7 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 @Component({
     selector: 'app-offer',
     templateUrl: './offer.component.html',
-    styleUrls: ['./offer.component.scss'],
+    styleUrls: ['./offer.component.css'],
     standalone: false
 })
 export class OfferComponent {

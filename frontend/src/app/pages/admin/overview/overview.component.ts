@@ -6,7 +6,7 @@ import { PocketbaseService } from 'src/app/services/pocketbase.service';
 @Component({
     selector: 'app-overview',
     templateUrl: './overview.component.html',
-    styleUrls: ['./overview.component.scss'],
+    styleUrls: ['./overview.component.css'],
     standalone: false
 })
 export class OverviewComponent implements OnInit {

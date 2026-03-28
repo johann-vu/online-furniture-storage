@@ -1,0 +1,15 @@
+.login__wrapper {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.login__form {
+  max-width: 400px;
+  margin: 100px auto;
+}
+
+.login__home-button {
+  width: 100%;
+}

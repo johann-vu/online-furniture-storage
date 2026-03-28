@@ -1,0 +1,11 @@
+.overview__wrapper {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+.overview__wrapper button.block {
+  width: 100%;
+  margin: calc(var(--spacing-unit) * 3) 0;
+}
