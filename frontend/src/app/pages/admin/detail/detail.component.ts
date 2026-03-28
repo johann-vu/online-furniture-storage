@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, of } from 'rxjs';
-import { OfferComment } from 'src/app/model/comment';
-import { ReadOfferDTO } from 'src/app/model/offer';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
 import Viewer from 'viewerjs';
+import { ReadOfferDTO } from '../../../model/offer';
+import { OfferComment } from '../../../model/comment';
+import { PocketbaseService } from '../../../services/pocketbase.service';
 
 @Component({
     selector: 'app-detail',

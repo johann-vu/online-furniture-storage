@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ReadOfferDTO } from 'src/app/model/offer';
+import { ReadOfferDTO } from '../../model/offer';
 
 @Component({
     selector: 'app-offer-card',

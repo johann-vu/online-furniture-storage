@@ -8,7 +8,7 @@
     "request": "launch",
     "mode": "auto",
     "env": {"STORAGE_SECRET":"asdfghjklasdfghjklasdfghjklasdfg"},
-    "program": "${workspaceFolder}/cmd/main.go",
+    "program": "${workspaceFolder}/backend/cmd/main.go",
     "args": ["serve"]
   },
     {

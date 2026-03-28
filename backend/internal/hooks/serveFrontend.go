@@ -3,8 +3,6 @@ package hooks
 import (
 	"io/fs"
 
-	"github.com/labstack/echo/v5"
-	"github.com/labstack/echo/v5/middleware"
 	"github.com/pocketbase/pocketbase/apis"
 	"github.com/pocketbase/pocketbase/core"
 )
@@ -15,21 +13,15 @@ const (
 )
 
 func ServeFrontend(frontendDirectory fs.FS) func(*core.ServeEvent) error {
-	var cacheFunc echo.MiddlewareFunc = func(next echo.HandlerFunc) echo.HandlerFunc {
-		return func(c echo.Context) error {
-			err := next(c)
-			if err != nil {
-				return err
-			}
-			c.Response().Header().Set(CACHE_CONTROL_HEADER, CACHE_CONTROL_HEADER_VALUE)
-			return nil
-		}
+	var cacheFunc = func(e *core.RequestEvent) error {
+		e.Response.Header().Set(CACHE_CONTROL_HEADER, CACHE_CONTROL_HEADER_VALUE)
+		return nil
 	}
 
-	var gzipFunc echo.MiddlewareFunc = middleware.Gzip()
-
 	return func(se *core.ServeEvent) error {
-		se.Router.GET("/*", apis.StaticDirectoryHandler(frontendDirectory, true), cacheFunc, gzipFunc)
+		route := se.Router.GET("/*", apis.Static(frontendDirectory, true))
+		route.BindFunc(cacheFunc)
+		route.Bind(apis.Gzip())
 		return nil
 	}
 }

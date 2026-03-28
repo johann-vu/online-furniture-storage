@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReadOfferDTO } from 'src/app/model/offer';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import { PocketbaseService } from '../../../services/pocketbase.service';
+import { ReadOfferDTO } from '../../../model/offer';
 
 @Component({
     selector: 'app-overview',

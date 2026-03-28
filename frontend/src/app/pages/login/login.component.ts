@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Credentials } from 'src/app/model/credentials';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import { PocketbaseService } from '../../services/pocketbase.service';
+import { Credentials } from '../../model/credentials';
 
 @Component({
     selector: 'app-login',

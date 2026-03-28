@@ -17,9 +17,7 @@ func DeleteOldOffers(app *pocketbase.PocketBase, cronExpr string) func(*core.Ser
 
 		scheduler.MustAdd("delete_old_offers", cronExpr, func() {
 
-			filter := dbx.NewExp("available_until < {:today}", dbx.Params{"today": time.Now().Format(time.DateOnly)})
-
-			records, err := app.Dao().FindRecordsByExpr("offers", filter)
+			records, err := app.FindRecordsByFilter("offers", "available_until < {:today}", "", -1, 0, dbx.Params{"today": time.Now().Format(time.DateOnly)})
 
 			if err != nil {
 				log.Printf("querying offers: %v\n", err)
@@ -29,7 +27,7 @@ func DeleteOldOffers(app *pocketbase.PocketBase, cronExpr string) func(*core.Ser
 
 			for _, r := range records {
 
-				err = app.Dao().DeleteRecord(r)
+				err = app.Delete(r)
 				if err != nil {
 					log.Printf("deleting offer %q: %v\n", r.Id, err)
 					return

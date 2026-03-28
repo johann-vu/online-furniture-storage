@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import { PocketbaseService } from '../../../services/pocketbase.service';
 
 @Component({
     selector: 'app-profile',

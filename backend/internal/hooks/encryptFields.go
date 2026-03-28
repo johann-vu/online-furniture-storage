@@ -5,8 +5,8 @@ import (
 	"github.com/pocketbase/pocketbase/core"
 )
 
-func EncryptFieldsOnCreate(cryptoService *encryption.Service, fields ...string) func(e *core.RecordCreateEvent) error {
-	return func(e *core.RecordCreateEvent) error {
+func EncryptFieldsOnCreate(cryptoService *encryption.Service, fields ...string) func(e *core.RecordRequestEvent) error {
+	return func(e *core.RecordRequestEvent) error {
 
 		for _, key := range fields {
 

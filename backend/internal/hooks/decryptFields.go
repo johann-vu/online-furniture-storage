@@ -5,8 +5,8 @@ import (
 	"github.com/pocketbase/pocketbase/core"
 )
 
-func DecryptFieldsOnView(cryptoService *encryption.Service, fields ...string) func(e *core.RecordViewEvent) error {
-	return func(e *core.RecordViewEvent) error {
+func DecryptFieldsOnView(cryptoService *encryption.Service, fields ...string) func(e *core.RecordRequestEvent) error {
+	return func(e *core.RecordRequestEvent) error {
 
 		for _, key := range fields {
 

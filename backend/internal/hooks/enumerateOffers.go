@@ -3,14 +3,13 @@ package hooks
 import (
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"
-	"github.com/pocketbase/pocketbase/models"
 )
 
-func EnumerateOfferOnCreate(collection, field string, app *pocketbase.PocketBase) func(e *core.RecordCreateEvent) error {
+func EnumerateOfferOnCreate(collection, field string, app *pocketbase.PocketBase) func(e *core.RecordRequestEvent) error {
 
 	counter := -1
 
-	return func(e *core.RecordCreateEvent) error {
+	return func(e *core.RecordRequestEvent) error {
 
 		if counter < 0 {
 			counter = getInitialCounter(app, collection, field)
@@ -24,9 +23,9 @@ func EnumerateOfferOnCreate(collection, field string, app *pocketbase.PocketBase
 
 func getInitialCounter(app *pocketbase.PocketBase, collectionName, field string) int {
 
-	query := app.Dao().RecordQuery(collectionName).OrderBy(field + " DESC").Limit(1)
+	query := app.RecordQuery(collectionName).OrderBy(field + " DESC").Limit(1)
 
-	records := []*models.Record{}
+	records := []*core.Record{}
 	if err := query.All(&records); err != nil {
 		return 0
 	}

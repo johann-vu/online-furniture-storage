@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { CreateOfferDTO } from 'src/app/model/offer';
+import { CreateOfferDTO } from '../../model/offer';
 
 @Component({
     selector: 'app-offer-form',

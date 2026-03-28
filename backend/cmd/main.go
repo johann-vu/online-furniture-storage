@@ -27,15 +27,15 @@ func main() {
 		log.Fatalf("creating sub directory: %s", err)
 	}
 
-	app.OnBeforeServe().Add(hooks.ServeFrontend(subFS))
+	app.OnServe().BindFunc(hooks.ServeFrontend(subFS))
 
-	app.OnBeforeServe().Add(hooks.DeleteOldOffers(app, config.NightlyCronExpression))
+	app.OnServe().BindFunc(hooks.DeleteOldOffers(app, config.NightlyCronExpression))
 
-	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EncryptFieldsOnCreate(cryptoService, config.FieldName, config.FieldPhoneNumber))
+	app.OnRecordCreateRequest(config.CollectionOffers).BindFunc(hooks.EncryptFieldsOnCreate(cryptoService, config.FieldName, config.FieldPhoneNumber))
 
-	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EnumerateOfferOnCreate(config.CollectionOffers, "number", app))
+	app.OnRecordCreateRequest(config.CollectionOffers).BindFunc(hooks.EnumerateOfferOnCreate(config.CollectionOffers, "number", app))
 
-	app.OnRecordViewRequest(config.CollectionOffers).Add(hooks.DecryptFieldsOnView(cryptoService, config.FieldName, config.FieldPhoneNumber))
+	app.OnRecordViewRequest(config.CollectionOffers).BindFunc(hooks.DecryptFieldsOnView(cryptoService, config.FieldName, config.FieldPhoneNumber))
 
 	if err := app.Start(); err != nil {
 		log.Fatal(err)

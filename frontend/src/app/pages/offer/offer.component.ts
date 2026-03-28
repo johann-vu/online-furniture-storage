@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CreateOfferDTO } from 'src/app/model/offer';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import { PocketbaseService } from '../../services/pocketbase.service';
+import { CreateOfferDTO } from '../../model/offer';
 
 @Component({
     selector: 'app-offer',

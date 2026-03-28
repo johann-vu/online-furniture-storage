@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
-import { MAX_FILESIZE } from 'src/app/directives/file-size-validator.directive';
-import { ImageResizeService } from 'src/app/services/image-resize.service';
+import { ImageResizeService } from '../../services/image-resize.service';
+import { MAX_FILESIZE } from '../../directives/file-size-validator.directive';
 
 @Component({
     selector: 'app-photo-upload',

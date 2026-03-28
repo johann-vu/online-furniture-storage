@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PocketbaseService } from 'src/app/services/pocketbase.service';
+import { PocketbaseService } from '../../services/pocketbase.service';
 
 @Component({
     selector: 'app-change-password',
