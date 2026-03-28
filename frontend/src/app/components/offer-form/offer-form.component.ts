@@ -3,9 +3,10 @@ import { NgForm } from '@angular/forms';
 import { CreateOfferDTO } from 'src/app/model/offer';
 
 @Component({
-  selector: 'app-offer-form',
-  templateUrl: './offer-form.component.html',
-  styleUrls: ['./offer-form.component.scss']
+    selector: 'app-offer-form',
+    templateUrl: './offer-form.component.html',
+    styleUrls: ['./offer-form.component.scss'],
+    standalone: false
 })
 export class OfferFormComponent {
 

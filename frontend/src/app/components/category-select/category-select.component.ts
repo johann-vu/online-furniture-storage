@@ -2,16 +2,17 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-category-select',
-  templateUrl: './category-select.component.html',
-  styleUrls: ['./category-select.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CategorySelectComponent),
-      multi: true
-    }
-  ]
+    selector: 'app-category-select',
+    templateUrl: './category-select.component.html',
+    styleUrls: ['./category-select.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => CategorySelectComponent),
+            multi: true
+        }
+    ],
+    standalone: false
 })
 export class CategorySelectComponent implements ControlValueAccessor {
 

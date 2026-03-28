@@ -4,9 +4,10 @@ import { ReadOfferDTO } from 'src/app/model/offer';
 import { PocketbaseService } from 'src/app/services/pocketbase.service';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+    selector: 'app-overview',
+    templateUrl: './overview.component.html',
+    styleUrls: ['./overview.component.scss'],
+    standalone: false
 })
 export class OverviewComponent implements OnInit {
 
