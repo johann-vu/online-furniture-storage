@@ -4,7 +4,9 @@
       <ng-content></ng-content>
     </div>
     <div>
-      <img *ngIf="imageSrc" class="hero__image" [src]="imageSrc" alt="" />
+      @if (imageSrc) {
+        <img class="hero__image" [src]="imageSrc" alt="" />
+      }
     </div>
   </div>
 </div>

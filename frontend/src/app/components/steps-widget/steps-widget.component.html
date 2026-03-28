@@ -1,11 +1,13 @@
 <div class="steps__wrapper">
-  <div *ngFor="let step of steps; let i = index" class="steps__card">
-    <div class="steps__header">
+  @for (step of steps; track step; let i = $index) {
+    <div class="steps__card">
+      <div class="steps__header">
         <span class="steps__number">{{i+1}}</span>
         <h4 class="steps__title">{{step.title}}</h4>
-    </div>
-    <p class="steps__description">
+      </div>
+      <p class="steps__description">
         {{step.description}}
-    </p>
-  </div>
+      </p>
+    </div>
+  }
 </div>

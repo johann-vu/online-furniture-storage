@@ -4,11 +4,12 @@
     <p>von {{ offer?.name }}</p>
   </div>
   <div #images class="detail__photos">
-    <img
-      *ngFor="let p of offer?.photos; index as i"
-      (click)="openImage(i)"
-      [src]="p"
-    />
+    @for (p of offer?.photos; track p; let i = $index) {
+      <img
+        (click)="openImage(i)"
+        [src]="p"
+        />
+    }
   </div>
   <div class="detail__section">
     <div class="detail__section-headline">
@@ -57,16 +58,16 @@
       <h4>Kommentare</h4>
       <div class="detail__section-divider"></div>
     </div>
-      <p style="max-width: 600px;">
-        <app-comment-section [comments]="comments" (onSubmit)="createComment($event)"></app-comment-section>
-      </p>
+    <p style="max-width: 600px;">
+      <app-comment-section [comments]="comments" (onSubmit)="createComment($event)"></app-comment-section>
+    </p>
   </div>
   <div class="detail__actions">
     <a class="detail__call-btn" href="tel:{{ offer?.phone }}"
       ><button class="outline">Anrufen</button></a
-    >
-    <button class="detail__delete-btn" (click)="deleteOffer()">
-      Angebot löschen
-    </button>
+      >
+      <button class="detail__delete-btn" (click)="deleteOffer()">
+        Angebot löschen
+      </button>
+    </div>
   </div>
-</div>

@@ -13,13 +13,14 @@
     <button routerLink="/offer">
       Weiteres Angebot erstellen
     </button>
-    <button
-      *ngIf="supportsShare"
-      class="black-outline"
-      (click)="shareContent()"
-    >
-      Diese Seite teilen
-    </button>
+    @if (supportsShare) {
+      <button
+        class="black-outline"
+        (click)="shareContent()"
+        >
+        Diese Seite teilen
+      </button>
+    }
     <button class="black-outline" routerLink="/">
       Zur Startseite zurückkehren
     </button>

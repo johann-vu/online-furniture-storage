@@ -2,9 +2,11 @@
   <div class="input-container">
     <label for="input-category">Art des Angebots</label>
     <p class="error-text" [hidden]="category.valid || category.untouched">
-      <span *ngFor="let err of category.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
+      @for (err of category.errors | keyvalue; track err) {
+        <span>{{
+          err.key | validationErrors
+        }}</span>
+      }
     </p>
     <app-category-select
       [(ngModel)]="value.category"
@@ -17,145 +19,157 @@
       required
     ></app-category-select>
   </div>
-  <div *ngIf="value.category == 'furniture'">
-    <div class="input-container">
-      <label for="input-title">Bezeichnung</label>
-      <input
-        [(ngModel)]="value.title"
-        name="title"
-        #title="ngModel"
-        type="text"
-        id="input-title"
-        placeholder="Küchentisch"
-        autocomplete="off"
-        required
-        maxlength="120"
-        minlength="3"
-      />
-      <p class="help-text" [hidden]="title.invalid && title.touched">
-        Um welches Möbelstück handelt es sich?
-      </p>
-      <p class="error-text" [hidden]="title.valid || title.untouched">
-        <span *ngFor="let err of title.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
+  @if (value.category == 'furniture') {
+    <div>
+      <div class="input-container">
+        <label for="input-title">Bezeichnung</label>
+        <input
+          [(ngModel)]="value.title"
+          name="title"
+          #title="ngModel"
+          type="text"
+          id="input-title"
+          placeholder="Küchentisch"
+          autocomplete="off"
+          required
+          maxlength="120"
+          minlength="3"
+          />
+        <p class="help-text" [hidden]="title.invalid && title.touched">
+          Um welches Möbelstück handelt es sich?
+        </p>
+        <p class="error-text" [hidden]="title.valid || title.untouched">
+          @for (err of title.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="input-description">Beschreibung</label>
+        <textarea
+          #description="ngModel"
+          [(ngModel)]="value.description"
+          name="description"
+          id="input-description"
+          rows="2"
+          maxlength="1000"
+          placeholder="Die Tischplatte ist aus Holz hat eine kleine Macke."
+        ></textarea>
+        <p class="help-text" [hidden]="description.invalid && description.touched">
+          Beschreibe das Möbelstück etwas genauer. Die Beschreibung ist optional.
+        </p>
+        <p class="error-text" [hidden]="description.valid || description.untouched">
+          @for (err of description.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="input-size">Maße</label>
+        <input
+          [(ngModel)]="value.size"
+          type="text"
+          id="input-size"
+          name="size"
+          #size="ngModel"
+          placeholder="1m x 2m"
+          autocomplete="off"
+          required
+          maxlength="120"
+          />
+        <p class="help-text" [hidden]="size.invalid && size.touched">
+          Wie groß ist das Möbelstück ungefähr? Zum Beispel Höhe x Breite x Tiefe.
+        </p>
+        <p class="error-text" [hidden]="size.valid || size.untouched">
+          @for (err of size.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
     </div>
+  }
 
-    <div class="input-container">
-      <label for="input-description">Beschreibung</label>
-      <textarea
-        #description="ngModel"
-        [(ngModel)]="value.description"
-        name="description"
-        id="input-description"
-        rows="2"
-        maxlength="1000"
-        placeholder="Die Tischplatte ist aus Holz hat eine kleine Macke."
-      ></textarea>
-      <p class="help-text" [hidden]="description.invalid && description.touched">
-        Beschreibe das Möbelstück etwas genauer. Die Beschreibung ist optional.
-      </p>
-      <p class="error-text" [hidden]="description.valid || description.untouched">
-        <span *ngFor="let err of description.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
+  @if (value.category == 'bike') {
+    <div>
+      <div class="input-container">
+        <label for="input-title">Bezeichnung</label>
+        <input
+          [(ngModel)]="value.title"
+          name="title"
+          #title="ngModel"
+          type="text"
+          id="input-title"
+          placeholder="Hollandrad für Herren"
+          autocomplete="off"
+          required
+          maxlength="120"
+          minlength="3"
+          />
+        <p class="help-text" [hidden]="title.invalid && title.touched">
+          Um was für ein Fahrrad handelt es sich?
+        </p>
+        <p class="error-text" [hidden]="title.valid || title.untouched">
+          @for (err of title.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="input-description">Beschreibung</label>
+        <textarea
+          #description="ngModel"
+          [(ngModel)]="value.description"
+          name="description"
+          id="input-description"
+          rows="2"
+          placeholder="Es müsste eine Klingel nachgerüstet werden."
+          maxlength="1000"
+        ></textarea>
+        <p class="help-text" [hidden]="description.invalid && description.touched">
+          Beschreibe das Fahrrad etwas genauer. Die Beschreibung ist optional.
+        </p>
+        <p class="error-text" [hidden]="description.valid || description.untouched">
+          @for (err of description.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
+      <div class="input-container">
+        <label for="input-size">Größe</label>
+        <input
+          [(ngModel)]="value.size"
+          type="text"
+          id="input-size"
+          name="size"
+          #size="ngModel"
+          placeholder="53 cm"
+          autocomplete="off"
+          required
+          maxlength="120"
+          />
+        <p class="help-text" [hidden]="size.invalid && size.touched">
+          Welche Rahmengröße hat das Fahrrad oder wie groß ist es ungefähr?
+        </p>
+        <p class="error-text" [hidden]="size.valid || size.untouched">
+          @for (err of size.errors | keyvalue; track err) {
+            <span>{{
+              err.key | validationErrors
+            }}</span>
+          }
+        </p>
+      </div>
     </div>
-
-    <div class="input-container">
-      <label for="input-size">Maße</label>
-      <input
-        [(ngModel)]="value.size"
-        type="text"
-        id="input-size"
-        name="size"
-        #size="ngModel"
-        placeholder="1m x 2m"
-        autocomplete="off"
-        required
-        maxlength="120"
-      />
-      <p class="help-text" [hidden]="size.invalid && size.touched">
-        Wie groß ist das Möbelstück ungefähr? Zum Beispel Höhe x Breite x Tiefe.
-      </p>
-      <p class="error-text" [hidden]="size.valid || size.untouched">
-        <span *ngFor="let err of size.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
-    </div>
-  </div>
-
-  <div *ngIf="value.category == 'bike'">
-    <div class="input-container">
-      <label for="input-title">Bezeichnung</label>
-      <input
-        [(ngModel)]="value.title"
-        name="title"
-        #title="ngModel"
-        type="text"
-        id="input-title"
-        placeholder="Hollandrad für Herren"
-        autocomplete="off"
-        required
-        maxlength="120"
-        minlength="3"
-      />
-      <p class="help-text" [hidden]="title.invalid && title.touched">
-        Um was für ein Fahrrad handelt es sich?
-      </p>
-      <p class="error-text" [hidden]="title.valid || title.untouched">
-        <span *ngFor="let err of title.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
-    </div>
-
-    <div class="input-container">
-      <label for="input-description">Beschreibung</label>
-      <textarea
-        #description="ngModel"
-        [(ngModel)]="value.description"
-        name="description"
-        id="input-description"
-        rows="2"
-        placeholder="Es müsste eine Klingel nachgerüstet werden."
-        maxlength="1000"
-      ></textarea>
-      <p class="help-text" [hidden]="description.invalid && description.touched">
-        Beschreibe das Fahrrad etwas genauer. Die Beschreibung ist optional.
-      </p>
-      <p class="error-text" [hidden]="description.valid || description.untouched">
-        <span *ngFor="let err of description.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
-    </div>
-
-    <div class="input-container">
-      <label for="input-size">Größe</label>
-      <input
-        [(ngModel)]="value.size"
-        type="text"
-        id="input-size"
-        name="size"
-        #size="ngModel"
-        placeholder="53 cm"
-        autocomplete="off"
-        required
-        maxlength="120"
-      />
-      <p class="help-text" [hidden]="size.invalid && size.touched">
-        Welche Rahmengröße hat das Fahrrad oder wie groß ist es ungefähr?
-      </p>
-      <p class="error-text" [hidden]="size.valid || size.untouched">
-        <span *ngFor="let err of size.errors | keyvalue">{{
-          err.key | validationErrors
-        }}</span>
-      </p>
-    </div>
-  </div>
+  }
   <div class="input-container">
     <label for="inputField">Zeitraum</label>
     <input
@@ -168,20 +182,22 @@
       required
       dateNotInPast
       dateNotInFarFuture
-    />
+      />
     <p
       class="help-text"
       [hidden]="available_until.invalid && available_until.touched"
-    >
+      >
       Bis wann soll das Angebot gelten?
     </p>
     <p
       class="error-text"
       [hidden]="available_until.valid || available_until.untouched"
-    >
-      <span *ngFor="let err of available_until.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
+      >
+      @for (err of available_until.errors | keyvalue; track err) {
+        <span>{{
+          err.key | validationErrors
+        }}</span>
+      }
     </p>
   </div>
   <div class="input-container">
@@ -190,9 +206,11 @@
       Du kannst bis zu drei Bilder zu deinem Angebot hinzufügen.
     </p>
     <p class="error-text" [hidden]="photos.valid || photos.untouched">
-      <span *ngFor="let err of photos.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
+      @for (err of photos.errors | keyvalue; track err) {
+        <span>{{
+          err.key | validationErrors
+        }}</span>
+      }
     </p>
     <app-photo-upload
       name="photos"
@@ -217,14 +235,16 @@
       required
       maxlength="120"
       minlength="3"
-    />
+      />
     <p class="help-text" [hidden]="name.invalid && name.touched">
       Wie lautet Dein Name?
     </p>
     <p class="error-text" [hidden]="name.valid || name.untouched">
-      <span *ngFor="let err of name.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
+      @for (err of name.errors | keyvalue; track err) {
+        <span>{{
+          err.key | validationErrors
+        }}</span>
+      }
     </p>
   </div>
 
@@ -241,14 +261,16 @@
       required
       phoneNumber
       maxlength="120"
-    />
+      />
     <p class="help-text" [hidden]="phone.invalid && phone.touched">
       Unter welcher Telefonnummer erreichen wir Dich?
     </p>
     <p class="error-text" [hidden]="phone.valid || phone.untouched">
-      <span *ngFor="let err of phone.errors | keyvalue">{{
-        err.key | validationErrors
-      }}</span>
+      @for (err of phone.errors | keyvalue; track err) {
+        <span>{{
+          err.key | validationErrors
+        }}</span>
+      }
     </p>
   </div>
 
@@ -262,7 +284,7 @@
         [(ngModel)]="value.nearby"
         #nearby="ngModel"
         required
-      />
+        />
       Das Angebot kommt aus der Nähe von Velen, Ramsdorf oder Hochmoor.
     </label>
     <p class="error-text" [hidden]="nearby.valid || nearby.untouched">
@@ -280,7 +302,7 @@
         [(ngModel)]="value.privacy"
         #privacy="ngModel"
         required
-      />
+        />
       Ich habe die Datenschutzerklärung gelesen und akzeptiert.
     </label>
     <p class="error-text" [hidden]="privacy.valid || privacy.untouched">
@@ -296,11 +318,11 @@
       rel="noopener noreferrer"
       href="/imprint#datenschutzerklaerung"
       >Datenschutzerklärung</a
-    >.
-  </p>
+      >.
+    </p>
 
-  <button class="offer-form__submit with-icon" type="submit">
-    <img class="icon" src="assets/undraw_rocket.svg" alt="" />
-    Erstellen
-  </button>
-</form>
+    <button class="offer-form__submit with-icon" type="submit">
+      <img class="icon" src="assets/undraw_rocket.svg" alt="" />
+      Erstellen
+    </button>
+  </form>

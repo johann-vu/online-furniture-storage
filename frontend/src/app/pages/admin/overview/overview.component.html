@@ -1,18 +1,20 @@
 <div class="overview__wrapper">
   <div class="overview__result-grid">
-    <app-offer-card
-      (click)="openOffer(o)"
-      class="overview__result-item"
-      *ngFor="let o of offers"
-      [offer]="o"
-    ></app-offer-card>
+    @for (o of offers; track o) {
+      <app-offer-card
+        (click)="openOffer(o)"
+        class="overview__result-item"
+        [offer]="o"
+      ></app-offer-card>
+    }
   </div>
 
-  <button
-    *ngIf="page * perPage <= offers.length"
-    class="block"
-    (click)="loadOffers()"
-  >
-    Mehr Laden
-  </button>
+  @if (page * perPage <= offers.length) {
+    <button
+      class="block"
+      (click)="loadOffers()"
+      >
+      Mehr Laden
+    </button>
+  }
 </div>
