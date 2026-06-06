@@ -38,6 +38,7 @@ func DeleteOldOffers(app *pocketbase.PocketBase, cronExpr string) func(*core.Ser
 		})
 
 		scheduler.Start()
+		se.Next()
 
 		return nil
 	}

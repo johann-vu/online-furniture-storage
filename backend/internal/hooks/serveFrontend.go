@@ -22,6 +22,7 @@ func ServeFrontend(frontendDirectory fs.FS) func(*core.ServeEvent) error {
 		route := se.Router.GET("/*", apis.Static(frontendDirectory, true))
 		route.BindFunc(cacheFunc)
 		route.Bind(apis.Gzip())
+		se.Next()
 		return nil
 	}
 }
