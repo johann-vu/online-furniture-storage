@@ -15,11 +15,12 @@ const (
 func ServeFrontend(frontendDirectory fs.FS) func(*core.ServeEvent) error {
 	var cacheFunc = func(e *core.RequestEvent) error {
 		e.Response.Header().Set(CACHE_CONTROL_HEADER, CACHE_CONTROL_HEADER_VALUE)
+		e.Next()
 		return nil
 	}
 
 	return func(se *core.ServeEvent) error {
-		route := se.Router.GET("/*", apis.Static(frontendDirectory, true))
+		route := se.Router.GET("/{path...}", apis.Static(frontendDirectory, true))
 		route.BindFunc(cacheFunc)
 		route.Bind(apis.Gzip())
 		se.Next()
