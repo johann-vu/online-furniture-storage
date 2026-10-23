@@ -77,3 +77,6 @@ document.addEventListener('click', (e) => {
 
 // on back/forward the browser restores the scroll position itself
 window.addEventListener('popstate', routeChanged);
+
+// the page is rendered by Lit after load, so the browser can't jump to a #fragment on its own
+if (location.hash) scrollToHashOrTop();

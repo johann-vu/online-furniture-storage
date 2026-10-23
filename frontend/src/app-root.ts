@@ -1,15 +1,33 @@
-import { LitElement, html } from 'lit';
+import { html } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { LightElement } from './lib/light-element';
+import { RouteController, matchRoute, type Route } from './router';
+import './components/topbar';
+import './components/footer';
+import './pages/home';
+import './pages/imprint';
+import './pages/success';
+import './app-root.css';
 
-// placeholder until the shell (topbar, router outlet, footer) is ported in step 3
+const routes: Route<unknown>[] = [
+  { path: '/', render: () => html`<page-home></page-home>` },
+  { path: '/success', render: () => html`<page-success></page-success>` },
+  { path: '/imprint', render: () => html`<page-imprint></page-imprint>` },
+];
+
 @customElement('app-root')
-export class AppRoot extends LitElement {
-  protected override createRenderRoot() {
-    return this;
-  }
+export class AppRoot extends LightElement {
+  private route = new RouteController(this);
 
   protected override render() {
-    return html`<h1>Online Möbellager</h1>`;
+    const match = matchRoute(routes) ?? matchRoute(routes, '/')!;
+    return html`
+      <app-topbar></app-topbar>
+      <div class="app__wrapper">
+        <main>${match.route.render(match.params)}</main>
+        <app-footer></app-footer>
+      </div>
+    `;
   }
 }
 

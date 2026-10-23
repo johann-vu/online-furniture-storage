@@ -1,0 +1,49 @@
+app-steps-widget {
+  .steps__wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(var(--spacing-unit) * 4);
+  }
+
+  .steps__card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    position: relative;
+    flex-wrap: wrap;
+    flex: 1 1 0;
+  }
+
+  .steps__header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: calc(var(--spacing-unit) * 2);
+  }
+
+  .steps__title {
+    margin: 0;
+  }
+
+  .steps__number {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 80px;
+  }
+
+  .steps__description {
+    text-align: justify;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  app-steps-widget .steps__wrapper {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  app-steps-widget .steps__number {
+    font-size: 50px;
+  }
+}
