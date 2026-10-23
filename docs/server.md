@@ -86,11 +86,23 @@ The Service should be up and running now. You can access it via HTTPS on port 44
 
 ### Step 3: Configure the service
 
-#### Create an admin user
+#### Create a superuser
 
-#### Import the schema
+On the first start PocketBase prints a link to create the first superuser. Alternatively create one on the command line:
+
+```bash
+STORAGE_SECRET=... ./app superuser create admin@example.com <password>
+```
+
+The admin dashboard is available at `https://online-moebellager.de/_/`.
+
+#### Schema
+
+The collections are created and updated by the Go migrations in `backend/internal/migrations`, they run automatically when the service starts. There is no schema to import.
 
 #### Create users
+
+Staff members can't sign up themselves. Create them in the admin dashboard in the `users` collection with a `username` and a password.
 
 ## Operation
 
@@ -114,3 +126,33 @@ To update the web server, follow these steps:
    ```bash
    sudo systemctl start furniture-storage
    ```
+
+### Backup
+
+Stop the service and copy the `pb_data` directory and the `.env` file containing `STORAGE_SECRET`. Without the secret the names and phone numbers of the offers can't be decrypted.
+
+```bash
+sudo systemctl stop furniture-storage
+sudo tar czf /home/admin_user/pb_data-$(date +%F).tar.gz -C /home/service_user pb_data .env
+sudo systemctl start furniture-storage
+```
+
+### One-time upgrade from PocketBase v0.22
+
+The release that upgrades PocketBase from v0.22 to v0.40 migrates the existing data automatically on the first start:
+
+- admins become superusers (`_superusers` collection), their logins stay the same
+- users keep logging in with their username
+- names and phone numbers of offers are re-encrypted with AES-GCM
+- offers that share a number get new numbers, the oldest one keeps its number (see the log)
+- public sign up for users is disabled, comments can only be changed by their author
+- the rate limiter is enabled
+
+**The upgrade can't be undone.** The old binary can't read the migrated data.
+
+1. Rehearse: copy the production `pb_data` to a local machine and start the new binary with the production `STORAGE_SECRET` against the copy (`./app serve --dir ./pb_data-copy`). Log in as a staff member, open an offer, check name, phone and photos, write a comment and submit a new offer.
+2. Create a backup as described above and keep the old binary.
+3. Deploy the new binary as described under *Update* and check the log for errors and renumbered offers.
+4. Repeat the checks from the rehearsal.
+
+To roll back, stop the service and restore **both** the backed-up `pb_data` and the old binary.
