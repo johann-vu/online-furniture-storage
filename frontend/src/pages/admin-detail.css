@@ -1,0 +1,89 @@
+page-admin-detail {
+  .detail__title {
+    padding: var(--spacing-unit) 0;
+    margin: calc(var(--spacing-unit) * 2) 0;
+
+    h2,
+    p {
+      margin: 0;
+    }
+  }
+
+  .detail__photos {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 3);
+    width: 100%;
+    overflow-x: auto;
+    margin: calc(var(--spacing-unit) * 2) 0;
+  }
+
+  /* reset the global button look, the photo itself is the button */
+  .detail__photo {
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    flex-shrink: 0;
+
+    &:hover {
+      background: none;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .detail__section {
+    margin: calc(var(--spacing-unit) * 3) 0;
+  }
+
+  .detail__section-headline {
+    display: flex;
+    margin: var(--spacing-unit) 0;
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .detail__section-divider {
+    background-color: var(--primary-color);
+    align-self: center;
+    height: 3px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-left: var(--spacing-unit);
+  }
+
+  .detail__infos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: var(--spacing-unit);
+  }
+
+  .detail__infos-value {
+    margin-top: var(--spacing-unit);
+    font-weight: bold;
+  }
+
+  .detail__comments {
+    max-width: 600px;
+  }
+
+  .detail__actions {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 2);
+    flex-wrap: wrap;
+  }
+
+  .detail__delete-btn {
+    background-color: var(--danger-color);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    border: 2px solid var(--danger-color);
+
+    &:hover {
+      background-color: #921925;
+    }
+  }
+}

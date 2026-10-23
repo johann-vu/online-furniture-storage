@@ -1,5 +1,5 @@
 export interface OfferComment {
-    text: ""
+    text: string
     created: string
     author: string
 }

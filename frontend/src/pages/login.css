@@ -1,0 +1,19 @@
+page-login {
+  .login__wrapper {
+    height: 100%;
+  }
+
+  .login__form {
+    max-width: 400px;
+    margin: calc(var(--spacing-unit) * 10) auto;
+  }
+
+  .login__submit {
+    width: 100%;
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+
+  .login__home-button {
+    width: 100%;
+  }
+}
