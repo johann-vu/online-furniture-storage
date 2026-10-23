@@ -62,13 +62,13 @@ The old Angular sources under `frontend/src/app/` stay in place (not compiled) a
 - [x] **3. Shell + static pages:** `app-root` (topbar, outlet, footer), `page-home` (hero, steps-widget), `page-imprint`, `page-success` (Web Share API logic from `success.component.ts`).
 - [x] **4. Offer flow (largest piece):** `app-category-select`, `app-photo-upload` (resize > 5 MB, max 3 files), `app-offer-form` (port `offer-form.component.html`, 306 lines, with native validation + touched-based error display, default date +6 weeks), `page-offer` (submit → `createOffer` → `/success`).
 - [x] **5. Admin:** `page-login`/`app-login-form`, `page-admin` layout + logout + guard, `page-admin-overview` (offer cards, pagination as today), `app-image-viewer` + `page-admin-detail` (thumbnails open the viewer, delete with confirm, comments), `page-admin-profile`/`app-change-password`. The login and password forms are only used on one page each, so they live directly in `page-login` and `page-admin-profile` instead of separate components.
-- [ ] **6. Build/CI wiring:**
+- [x] **6. Build/CI wiring:**
    - `package.json` scripts: `dev` (`vite --host 0.0.0.0`), `build` (`tsc --noEmit && vite build`), `preview`.
    - Vite `outDir` must be `../backend/cmd/frontend/browser` — the Go binary embeds `frontend/browser` (`backend/cmd/main.go:15-26`).
    - Production build uses API base `/` (served by the backend, same origin).
    - `.github/workflows/build.yml` / `test.yml`: rename "Build Angular Project" steps; commands (`npm ci && npm run build`) stay the same.
    - Update `.vscode/tasks.json`/`launch.json` and `frontend/README.md`, root `README.md` where they mention `ng`.
-- [ ] **7. Cleanup:** remove remaining Angular files, check `.gitignore` (`.angular/` cache).
+- [x] **7. Cleanup:** remove remaining Angular files, check `.gitignore` (`.angular/` cache).
 
 ## Verification
 - `cd frontend && npm run build` succeeds and writes `backend/cmd/frontend/browser/index.html`.
