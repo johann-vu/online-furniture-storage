@@ -23,4 +23,6 @@ export interface ReadOfferDTO {
     category: string
     number: number
     description: string
+    // only filled in the overview list
+    commentCount?: number
 }

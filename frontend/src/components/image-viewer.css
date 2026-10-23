@@ -1,5 +1,6 @@
 app-image-viewer {
   .image-viewer__backdrop {
+    --focus-color: var(--secondary-color);
     position: fixed;
     inset: 0;
     z-index: var(--z-index-modal);

@@ -3,6 +3,7 @@ import { customElement } from 'lit/decorators.js';
 import { LightElement } from '../lib/light-element';
 import { navigate } from '../router';
 import { hero } from '../components/hero';
+import '../components/steps-widget';
 import './success.css';
 
 @customElement('page-success')
@@ -23,6 +24,7 @@ export class SuccessPage extends LightElement {
           <h2>Dein Angebot wurde erstellt.</h2>
           <p class="success__subtitle">Wenn das mal kein Grund zur Freude ist!</p>
         `,
+        { compact: true },
       )}
       <div class="success__text responsive-width">
         <p>
@@ -39,6 +41,12 @@ export class SuccessPage extends LightElement {
           <button class="black-outline" @click=${() => navigate('/')}>Zur Startseite zurückkehren</button>
         </div>
       </div>
+      <section class="success__next">
+        <div class="responsive-width">
+          <h3>So geht es weiter</h3>
+          <app-steps-widget completed="1"></app-steps-widget>
+        </div>
+      </section>
     `;
   }
 }

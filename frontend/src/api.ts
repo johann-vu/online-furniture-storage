@@ -18,6 +18,7 @@ function toReadOffer(o: RecordModel, token: string): ReadOfferDTO {
     created: o['created'],
     number: o['number'],
     description: o['description'],
+    commentCount: o.expand?.['comments_via_offer']?.length,
   };
 }
 
@@ -39,7 +40,12 @@ export async function createOffer(offer: CreateOfferDTO): Promise<string> {
 }
 
 export async function getOffers(perPage = 10, page = 1): Promise<ReadOfferDTO[]> {
-  const resultList = await pb.collection('offers').getList(page, perPage, { sort: '-created' });
+  // the back-relation expand delivers the comments of each offer, only their ids are needed for the count
+  const resultList = await pb.collection('offers').getList(page, perPage, {
+    sort: '-created',
+    expand: 'comments_via_offer',
+    fields: '*,expand.comments_via_offer.id',
+  });
   const token = await pb.files.getToken();
   return resultList.items.map((o) => toReadOffer(o, token));
 }

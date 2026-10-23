@@ -5,4 +5,46 @@ app-photo-upload {
     gap: var(--spacing-unit);
     flex-wrap: wrap;
   }
+
+  .photo-upload__previews {
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--spacing-unit) * 2) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
+  }
+
+  .photo-upload__preview {
+    position: relative;
+    width: 96px;
+    height: 96px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .photo-upload__remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid white;
+    font-size: 14px;
+    line-height: 1;
+    background-color: var(--text-color);
+    color: white;
+
+    &:hover {
+      background-color: var(--danger-color);
+    }
+  }
 }

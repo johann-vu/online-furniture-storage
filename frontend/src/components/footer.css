@@ -1,5 +1,6 @@
 app-footer {
   .footer__wrapper {
+    --focus-color: var(--secondary-color);
     background-color: var(--primary-color);
     color: var(--on-primary-color);
     width: 100%;

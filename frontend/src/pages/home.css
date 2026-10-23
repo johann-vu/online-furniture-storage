@@ -7,41 +7,28 @@ page-home {
     margin-top: var(--spacing-unit);
   }
 
-  .home__action-card {
-    max-width: 600px;
-    background-color: var(--primary-color);
-    color: var(--on-primary-color);
-    border-radius: var(--border-radius);
-    padding: calc(var(--spacing-unit) * 2);
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
+  /* full-width bands alternating white, dark and grey */
+  .home__section {
+    padding: calc(var(--spacing-unit) * 6) 0;
 
-    p {
+    h3 {
       margin-top: 0;
-      max-width: 55%;
     }
 
-    img {
-      opacity: 60%;
-      transform: rotate(-20deg);
-      position: absolute;
-      bottom: -10%;
-      right: -5%;
-      min-height: 80%;
-      min-width: 30%;
+    &.home__section--dark {
+      --focus-color: var(--secondary-color);
+      background-color: var(--primary-color);
+      color: var(--on-primary-color);
+    }
+
+    &.home__section--muted {
+      background-color: var(--muted-background);
     }
   }
 
   .home__article {
-    margin-top: calc(var(--spacing-unit) * 6);
-    margin-bottom: calc(var(--spacing-unit) * 6);
     display: flex;
     align-items: center;
-
-    p {
-      text-align: justify;
-    }
 
     img {
       margin-left: calc(var(--spacing-unit) * 5);
@@ -50,24 +37,44 @@ page-home {
       max-height: 300px;
     }
   }
-}
 
-@media only screen and (max-width: 680px) {
-  page-home .home__article {
-    margin-top: calc(var(--spacing-unit) * 3);
-    margin-bottom: calc(var(--spacing-unit) * 3);
-    flex-direction: column;
+  .home__action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--spacing-unit) * 4);
+
+    p {
+      margin-top: 0;
+      font-size: 1.2em;
+      max-width: 480px;
+    }
 
     img {
-      margin-left: 0;
-      width: 90%;
+      height: 140px;
+      opacity: 60%;
+      transform: rotate(-12deg);
     }
   }
 }
 
-@media only screen and (max-width: 576px) {
-  page-home .home__action-card img {
-    bottom: 10%;
-    right: -15%;
+@media only screen and (max-width: 680px) {
+  page-home {
+    .home__section {
+      padding: calc(var(--spacing-unit) * 3) 0;
+    }
+
+    .home__article {
+      flex-direction: column;
+
+      img {
+        margin-left: 0;
+        width: 90%;
+      }
+    }
+
+    .home__action img {
+      display: none;
+    }
   }
 }

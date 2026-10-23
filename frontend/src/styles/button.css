@@ -77,7 +77,8 @@ button {
     background-color: var(--background-color);
 
     &:hover {
-      background-color: #2c6f9e;
+      background-color: var(--primary-color);
+      color: var(--on-primary-color);
     }
   }
 

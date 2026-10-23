@@ -15,12 +15,17 @@ page-admin-detail {
     width: 100%;
     overflow-x: auto;
     margin: calc(var(--spacing-unit) * 2) 0;
+    /* room for the shadow and focus ring, the overflow would cut them off */
+    padding: 6px;
+    margin-left: -6px;
   }
 
   /* reset the global button look, the photo itself is the button */
   .detail__photo {
     padding: 0;
-    border-radius: 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     background: none;
     flex-shrink: 0;
 

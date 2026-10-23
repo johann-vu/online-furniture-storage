@@ -8,6 +8,8 @@
   --on-secondary-color: #000000;
   --text-color: #000000;
   --background-color: white;
+  /* light grey for alternating page sections */
+  --muted-background: #f2f4f7;
   --danger-color: #dc3545;
 
   /* Schriftarten */
@@ -26,4 +28,7 @@
   --z-index-dropdown: 1000;
   --z-index-modal: 1100;
   --transition-duration: 0.5s;
+
+  /* keyboard focus ring, dark areas switch it to the secondary color */
+  --focus-color: var(--primary-color);
 }

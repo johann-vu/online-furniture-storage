@@ -6,7 +6,12 @@ page-success {
 
   .success__text {
     margin-top: calc(var(--spacing-unit) * 6);
-    margin-bottom: calc(var(--spacing-unit) * 6);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+
+  .success__next {
+    background-color: var(--muted-background);
+    padding: calc(var(--spacing-unit) * 2) 0 calc(var(--spacing-unit) * 6);
   }
 
   .success__buttons > * {

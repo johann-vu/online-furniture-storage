@@ -90,6 +90,11 @@
         &:checked {
           background-color: var(--primary-color);
         }
+
+        &:focus-visible {
+          outline: 3px solid var(--focus-color);
+          outline-offset: 2px;
+        }
       }
     }
   }

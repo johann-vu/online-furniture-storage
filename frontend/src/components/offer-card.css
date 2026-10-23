@@ -6,10 +6,16 @@ app-offer-card {
     display: flex;
     align-items: center;
     margin-bottom: var(--spacing-unit);
+    border: 1px solid #d9dee3;
+    border-radius: var(--border-radius);
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
 
     &:hover {
       cursor: pointer;
-      background-color: #86b9dd;
+      border-color: var(--primary-color);
+      background-color: #f4f7fa;
     }
   }
 
@@ -17,20 +23,52 @@ app-offer-card {
     width: 60px;
     height: 60px;
     margin: var(--spacing-unit);
+    border-radius: calc(var(--border-radius) / 2);
+    object-fit: cover;
   }
 
   .offer-card__text {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .offer-card__title {
     font-weight: bold;
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
   }
 
-  .offer-card__subtitle {
-    opacity: 0.7;
+  .offer-card__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit);
     font-size: var(--small-font-size);
+    color: #4a5560;
+  }
+
+  .offer-card__badge {
+    padding: 0 8px;
+    border-radius: 999px;
+    background-color: #e8ecf0;
+    color: var(--text-color);
+    white-space: nowrap;
+
+    &.offer-card__badge--urgent {
+      background-color: #fbe3e5;
+      color: #921925;
+      font-weight: 500;
+    }
+  }
+
+  .offer-card__comments {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &.offer-card__comments--none {
+      opacity: 0.5;
+    }
   }
 
   .offer-card__trailing {

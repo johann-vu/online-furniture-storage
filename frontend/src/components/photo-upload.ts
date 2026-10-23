@@ -1,4 +1,4 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { LightElement } from '../lib/light-element';
 import { MAX_FILESIZE } from '../lib/validators';
@@ -11,6 +11,35 @@ export class PhotoUpload extends LightElement {
   @property({ attribute: false }) files: File[] = [];
 
   @query('input[type=file]') private input!: HTMLInputElement;
+
+  // object urls for the previews, released once a file is removed
+  private previews = new Map<File, string>();
+
+  private preview(file: File): string {
+    let url = this.previews.get(file);
+    if (!url) {
+      url = URL.createObjectURL(file);
+      this.previews.set(file, url);
+    }
+    return url;
+  }
+
+  private releasePreviews(keep: File[] = []) {
+    for (const [file, url] of this.previews) {
+      if (keep.includes(file)) continue;
+      URL.revokeObjectURL(url);
+      this.previews.delete(file);
+    }
+  }
+
+  protected override updated() {
+    this.releasePreviews(this.files);
+  }
+
+  override disconnectedCallback() {
+    super.disconnectedCallback();
+    this.releasePreviews();
+  }
 
   private async onFileSelect(e: Event) {
     // the selection is reported via value-change, not the native change event
@@ -45,19 +74,28 @@ export class PhotoUpload extends LightElement {
           <img class="icon" src="/assets/undraw_cloud-upload.svg" alt="" />
           Fotos auswählen
         </button>
-        ${this.files.map(
-          (file) => html`
-            <button
-              type="button"
-              class="black-outline with-icon"
-              @click=${() => this.setFiles(this.files.filter((f) => f !== file))}
-            >
-              ${file.name}
-              <img class="trailing-icon" src="/assets/undraw_circled-x.svg" alt="entfernen" />
-            </button>
-          `,
-        )}
       </div>
+      ${this.files.length
+        ? html`
+            <ul class="photo-upload__previews">
+              ${this.files.map(
+                (file) => html`
+                  <li class="photo-upload__preview">
+                    <img src=${this.preview(file)} alt=${file.name} title=${file.name} />
+                    <button
+                      type="button"
+                      class="photo-upload__remove"
+                      aria-label="${file.name} entfernen"
+                      @click=${() => this.setFiles(this.files.filter((f) => f !== file))}
+                    >
+                      ✕
+                    </button>
+                  </li>
+                `,
+              )}
+            </ul>
+          `
+        : nothing}
     `;
   }
 }

@@ -23,37 +23,43 @@ export class HomePage extends LightElement {
           <button class="secondary home_hero-button" @click=${() => navigate('/offer')}>Los geht's !</button>
         `,
       )}
-      <div class="home__article responsive-width">
-        <div>
-          <h3>Ein Möbellager ganz ohne Lagerhalle?</h3>
-          <p>
-            Die Pfarrgemeinde St. Peter und Paul unterstützt Geflüchtete dabei, hier eine Wohnung zu finden. Das
-            allein ist schon keine einfache Aufgabe, doch wenn es dann geklappt hat, muss es häufig sehr schnell
-            gehen. Die Einrichtung einer Wohnung ist für viele von uns selbstverständlich, für Geflüchtete jedoch
-            nicht. Deshalb möchten wir sie dabei unterstützen, ihre Wohnungen schnell einzurichten.
-          </p>
-          <p>
-            Die Bereitschaft, Möbel zu spenden ist hoch. Allerdings kann die Gemeinde die Möbel für eine Wohnung
-            nicht so einfach lagern. Eine Lagerhalle anzumieten und zu unterhalten kostet Geld und ist mit viel
-            Aufwand verbunden. Deshalb versuchen wir mit dieser Plattform eine Möglichkeit zu bieten, auf der Du
-            verfügbare Möbel melden kannst. Wir kontaktieren Dich, wenn es einen entsprechenden Bedarf gibt.
-          </p>
+      <section class="home__section">
+        <div class="home__article responsive-width">
+          <div>
+            <h3>Ein Möbellager ganz ohne Lagerhalle?</h3>
+            <p>
+              Die Pfarrgemeinde St. Peter und Paul unterstützt Geflüchtete dabei, hier eine Wohnung zu finden. Das
+              allein ist schon keine einfache Aufgabe, doch wenn es dann geklappt hat, muss es häufig sehr schnell
+              gehen. Die Einrichtung einer Wohnung ist für viele von uns selbstverständlich, für Geflüchtete jedoch
+              nicht. Deshalb möchten wir sie dabei unterstützen, ihre Wohnungen schnell einzurichten.
+            </p>
+            <p>
+              Die Bereitschaft, Möbel zu spenden ist hoch. Allerdings kann die Gemeinde die Möbel für eine Wohnung
+              nicht so einfach lagern. Eine Lagerhalle anzumieten und zu unterhalten kostet Geld und ist mit viel
+              Aufwand verbunden. Deshalb versuchen wir mit dieser Plattform eine Möglichkeit zu bieten, auf der Du
+              verfügbare Möbel melden kannst. Wir kontaktieren Dich, wenn es einen entsprechenden Bedarf gibt.
+            </p>
+          </div>
+          <img src="/assets/pup_logo.jpg" alt="" />
         </div>
-        <img src="/assets/pup_logo.jpg" alt="" />
-      </div>
+      </section>
 
-      <div class="home__action-card responsive-width">
-        <p>Ein Angebot zu erstellen dauert nur wenige Minuten. Probiere es doch direkt einmal aus!</p>
-        <button class="secondary" @click=${() => navigate('/offer')}>Angebot erstellen</button>
-        <img src="/assets/undraw_furniture-white.svg" alt="" />
-      </div>
+      <section class="home__section home__section--dark">
+        <div class="home__action responsive-width">
+          <div>
+            <p>Ein Angebot zu erstellen dauert nur wenige Minuten. Probiere es doch direkt einmal aus!</p>
+            <button class="secondary" @click=${() => navigate('/offer')}>Angebot erstellen</button>
+          </div>
+          <img src="/assets/undraw_furniture-white.svg" alt="" />
+        </div>
+      </section>
 
-      <div class="home__article responsive-width">
-        <div>
+      <section class="home__section home__section--muted">
+        <div class="responsive-width">
           <h3>Der Ablauf in drei Schritten</h3>
           <app-steps-widget></app-steps-widget>
         </div>
-      </div>
+      </section>
     `;
   }
 }

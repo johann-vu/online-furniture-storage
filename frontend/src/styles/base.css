@@ -5,6 +5,25 @@ body {
   font-size: var(--base-font-size);
   color: var(--text-color);
   font-weight: 400;
+  line-height: var(--line-height);
+}
+
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+}
+
+p {
+  hyphens: auto;
+  /* only split words with 10+ letters, keeping at least 4 on each side */
+  hyphenate-limit-chars: 10 4 4;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
 }
 
 h2 {

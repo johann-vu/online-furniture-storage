@@ -1,49 +1,94 @@
 app-steps-widget {
   .steps__wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: space-between;
-    gap: calc(var(--spacing-unit) * 4);
+    gap: calc(var(--spacing-unit) * 3);
   }
 
   .steps__card {
     background-color: var(--background-color);
     border-radius: var(--border-radius);
-    position: relative;
-    flex-wrap: wrap;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    padding: calc(var(--spacing-unit) * 2.5);
     flex: 1 1 0;
   }
 
+  /* icon above the title in the narrow three column layout, next to it once the cards are stacked */
   .steps__header {
     display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: calc(var(--spacing-unit) * 2);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-unit);
+  }
+
+  /* the svg is used as a mask, so it takes the color of the background */
+  .steps__icon {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      background-color: var(--primary-color);
+      mask: var(--icon) center / contain no-repeat;
+    }
+  }
+
+  .steps__card--done .steps__icon {
+    background-color: var(--primary-color);
+
+    &::after {
+      background-color: var(--on-primary-color);
+    }
   }
 
   .steps__title {
     margin: 0;
   }
 
-  .steps__number {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 80px;
+  .steps__done {
+    font-size: var(--small-font-size);
+    padding: 0 8px;
+    border-radius: 999px;
+    background-color: #e3f1e6;
+    color: #1d6b32;
   }
 
   .steps__description {
-    text-align: justify;
+    margin-bottom: 0;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  app-steps-widget .steps__wrapper {
-    flex-direction: column;
+  app-steps-widget {
+    .steps__wrapper {
+      flex-direction: column;
+    }
+
+    .steps__header {
+      flex-direction: row;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: calc(var(--spacing-unit) * 1.5);
+    }
   }
 }
 
 @media only screen and (max-width: 680px) {
-  app-steps-widget .steps__number {
-    font-size: 50px;
+  app-steps-widget .steps__icon {
+    width: 44px;
+    height: 44px;
+
+    &::after {
+      inset: 11px;
+    }
   }
 }
