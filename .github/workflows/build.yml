@@ -7,31 +7,36 @@ on:
       - develop
 
 jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+
   build:
     runs-on: ubuntu-latest
+    needs: test
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
 
       - name: Build Angular Project
         run: |
           cd frontend
-          npm install
+          npm ci
           npm run build
 
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v5
         with:
-          go-version: 1.x
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
 
       - name: Build Go Project
         run: |
           cd backend
-          go build -o ../app cmd/main.go
+          CGO_ENABLED=0 go build -o ../app ./cmd
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4

@@ -1,0 +1,49 @@
+name: Test
+
+on:
+  pull_request:
+  workflow_call:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+
+      # the frontend is embedded into the binary, a placeholder is enough to compile
+      - name: Create Frontend Placeholder
+        run: |
+          mkdir -p backend/cmd/frontend/browser
+          echo '<!doctype html>' > backend/cmd/frontend/browser/index.html
+
+      - name: Vet
+        working-directory: backend
+        run: go vet ./...
+
+      - name: Run Unit and End-to-End Tests
+        working-directory: backend
+        run: go test -race ./...
+
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Build Angular Project
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
