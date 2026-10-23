@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import PocketBase, { Record } from 'pocketbase';
+import PocketBase from 'pocketbase';
 import { CreateOfferDTO, ReadOfferDTO } from '../model/offer';
 import { OfferComment } from '../model/comment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PocketbaseService {
   pb: PocketBase
 
   constructor() {
-    this.pb = new PocketBase('https://online-moebellager.de:443');
+    this.pb = new PocketBase(environment.pocketbaseUrl);
   }
 
   public async CreateOffer(offer: CreateOfferDTO): Promise<string> {
@@ -48,7 +49,7 @@ export class PocketbaseService {
     resultList.items.forEach((o, i) => {
 
       let photos = o["photos"].map((p: string) => {
-        return this.pb.files.getUrl(o, p, { 'token': token, 'thumb': '180x180' })
+        return this.pb.files.getURL(o, p, { 'token': token, 'thumb': '180x180' })
       })
 
       results[i] = {
@@ -60,7 +61,7 @@ export class PocketbaseService {
         category: o['category'],
         photos: photos,
         id: o.id,
-        created: o.created,
+        created: o['created'],
         number: o['number'],
         description: o['description']
       }
@@ -76,7 +77,7 @@ export class PocketbaseService {
     let token = await this.pb.files.getToken()
 
     let photos = o["photos"].map((p: string) => {
-      return this.pb.files.getUrl(o, p, { 'token': token, 'thumb': '180x180' })
+      return this.pb.files.getURL(o, p, { 'token': token, 'thumb': '180x180' })
     })
 
     let r: ReadOfferDTO = {
@@ -88,7 +89,7 @@ export class PocketbaseService {
       category: o['category'],
       photos: photos,
       id: o.id,
-      created: o.created,
+      created: o['created'],
       number: o['number'],
       description: o['description']
     }
@@ -116,9 +117,8 @@ export class PocketbaseService {
   }
 
   public async ChangePassword(oldPassword: string, newPassword: string, verifyPassword: string) {
-    const user = this.pb.authStore.model
+    const user = this.pb.authStore.record
     if (!user) return
-    alert(JSON.stringify(user))
 
     const data = {
       "password": newPassword,
@@ -137,12 +137,11 @@ export class PocketbaseService {
     })
 
     const comments = records.items.map<OfferComment>(r => {
-      const author = r.expand['author']
-      const authorName = author instanceof Record ? author['name'] : author[0]['name']
+      const authorName = r.expand?.['author']?.['name'] ?? ''
       return {
         text: r['text'],
         author: authorName,
-        created: r.created
+        created: r['created']
       }
     })
 
@@ -150,7 +149,7 @@ export class PocketbaseService {
   }
 
   public async CreateComment(offerId: string, text: string) {
-    const user = this.pb.authStore.model
+    const user = this.pb.authStore.record
     if (!user) return
     const formData = new FormData();
 
