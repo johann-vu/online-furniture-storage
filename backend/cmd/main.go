@@ -5,10 +5,11 @@ import (
 	"io/fs"
 	"log"
 
+	"github.com/johann-vu/online-furniture-storage/internal/app"
 	"github.com/johann-vu/online-furniture-storage/internal/config"
 	"github.com/johann-vu/online-furniture-storage/internal/encryption"
-	"github.com/johann-vu/online-furniture-storage/internal/hooks"
 	"github.com/pocketbase/pocketbase"
+	"github.com/pocketbase/pocketbase/plugins/migratecmd"
 )
 
 //go:embed frontend
@@ -21,23 +22,21 @@ func main() {
 		log.Fatalf("starting cryptoservice: %s", err)
 	}
 
-	app := pocketbase.New()
+	pb := pocketbase.New()
 	subFS, err := fs.Sub(frontendDirectory, "frontend/browser")
 	if err != nil {
 		log.Fatalf("creating sub directory: %s", err)
 	}
 
-	app.OnBeforeServe().Add(hooks.ServeFrontend(subFS))
+	// schema changes are written as Go migrations in internal/migrations
+	migratecmd.MustRegister(pb, pb.RootCmd, migratecmd.Config{
+		TemplateLang: migratecmd.TemplateLangGo,
+		Dir:          "internal/migrations",
+	})
 
-	app.OnBeforeServe().Add(hooks.DeleteOldOffers(app, config.NightlyCronExpression))
+	app.Register(pb, cryptoService, subFS)
 
-	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EncryptFieldsOnCreate(cryptoService, config.FieldName, config.FieldPhoneNumber))
-
-	app.OnRecordBeforeCreateRequest(config.CollectionOffers).Add(hooks.EnumerateOfferOnCreate(config.CollectionOffers, "number", app))
-
-	app.OnRecordViewRequest(config.CollectionOffers).Add(hooks.DecryptFieldsOnView(cryptoService, config.FieldName, config.FieldPhoneNumber))
-
-	if err := app.Start(); err != nil {
+	if err := pb.Start(); err != nil {
 		log.Fatal(err)
 	}
 }
