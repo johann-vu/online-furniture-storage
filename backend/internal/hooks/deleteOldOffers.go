@@ -1,46 +1,35 @@
 package hooks
 
 import (
-	"log"
 	"time"
 
 	"github.com/pocketbase/dbx"
-	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"
-	"github.com/pocketbase/pocketbase/tools/cron"
 )
 
-func DeleteOldOffers(app *pocketbase.PocketBase, cronExpr string) func(*core.ServeEvent) error {
+const DeleteOldOffersJob = "delete_old_offers"
 
-	return func(se *core.ServeEvent) error {
-		scheduler := cron.New()
+// DeleteOldOffers deletes all offers whose availability date has passed.
+// Deleting through the app also removes the photos and cascades to comments.
+func DeleteOldOffers(app core.App, collection, field string) func() {
+	return func() {
 
-		scheduler.MustAdd("delete_old_offers", cronExpr, func() {
+		filter := dbx.NewExp("["+field+"] < {:today}", dbx.Params{"today": time.Now().Format(time.DateOnly)})
 
-			filter := dbx.NewExp("available_until < {:today}", dbx.Params{"today": time.Now().Format(time.DateOnly)})
+		records, err := app.FindAllRecords(collection, filter)
+		if err != nil {
+			app.Logger().Error("querying old offers", "error", err)
+			return
+		}
 
-			records, err := app.Dao().FindRecordsByExpr("offers", filter)
-
-			if err != nil {
-				log.Printf("querying offers: %v\n", err)
-				log.Println("exiting cron job")
-				return
+		failed := 0
+		for _, r := range records {
+			if err := app.Delete(r); err != nil {
+				failed++
+				app.Logger().Error("deleting old offer", "id", r.Id, "error", err)
 			}
+		}
 
-			for _, r := range records {
-
-				err = app.Dao().DeleteRecord(r)
-				if err != nil {
-					log.Printf("deleting offer %q: %v\n", r.Id, err)
-					return
-				}
-
-				log.Printf("deleting offer %q: success\n", r.Id)
-			}
-		})
-
-		scheduler.Start()
-
-		return nil
+		app.Logger().Info("deleted old offers", "deleted", len(records)-failed, "failed", failed)
 	}
 }

@@ -9,9 +9,12 @@ import (
 const (
 	FieldName             = "name"
 	FieldPhoneNumber      = "phone"
+	FieldNumber           = "number"
+	FieldAvailableUntil   = "available_until"
 	CollectionOffers      = "offers"
+	CollectionComments    = "comments"
+	CollectionUsers       = "users"
 	NightlyCronExpression = "0 3 * * *"
-	FrontendDirectory     = "./frontend"
 )
 
 func GetSecret() string {

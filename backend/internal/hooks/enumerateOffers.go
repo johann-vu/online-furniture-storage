@@ -1,39 +1,35 @@
 package hooks
 
 import (
-	"github.com/pocketbase/pocketbase"
+	"sync"
+
 	"github.com/pocketbase/pocketbase/core"
-	"github.com/pocketbase/pocketbase/models"
 )
 
-func EnumerateOfferOnCreate(collection, field string, app *pocketbase.PocketBase) func(e *core.RecordCreateEvent) error {
+// EnumerateOfferOnCreate assigns the next consecutive number to a new record.
+//
+// It runs right before the record is written, after validation passed, so failed
+// creates don't skip numbers. The lock serializes number assignment and insert,
+// the unique index on the field guards against anything that bypasses it.
+func EnumerateOfferOnCreate(field string) func(e *core.RecordEvent) error {
 
-	counter := -1
+	var mu sync.Mutex
 
-	return func(e *core.RecordCreateEvent) error {
+	return func(e *core.RecordEvent) error {
+		mu.Lock()
+		defer mu.Unlock()
 
-		if counter < 0 {
-			counter = getInitialCounter(app, collection, field)
+		var current int
+		err := e.App.DB().
+			Select("COALESCE(MAX([[" + field + "]]), 0)").
+			From(e.Record.Collection().Name).
+			Row(&current)
+		if err != nil {
+			return err
 		}
 
-		counter++
-		e.Record.Set(field, counter)
-		return nil
+		e.Record.Set(field, current+1)
+
+		return e.Next()
 	}
-}
-
-func getInitialCounter(app *pocketbase.PocketBase, collectionName, field string) int {
-
-	query := app.Dao().RecordQuery(collectionName).OrderBy(field + " DESC").Limit(1)
-
-	records := []*models.Record{}
-	if err := query.All(&records); err != nil {
-		return 0
-	}
-
-	if len(records) != 1 {
-		return 0
-	}
-
-	return records[0].GetInt(field)
 }
