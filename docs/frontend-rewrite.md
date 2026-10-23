@@ -58,7 +58,7 @@ frontend/
 The old Angular sources under `frontend/src/app/` stay in place (not compiled) as a reference until their Lit replacement exists, and are deleted step by step.
 
 - [x] **1. Scaffold** a fresh Vite + Lit + TS setup inside `frontend/` (on a branch); move `src/assets`, `favicon.ico` to `public/`, move `src/app/model` to `src/model`. Remove `angular.json`, `tsconfig.app/spec.json`, Angular deps, `viewerjs`, `.spec.ts` files.
-- [ ] **2. Infrastructure:** `main.ts`, `router.ts`, `api.ts` (port of `src/app/services/pocketbase.service.ts`), `lib/` (validators, messages, resize-image), convert `src/styles/*.scss` and `src/styles.scss` to plain CSS and import them plus the fonts from `main.ts`.
+- [x] **2. Infrastructure:** `main.ts`, `router.ts`, `api.ts` (port of `src/app/services/pocketbase.service.ts`), `lib/` (validators, messages, resize-image), convert `src/styles/*.scss` and `src/styles.scss` to plain CSS and import them plus the fonts from `main.ts`.
 - [ ] **3. Shell + static pages:** `app-root` (topbar, outlet, footer), `page-home` (hero, steps-widget), `page-imprint`, `page-success` (Web Share API logic from `success.component.ts`).
 - [ ] **4. Offer flow (largest piece):** `app-category-select`, `app-photo-upload` (resize > 5 MB, max 3 files), `app-offer-form` (port `offer-form.component.html`, 306 lines, with native validation + touched-based error display, default date +6 weeks), `page-offer` (submit → `createOffer` → `/success`).
 - [ ] **5. Admin:** `page-login`/`app-login-form`, `page-admin` layout + logout + guard, `page-admin-overview` (offer cards, pagination as today), `app-image-viewer` + `page-admin-detail` (thumbnails open the viewer, delete with confirm, comments), `page-admin-profile`/`app-change-password`.

@@ -1,0 +1,104 @@
+button {
+  display: inline-block;
+  gap: var(--spacing-unit);
+  padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+  font-size: var(--base-font-size);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+  font-family: var(--body-font);
+  flex-wrap: wrap;
+
+  &:hover {
+    background-color: #0b1b26;
+  }
+
+  &.with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    height: var(--base-font-size);
+    vertical-align: middle;
+  }
+
+  .trailing-icon {
+    height: var(--base-font-size);
+    vertical-align: middle;
+    margin-left: var(--spacing-unit);
+  }
+
+  &.on-primary {
+    background-color: var(--on-primary-color);
+    color: var(--text-color);
+
+    &:hover {
+      background-color: #c2c2c2;
+    }
+
+    &.outline {
+      color: var(--on-primary-color);
+      border: 2px solid var(--on-primary-color);
+      background-color: var(--primary-color);
+
+      &:hover {
+        background-color: #000000;
+      }
+    }
+  }
+
+  &.secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+
+    &:hover {
+      background-color: #9d9d1f;
+    }
+
+    &.outline {
+      color: var(--secondary-color);
+      border: 2px solid var(--secondary-color);
+      background-color: var(--secondary-color);
+
+      &:hover {
+        background-color: #9d9d1f;
+      }
+    }
+  }
+
+  &.outline {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: var(--background-color);
+
+    &:hover {
+      background-color: #2c6f9e;
+    }
+  }
+
+  &.black-outline {
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    background-color: var(--background-color);
+
+    &:hover {
+      background-color: #cccccc;
+    }
+  }
+
+  &.dense {
+    font-size: var(--small-font-size);
+    padding: calc(var(--spacing-unit) * 0.5) var(--spacing-unit);
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  button {
+    font-size: var(--small-font-size);
+  }
+}

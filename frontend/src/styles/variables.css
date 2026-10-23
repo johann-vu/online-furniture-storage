@@ -1,0 +1,29 @@
+/* breakpoints can't be custom properties, media queries use the literal values:
+   small screens: max-width 680px, medium: 900px */
+:root {
+  /* Farben */
+  --primary-color: #16374e;
+  --on-primary-color: #f5f5f5;
+  --secondary-color: #dbdb47;
+  --on-secondary-color: #000000;
+  --text-color: #000000;
+  --background-color: white;
+  --danger-color: #dc3545;
+
+  /* Schriftarten */
+  --body-font: 'Inter', sans-serif;
+  --heading-font: 'Roboto Serif', sans-serif;
+
+  /* Größen */
+  --base-font-size: 20px;
+  --small-font-size: 16px;
+
+  /* Abstände und Abmessungen */
+  --spacing-unit: 10px;
+  --border-radius: 8px;
+
+  --line-height: 1.5;
+  --z-index-dropdown: 1000;
+  --z-index-modal: 1100;
+  --transition-duration: 0.5s;
+}

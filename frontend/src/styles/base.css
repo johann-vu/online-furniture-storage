@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: var(--heading-font);
+  font-size: var(--base-font-size);
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+/* layout helpers, formerly the scss mixins */
+.responsive-width {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.topbar-space {
+  margin-top: 60px;
+}
+
+@media only screen and (max-width: 680px) {
+  body {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin: 20px 0;
+  }
+
+  h4 {
+    font-size: 26px;
+  }
+
+  h5 {
+    font-size: var(--small-font-size);
+  }
+}
