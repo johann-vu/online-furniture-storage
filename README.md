@@ -99,7 +99,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 
-[product-screenshot]: screenshot.png
+[product-screenshot]: docs/res/screenshot.png
 
 [Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 [Angular-url]: https://angular.io/

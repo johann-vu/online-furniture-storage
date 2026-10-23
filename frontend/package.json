@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
-    "build": "ng build --output-path=../cmd/frontend",
+    "build": "ng build --output-path=../backend/cmd/frontend",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -20,7 +20,7 @@
     "@angular/router": "^18.0.1",
     "@fontsource/inter": "^5.0.8",
     "@fontsource/roboto-serif": "^5.0.8",
-    "pocketbase": "^0.16.0",
+    "pocketbase": "^0.28.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "viewerjs": "^1.11.6",

@@ -90,7 +90,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
-cmd/frontend
-*/pb_data
+**/cmd/frontend
+**/pb_data
 
 .env
