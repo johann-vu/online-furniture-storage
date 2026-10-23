@@ -13,6 +13,16 @@ export type ValidationError =
   | 'maxSizeExceeded'
   | 'maxCountExceeded';
 
+export function required(value: string | boolean | unknown[]): ValidationError | null {
+  const empty = typeof value === 'string' ? !value.trim() : typeof value === 'boolean' ? !value : !value.length;
+  return empty ? 'required' : null;
+}
+
+// like the html minlength attribute, an empty value is left to `required`
+export function minLength(value: string, min: number): ValidationError | null {
+  return value && value.length < min ? 'minlength' : null;
+}
+
 export function dateNotInPast(value: string): ValidationError | null {
   return new Date(value) < new Date() ? 'dateInPast' : null;
 }

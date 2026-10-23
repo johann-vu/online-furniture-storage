@@ -1,5 +1,4 @@
-/* components add the `touched` class to a field after blur or a submit attempt,
-   so errors only show up once the user had a chance to fill it in */
+/* forms set aria-invalid="true" once a field was touched (blur or submit attempt) and is invalid */
 .input-container {
   margin-bottom: calc(var(--spacing-unit) * 3);
 
@@ -27,7 +26,7 @@
       display: none;
     }
 
-    &.touched:invalid {
+    &[aria-invalid='true'] {
       border-color: var(--danger-color);
     }
 
@@ -79,7 +78,7 @@
         border-radius: 0.15em;
         margin: 0 var(--spacing-unit) 0 0;
 
-        &.touched:invalid {
+        &[aria-invalid='true'] {
           border-color: var(--danger-color);
         }
 

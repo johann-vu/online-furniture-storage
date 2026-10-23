@@ -1,0 +1,14 @@
+app-category-select {
+  .category__wrapper {
+    display: flex;
+    width: 100%;
+    gap: var(--spacing-unit);
+    overflow-x: auto;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  app-category-select .category__button {
+    flex: 1 1 0;
+  }
+}

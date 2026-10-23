@@ -6,11 +6,13 @@ import './components/topbar';
 import './components/footer';
 import './pages/home';
 import './pages/imprint';
+import './pages/offer';
 import './pages/success';
 import './app-root.css';
 
 const routes: Route<unknown>[] = [
   { path: '/', render: () => html`<page-home></page-home>` },
+  { path: '/offer', render: () => html`<page-offer></page-offer>` },
   { path: '/success', render: () => html`<page-success></page-success>` },
   { path: '/imprint', render: () => html`<page-imprint></page-imprint>` },
 ];
