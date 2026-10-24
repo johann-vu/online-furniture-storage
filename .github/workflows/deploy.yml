@@ -5,28 +5,39 @@ on:
     branches:
       - main
 
+# never run two deployments at the same time
+concurrency:
+  group: production
+  cancel-in-progress: false
+
 jobs:
 
   call-build-workflow:
     uses: ./.github/workflows/build.yml
 
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     needs: call-build-workflow
     environment: production
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
           name: go-build
 
-      - name: Copy Files to VM
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ vars.VM_IP }}
-          username: ${{ vars.VM_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: app
-          target: /home/service_user/service/
-          overwrite: true
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/id_deploy
+
+      - name: Upload Binary
+        run: scp -i ~/.ssh/id_deploy app ${{ vars.VM_USER }}@${{ vars.VM_IP }}:/home/service_user/service/app.new
+
+      - name: Deploy
+        run: ssh -i ~/.ssh/id_deploy ${{ vars.VM_USER }}@${{ vars.VM_IP }} 'bash -s' < deploy/deploy.sh

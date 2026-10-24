@@ -37,7 +37,7 @@ chown admin_user:admin_user /home/admin_user/.ssh/authorized_keys
 
 #### Transfer the binary
 
-Copy the binary to the system. Using `scp` for example. Place it somewhere the service_user has access to.
+Copy the binary to `/home/service_user/service/app`, using `scp` for example. PocketBase stores its data next to the binary in `/home/service_user/service/pb_data`. The `.env` file containing `STORAGE_SECRET` is read from the working directory `/home/service_user`.
 
 #### Configure Service
 
@@ -54,25 +54,23 @@ Insert the following content and adjust it as needed:
 Description = Online Furniture Storage
 
 [Service]
-Type           = simple
-User           = service_user
-Restart        = always
-RestartSec     = 5s
-StandardOutput = append:/home/service_user/errors.log
-StandardError  = append:/home/service_user/errors.log
+Type             = simple
+User             = service_user
+Restart          = always
+RestartSec       = 5s
 WorkingDirectory = /home/service_user
-ExecStart      = /home/service_user/service/furniture-storage/app serve --http="online-moebellager.de:80" --https="online-moebellager.de:443"
+ExecStart        = /home/service_user/service/app serve --http="online-moebellager.de:80" --https="online-moebellager.de:443"
+# allows listening on ports 80 and 443 without setcap
+AmbientCapabilities = CAP_NET_BIND_SERVICE
 
 [Install]
 WantedBy = multi-user.target
 ```
 
-#### Set Permissions for Ports 80 and 443
-
-To allow the web server to listen on the standard HTTP and HTTPS ports, the appropriate permissions need to be set.
+The logs are written to the journal, which rotates them automatically:
 
 ```bash
-sudo setcap CAP_NET_BIND_SERVICE=+eip /path/to/binary
+sudo journalctl -u furniture-storage -f
 ```
 
 #### Start the service
@@ -83,6 +81,48 @@ sudo systemctl enable furniture-storage
 sudo systemctl start furniture-storage
 ```
 The Service should be up and running now. You can access it via HTTPS on port 443.
+
+If you changed an existing unit file, reload it first with `sudo systemctl daemon-reload`.
+
+### Step 2b: Enable automatic deployments
+
+Every push to `main` builds the binary, uploads it as `app.new` and runs [`deploy/deploy.sh`](../deploy/deploy.sh) on the VM. The script backs up `pb_data`, replaces the binary, restarts the service and rolls back binary and data if the health check fails.
+
+#### Allow the service user to restart the service
+
+```bash
+sudo visudo -f /etc/sudoers.d/furniture-storage
+```
+
+Insert this single line, it allows nothing but stopping and starting this service:
+
+```plaintext
+service_user ALL=(root) NOPASSWD: /usr/bin/systemctl stop furniture-storage, /usr/bin/systemctl start furniture-storage
+```
+
+Check the path with `which systemctl`. Make sure `curl` is installed (`sudo apt install curl`).
+
+#### Create an SSH key for GitHub
+
+On your local machine create a key without passphrase and allow it to log in as `service_user`:
+
+```bash
+ssh-keygen -t ed25519 -f furniture-deploy -N "" -C "github-deploy"
+ssh-copy-id -i furniture-deploy.pub service_user@<VM_IP>
+```
+
+#### Configure GitHub
+
+In the repository go to *Settings → Environments → production* and add:
+
+| Type     | Name              | Value                                    |
+|----------|-------------------|------------------------------------------|
+| Variable | `VM_IP`           | IP address of the VM                     |
+| Variable | `VM_USER`         | `service_user`                           |
+| Secret   | `SSH_PRIVATE_KEY` | content of `furniture-deploy`            |
+| Secret   | `SSH_KNOWN_HOSTS` | output of `ssh-keyscan <VM_IP>`          |
+
+`SSH_KNOWN_HOSTS` makes sure GitHub only talks to your VM. Delete the local private key afterwards.
 
 ### Step 3: Configure the service
 
@@ -108,32 +148,35 @@ Staff members can't sign up themselves. Create them in the admin dashboard in th
 
 ### Update
 
-To update the web server, follow these steps:
+Merge into `main`. The *Build and Deploy* workflow runs the tests, builds the binary and deploys it. If it fails, GitHub sends a mail and the log of the *Deploy* step shows what happened.
 
-1. Manually stop the service with the admin user.
-   ```bash
-   sudo systemctl stop furniture-storage
-   ```
+To deploy manually, copy the binary to `/home/service_user/service/app.new` and run the script as `service_user`:
 
-2. Replace the binary.
+```bash
+bash deploy/deploy.sh
+```
 
-3. Allow new files to use ports 80 and 443.
-   ```bash
-   sudo setcap CAP_NET_BIND_SERVICE=+eip /path/to/new/binary
-   ```
+### Rollback
 
-4. Manually start the service with the admin user.
-   ```bash
-   sudo systemctl start furniture-storage
-   ```
+Every deployment keeps the previous binary as `app.prev` and a backup of `pb_data` in `/home/service_user/service/backups` (the last 10). The script rolls back automatically if the health check fails. To roll back by hand:
+
+```bash
+cd /home/service_user/service
+sudo systemctl stop furniture-storage
+mv app.prev app
+rm -rf pb_data && tar xzf backups/<latest backup>.tar.gz
+sudo systemctl start furniture-storage
+```
+
+Restore binary and data together, a newer binary may have migrated the data so that the old one can't read it.
 
 ### Backup
 
-Stop the service and copy the `pb_data` directory and the `.env` file containing `STORAGE_SECRET`. Without the secret the names and phone numbers of the offers can't be decrypted.
+Each deployment creates a backup automatically. For a manual backup stop the service and copy the `pb_data` directory and the `.env` file containing `STORAGE_SECRET`. Without the secret the names and phone numbers of the offers can't be decrypted. Keep a copy outside the VM.
 
 ```bash
 sudo systemctl stop furniture-storage
-sudo tar czf /home/admin_user/pb_data-$(date +%F).tar.gz -C /home/service_user pb_data .env
+sudo tar czf /home/admin_user/pb_data-$(date +%F).tar.gz -C /home/service_user service/pb_data .env
 sudo systemctl start furniture-storage
 ```
 
