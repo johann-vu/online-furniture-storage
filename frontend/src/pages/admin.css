@@ -1,0 +1,24 @@
+page-admin {
+  .admin__top-bar {
+    background-color: var(--secondary-color);
+    color: var(--on-secondary-color);
+    height: 3rem;
+  }
+
+  .admin__top-bar-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: calc(var(--spacing-unit) * 3);
+    overflow-x: auto;
+
+    .spacer {
+      flex: 1 1 0;
+    }
+
+    a {
+      color: var(--on-secondary-color);
+      text-decoration: none;
+    }
+  }
+}

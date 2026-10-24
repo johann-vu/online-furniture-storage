@@ -8,23 +8,17 @@
     "request": "launch",
     "mode": "auto",
     "env": {"STORAGE_SECRET":"asdfghjklasdfghjklasdfghjklasdfg"},
-    "program": "${workspaceFolder}/cmd/main.go",
-    "args": ["serve"]
+    "program": "${workspaceFolder}/backend/cmd",
+    // without --dir PocketBase uses pb_data next to the program, i.e. backend/cmd/pb_data
+    "args": ["serve", "--dir", "${workspaceFolder}/pb_data"]
   },
     {
-      "name": "ng serve",
+      "name": "Frontend (Vite)",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/",
-      "cwd": "${workspaceFolder}/frontend/"
-    },
-    {
-      "name": "ng test",
-      "type": "chrome",
-      "request": "launch",
-      "preLaunchTask": "npm: test",
-      "url": "http://localhost:9876/debug.html"
+      "preLaunchTask": "npm: dev - frontend",
+      "url": "http://localhost:5173/",
+      "webRoot": "${workspaceFolder}/frontend"
     }
   ]
 }

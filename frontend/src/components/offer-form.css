@@ -1,0 +1,11 @@
+app-offer-form {
+  .offer-form__submit {
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  app-offer-form .offer-form__submit {
+    width: 100%;
+  }
+}

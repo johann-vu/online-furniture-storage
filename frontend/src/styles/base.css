@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: var(--body-font);
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+  line-height: var(--line-height);
+}
+
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+}
+
+p {
+  hyphens: auto;
+  /* only split words with 10+ letters, keeping at least 4 on each side */
+  hyphenate-limit-chars: 10 4 4;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: var(--heading-font);
+  font-size: var(--base-font-size);
+  font-weight: 700;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+/* layout helpers, formerly the scss mixins */
+.responsive-width {
+  width: 80vw;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.topbar-space {
+  margin-top: 60px;
+}
+
+/* small pill, e.g. for the remaining days of an offer */
+.badge {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 999px;
+  background-color: #e8ecf0;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  white-space: nowrap;
+
+  &.badge--urgent {
+    background-color: #fbe3e5;
+    color: #921925;
+    font-weight: 500;
+  }
+}
+
+/* hidden visually, still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* quiet heading for sections within a page */
+.section-label {
+  margin: 0 0 var(--spacing-unit);
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5b6670;
+}
+
+/* keep #fragment targets from ending up behind the fixed topbar */
+[id] {
+  scroll-margin-top: 70px;
+}
+
+@media only screen and (max-width: 680px) {
+  body {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin: 20px 0;
+  }
+
+  h4 {
+    font-size: 26px;
+  }
+
+  h5 {
+    font-size: var(--small-font-size);
+  }
+}

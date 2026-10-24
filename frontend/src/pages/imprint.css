@@ -1,0 +1,9 @@
+page-imprint {
+  .imprint__wrapper {
+    height: 100%;
+  }
+
+  .imprint__container {
+    padding: var(--spacing-unit) 0;
+  }
+}

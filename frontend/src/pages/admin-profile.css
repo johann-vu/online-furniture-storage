@@ -1,0 +1,5 @@
+page-admin-profile {
+  .profile__wrapper {
+    margin-bottom: calc(var(--spacing-unit) * 3);
+  }
+}

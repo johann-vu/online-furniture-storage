@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
 
-      - name: Build Angular Project
+      - name: Build Frontend
         run: |
           cd frontend
           npm ci

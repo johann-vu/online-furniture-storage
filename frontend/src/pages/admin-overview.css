@@ -1,0 +1,16 @@
+page-admin-overview {
+  .overview__wrapper {
+    margin-top: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button.block {
+    width: 100%;
+    margin: calc(var(--spacing-unit) * 3) 0;
+  }
+}
