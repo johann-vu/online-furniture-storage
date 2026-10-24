@@ -47,20 +47,6 @@ app-offer-card {
     color: #4a5560;
   }
 
-  .offer-card__badge {
-    padding: 0 8px;
-    border-radius: 999px;
-    background-color: #e8ecf0;
-    color: var(--text-color);
-    white-space: nowrap;
-
-    &.offer-card__badge--urgent {
-      background-color: #fbe3e5;
-      color: #921925;
-      font-weight: 500;
-    }
-  }
-
   .offer-card__comments {
     display: inline-flex;
     align-items: center;

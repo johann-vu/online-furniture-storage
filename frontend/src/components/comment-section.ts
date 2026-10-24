@@ -5,48 +5,84 @@ import { formatDateTime } from '../lib/format';
 import type { OfferComment } from '../model/comment';
 import './comment-section.css';
 
-// fires `comment-submit` with the text as detail
+// the backend allows 512 characters per comment
+const MAX_LENGTH = 512;
+
+function initials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  return parts.slice(0, 2).map((p) => p[0].toUpperCase()).join('') || '?';
+}
+
 @customElement('app-comment-section')
 export class CommentSection extends LightElement {
   @property({ attribute: false }) comments: OfferComment[] = [];
-  @state() private inputText = '';
+  // saves a new comment, the input is only cleared once it resolves
+  @property({ attribute: false }) save?: (text: string) => Promise<void>;
 
-  private submit() {
-    if (!this.inputText) return;
-    this.dispatchEvent(new CustomEvent('comment-submit', { detail: this.inputText, bubbles: true }));
-    this.inputText = '';
+  @state() private inputText = '';
+  @state() private saving = false;
+
+  private async submit(e: Event) {
+    e.preventDefault();
+    const text = this.inputText.trim();
+    if (!text || !this.save || this.saving) return;
+
+    this.saving = true;
+    try {
+      await this.save(text);
+      this.inputText = '';
+    } catch {
+      alert('Der Kommentar konnte nicht gespeichert werden.');
+    } finally {
+      this.saving = false;
+    }
+  }
+
+  private onKeydown(e: KeyboardEvent) {
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) this.submit(e);
   }
 
   protected override render() {
     return html`
-      ${this.comments.map(
-        (c) => html`
-          <div class="comments__comment">
-            <div class="comments__comment-avatar">${c.author[0]}</div>
-            <span class="comments__comment-header">${c.author} ${formatDateTime(c.created)}</span>
-            <span class="comments__comment-text">${c.text}</span>
-          </div>
-        `,
-      )}
-      ${this.comments.length === 0
+      ${this.comments.length
         ? html`
-            <div class="comments__comment">
-              <div class="comments__comment-avatar">!</div>
-              <span class="comments__comment-header">Es gibt noch keine Kommentare</span>
-            </div>
+            <ul class="comments__list">
+              ${this.comments.map(
+                (c) => html`
+                  <li class="comments__comment">
+                    <span class="comments__avatar" aria-hidden="true">${initials(c.author)}</span>
+                    <div class="comments__body">
+                      <div class="comments__meta">
+                        <span class="comments__author">${c.author}</span>
+                        <span class="comments__time">${formatDateTime(c.created)}</span>
+                      </div>
+                      <p class="comments__text">${c.text}</p>
+                    </div>
+                  </li>
+                `,
+              )}
+            </ul>
           `
-        : ''}
-      <div class="comments__text-field">
-        <div class="input-container">
-          <textarea
-            rows="3"
-            aria-label="Kommentar"
-            .value=${this.inputText}
-            @input=${(e: Event) => (this.inputText = (e.target as HTMLTextAreaElement).value)}
-          ></textarea>
+        : html`<p class="comments__empty">Noch keine Kommentare. Halte hier fest, was mit dem Angebot passiert, z. B. wer sich gemeldet hat.</p>`}
+
+      <form class="comments__form" @submit=${this.submit}>
+        <label class="visually-hidden" for="comment-input">Neuer Kommentar</label>
+        <textarea
+          id="comment-input"
+          rows="3"
+          maxlength=${MAX_LENGTH}
+          placeholder="Kommentar schreiben …"
+          .value=${this.inputText}
+          @input=${(e: Event) => (this.inputText = (e.target as HTMLTextAreaElement).value)}
+          @keydown=${this.onKeydown}
+        ></textarea>
+        <div class="comments__actions">
+          <span class="comments__hint">Strg/⌘ + Enter zum Speichern</span>
+          <button class="dense" type="submit" ?disabled=${!this.inputText.trim() || this.saving}>
+            ${this.saving ? 'Wird gespeichert …' : 'Kommentar speichern'}
+          </button>
         </div>
-        <button aria-label="Kommentar senden" @click=${this.submit}>↑</button>
-      </div>
+      </form>
     `;
   }
 }

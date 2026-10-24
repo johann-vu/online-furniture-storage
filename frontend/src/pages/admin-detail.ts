@@ -1,9 +1,9 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { LightElement } from '../lib/light-element';
 import { navigate } from '../router';
 import { createComment, deleteOffer, getComments, getOfferById } from '../api';
-import { formatDate } from '../lib/format';
+import { URGENT_DAYS, formatDate, remainingDays, remainingDaysLabel } from '../lib/format';
 import type { ReadOfferDTO } from '../model/offer';
 import type { OfferComment } from '../model/comment';
 import '../components/comment-section';
@@ -48,28 +48,16 @@ export class AdminDetailPage extends LightElement {
     }
   }
 
-  private async createComment(e: CustomEvent<string>) {
-    await createComment(this.offerId, e.detail);
+  private saveComment = async (text: string) => {
+    await createComment(this.offerId, text);
     this.comments = await getComments(this.offerId);
-  }
+  };
 
-  private section(title: string, content: unknown) {
+  private fact(label: string, value: unknown) {
     return html`
-      <div class="detail__section">
-        <div class="detail__section-headline">
-          <h4>${title}</h4>
-          <div class="detail__section-divider"></div>
-        </div>
-        ${content}
-      </div>
-    `;
-  }
-
-  private info(label: string, value: unknown) {
-    return html`
-      <div>
-        <div>${label}</div>
-        <div class="detail__infos-value">${value}</div>
+      <div class="detail__fact">
+        <dt>${label}</dt>
+        <dd>${value}</dd>
       </div>
     `;
   }
@@ -77,41 +65,61 @@ export class AdminDetailPage extends LightElement {
   protected override render() {
     const o = this.offer;
     if (!o) return;
+    const days = remainingDays(o.available_until);
     return html`
       <div class="detail__wrapper responsive-width">
-        <div class="detail__title">
-          <h2>${o.title}</h2>
-          <p>von ${o.name}</p>
-        </div>
-        <div class="detail__photos">
-          ${o.photos.map(
-            (p) => html`
-              <button class="detail__photo" aria-label="Foto vergrößern" @click=${() => (this.viewerSrc = fullSize(p))}>
-                <img src=${p} alt="" />
-              </button>
-            `,
-          )}
-        </div>
-        ${this.section(
-          'Fakten',
-          html`
-            <div class="detail__infos">
-              ${this.info('Verfügbar bis', formatDate(o.available_until))} ${this.info('Erstellt am', formatDate(o.created))}
-              ${this.info(o.category === 'bike' ? 'Größe' : 'Maße', o.size)} ${this.info('Telefonnummer', o.phone)}
-              ${this.info('Angebotsnummer', o.number)}
-            </div>
-          `,
-        )}
-        ${this.section('Beschreibung', html`<p>${o.description || 'Keine Beschreibung vorhanden.'}</p>`)}
-        ${this.section(
-          'Kommentare',
-          html`<div class="detail__comments">
-            <app-comment-section .comments=${this.comments} @comment-submit=${this.createComment}></app-comment-section>
-          </div>`,
-        )}
+        <a class="detail__back" href="/admin/overview">← Alle Angebote</a>
+
+        <h2 class="detail__title">${o.title}</h2>
+
+        ${o.photos.length
+          ? html`
+              <div class="detail__photos">
+                ${o.photos.map(
+                  (p, i) => html`
+                    <button
+                      class="detail__photo"
+                      aria-label="Foto ${i + 1} vergrößern"
+                      @click=${() => (this.viewerSrc = fullSize(p))}
+                    >
+                      <img src=${p} alt="" />
+                    </button>
+                  `,
+                )}
+              </div>
+            `
+          : nothing}
+
+        <section class="detail__section">
+          <h3 class="section-label">Details</h3>
+          <dl class="detail__facts">
+            ${this.fact('Name', o.name)} ${this.fact('Telefon', html`<a href="tel:${o.phone}">${o.phone}</a>`)}
+            ${this.fact('Kategorie', o.category === 'bike' ? 'Fahrrad' : 'Möbelstück')}
+            ${this.fact(o.category === 'bike' ? 'Größe' : 'Maße', o.size)}
+            ${this.fact('Verfügbar bis', formatDate(o.available_until))}
+            ${this.fact(
+              'Restdauer',
+              html`<span class="badge ${days < URGENT_DAYS ? 'badge--urgent' : ''}">${remainingDaysLabel(days)}</span>`,
+            )}
+            ${this.fact('Eingestellt am', formatDate(o.created))} ${this.fact('Angebotsnummer', o.number)}
+          </dl>
+        </section>
+
+        <section class="detail__section">
+          <h3 class="section-label">Beschreibung</h3>
+          ${o.description
+            ? html`<p class="detail__description">${o.description}</p>`
+            : html`<p class="detail__muted">Keine Beschreibung vorhanden.</p>`}
+        </section>
+
+        <section class="detail__section">
+          <h3 class="section-label">Kommentare${this.comments.length ? ` (${this.comments.length})` : ''}</h3>
+          <app-comment-section .comments=${this.comments} .save=${this.saveComment}></app-comment-section>
+        </section>
+
         <div class="detail__actions">
-          <a href="tel:${o.phone}"><button class="outline">Anrufen</button></a>
-          <button class="detail__delete-btn" @click=${this.deleteOffer}>Angebot löschen</button>
+          <a class="button" href="tel:${o.phone}">Anrufen</a>
+          <button class="detail__delete" @click=${this.deleteOffer}>Angebot löschen</button>
         </div>
       </div>
       <app-image-viewer .src=${this.viewerSrc} @close=${() => (this.viewerSrc = '')}></app-image-viewer>

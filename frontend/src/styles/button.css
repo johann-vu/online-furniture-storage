@@ -1,5 +1,11 @@
-button {
+/* .button makes a link look like a button, e.g. for tel: links */
+button,
+.button {
   display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  line-height: normal;
+  box-sizing: border-box;
   gap: var(--spacing-unit);
   padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
   font-size: var(--base-font-size);
@@ -99,7 +105,8 @@ button {
 }
 
 @media only screen and (max-width: 680px) {
-  button {
+  button,
+  .button {
     font-size: var(--small-font-size);
   }
 }

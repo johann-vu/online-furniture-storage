@@ -1,12 +1,9 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { LightElement } from '../lib/light-element';
-import { remainingDays, remainingDaysLabel } from '../lib/format';
+import { URGENT_DAYS, remainingDays, remainingDaysLabel } from '../lib/format';
 import type { ReadOfferDTO } from '../model/offer';
 import './offer-card.css';
-
-// offers that run out within this many days are marked as urgent
-const URGENT_DAYS = 7;
 
 const commentIcon = html`<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
   <path
@@ -33,7 +30,7 @@ export class OfferCard extends LightElement {
         <div class="offer-card__text">
           <span class="offer-card__title">${o.title}</span>
           <div class="offer-card__meta">
-            <span class="offer-card__badge ${days < URGENT_DAYS ? 'offer-card__badge--urgent' : ''}">
+            <span class="badge ${days < URGENT_DAYS ? 'badge--urgent' : ''}">
               ${remainingDaysLabel(days)}
             </span>
             <span>${o.category === 'bike' ? 'Fahrrad' : 'Möbel'}</span>

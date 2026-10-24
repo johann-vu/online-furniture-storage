@@ -101,9 +101,6 @@ export async function createComment(offerId: string, text: string) {
   const user = pb.authStore.record;
   if (!user) return;
 
-  const formData = new FormData();
-  formData.append('offer', offerId);
-  formData.append('text', text);
-  formData.append('author', user.id);
-  await pb.collection('comments').create(formData);
+  // sent as json, form data would turn line breaks into \r\n
+  await pb.collection('comments').create({ offer: offerId, text, author: user.id });
 }

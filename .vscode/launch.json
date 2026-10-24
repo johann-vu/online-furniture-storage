@@ -9,7 +9,8 @@
     "mode": "auto",
     "env": {"STORAGE_SECRET":"asdfghjklasdfghjklasdfghjklasdfg"},
     "program": "${workspaceFolder}/backend/cmd",
-    "args": ["serve"]
+    // without --dir PocketBase uses pb_data next to the program, i.e. backend/cmd/pb_data
+    "args": ["serve", "--dir", "${workspaceFolder}/pb_data"]
   },
     {
       "name": "Frontend (Vite)",

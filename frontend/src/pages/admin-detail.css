@@ -1,33 +1,43 @@
 page-admin-detail {
-  .detail__title {
-    padding: var(--spacing-unit) 0;
-    margin: calc(var(--spacing-unit) * 2) 0;
+  .detail__wrapper {
+    padding: calc(var(--spacing-unit) * 3) 0 calc(var(--spacing-unit) * 6);
+  }
 
-    h2,
-    p {
-      margin: 0;
+  .detail__back {
+    display: inline-block;
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+
+    &:hover {
+      text-decoration: underline;
     }
+  }
+
+  .detail__title {
+    margin: 0 0 calc(var(--spacing-unit) * 3);
+    font-size: 1.6em;
+    overflow-wrap: anywhere;
   }
 
   .detail__photos {
     display: flex;
-    gap: calc(var(--spacing-unit) * 3);
-    width: 100%;
+    gap: calc(var(--spacing-unit) * 1.5);
     overflow-x: auto;
-    margin: calc(var(--spacing-unit) * 2) 0;
     /* room for the shadow and focus ring, the overflow would cut them off */
     padding: 6px;
-    margin-left: -6px;
+    margin: -6px -6px calc(var(--spacing-unit) * 2);
   }
 
   /* reset the global button look, the photo itself is the button */
   .detail__photo {
+    flex-shrink: 0;
     padding: 0;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     background: none;
-    flex-shrink: 0;
+    cursor: zoom-in;
 
     &:hover {
       background: none;
@@ -35,60 +45,82 @@ page-admin-detail {
 
     img {
       display: block;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
     }
   }
 
   .detail__section {
-    margin: calc(var(--spacing-unit) * 3) 0;
+    margin-bottom: calc(var(--spacing-unit) * 4);
   }
 
-  .detail__section-headline {
-    display: flex;
-    margin: var(--spacing-unit) 0;
-
-    h4 {
-      margin: 0;
-    }
+  .detail__description {
+    margin: 0;
+    white-space: pre-wrap;
   }
 
-  .detail__section-divider {
-    background-color: var(--primary-color);
-    align-self: center;
-    height: 3px;
-    width: 100%;
-    border-radius: var(--border-radius);
-    margin-left: var(--spacing-unit);
+  .detail__muted {
+    margin: 0;
+    color: #5b6670;
   }
 
-  .detail__infos {
+  /* two label/value pairs per row on wide screens */
+  .detail__facts {
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: calc(var(--spacing-unit) * 2);
-    margin-bottom: var(--spacing-unit);
+    grid-template-columns: max-content 1fr max-content 1fr;
+    gap: var(--spacing-unit) calc(var(--spacing-unit) * 3);
+    align-items: baseline;
   }
 
-  .detail__infos-value {
-    margin-top: var(--spacing-unit);
-    font-weight: bold;
-  }
+  /* dt and dd become cells of the grid above */
+  .detail__fact {
+    display: contents;
 
-  .detail__comments {
-    max-width: 600px;
+    dt {
+      color: #5b6670;
+    }
+
+    dd {
+      margin: 0;
+      font-weight: 500;
+      overflow-wrap: anywhere;
+    }
   }
 
   .detail__actions {
     display: flex;
-    gap: calc(var(--spacing-unit) * 2);
     flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 2);
   }
 
-  .detail__delete-btn {
-    background-color: var(--danger-color);
-    margin-bottom: calc(var(--spacing-unit) * 3);
+  .detail__actions .button {
+    border: 2px solid var(--primary-color);
+  }
+
+  /* destructive, so deliberately quieter than the call button */
+  .detail__delete {
+    background-color: transparent;
+    color: var(--danger-color);
     border: 2px solid var(--danger-color);
 
     &:hover {
-      background-color: #921925;
+      background-color: var(--danger-color);
+      color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  page-admin-detail {
+    .detail__facts {
+      grid-template-columns: max-content 1fr;
+    }
+
+    .detail__photo img {
+      width: 140px;
+      height: 140px;
     }
   }
 }

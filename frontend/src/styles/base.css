@@ -65,6 +65,44 @@ a {
   margin-top: 60px;
 }
 
+/* small pill, e.g. for the remaining days of an offer */
+.badge {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 999px;
+  background-color: #e8ecf0;
+  color: var(--text-color);
+  font-size: var(--small-font-size);
+  white-space: nowrap;
+
+  &.badge--urgent {
+    background-color: #fbe3e5;
+    color: #921925;
+    font-weight: 500;
+  }
+}
+
+/* hidden visually, still read by screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* quiet heading for sections within a page */
+.section-label {
+  margin: 0 0 var(--spacing-unit);
+  font-family: var(--body-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5b6670;
+}
+
 /* keep #fragment targets from ending up behind the fixed topbar */
 [id] {
   scroll-margin-top: 70px;
