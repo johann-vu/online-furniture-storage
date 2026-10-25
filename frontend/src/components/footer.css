@@ -24,6 +24,13 @@ app-footer {
     padding: calc(var(--spacing-unit) * 2) 0;
   }
 
+  .footer__version {
+    grid-column: 1 / -1;
+    padding-bottom: var(--spacing-unit);
+    font-size: 0.7rem;
+    opacity: 0.5;
+  }
+
   a {
     color: var(--on-primary-color);
     text-decoration: none;
