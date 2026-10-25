@@ -22,6 +22,9 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Build Frontend
+        env:
+          # shown in the footer to check which version is deployed
+          VITE_COMMIT_HASH: ${{ github.sha }}
         run: |
           cd frontend
           npm ci

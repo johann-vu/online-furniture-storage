@@ -3,8 +3,22 @@ import { customElement } from 'lit/decorators.js';
 import { LightElement } from '../lib/light-element';
 import './footer.css';
 
+// set by the build workflow, local builds show "dev"
+const commitHash: string | undefined = import.meta.env.VITE_COMMIT_HASH;
+
 @customElement('app-footer')
 export class Footer extends LightElement {
+  private renderVersion() {
+    if (!commitHash) {
+      return html`<span>dev</span>`;
+    }
+    return html`
+      <a href="https://github.com/johann-vu/online-furniture-storage/commit/${commitHash}" target="_blank" rel="noopener">
+        ${commitHash.slice(0, 7)}
+      </a>
+    `;
+  }
+
   protected override render() {
     return html`
       <footer class="footer__wrapper">
@@ -19,6 +33,7 @@ export class Footer extends LightElement {
             <a href="/imprint">Impressum</a>
             <a href="/imprint#datenschutzerklaerung">Datenschutzerklärung</a>
           </div>
+          <div class="footer__version">${this.renderVersion()}</div>
         </div>
       </footer>
     `;
